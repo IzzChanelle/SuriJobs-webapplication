@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SURIJOBS - Werkgelegenheid</title>
+
+    <link rel="stylesheet" href="werkgelegenheid.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ================= TOP HEADER ================= -->
+
+    <header class="top-header">
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <span class="red">Suri</span><span class="green">Jobs</span>
+
+        </div>
+
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <span class="search-icon">🔍</span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Zoek bedrijf/branche"
+            >
+
+            <button id="clearBtn">✕</button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <!-- HOME -->
+
+        <div class="nav-link">
+
+            <a href="../Homepagina/homepagina.html">
+                Homepagina
+            </a>
+
+            <div class="nav-line white-line"></div>
+
+        </div>
+
+
+
+        <!-- WERKGELEGENHEID -->
+
+        <div class="nav-link">
+
+            <a href="../werkgelegenheid/werkgelegenheid.html">
+                Werkgelegenheid
+            </a>
+
+            <div class="nav-line red-line"></div>
+
+        </div>
+
+
+
+        <!-- DIENSTEN -->
+
+        <div class="nav-link">
+
+            <a href="../diensten/diensten.html">
+                Diensten
+            </a>
+
+            <div class="nav-line white-line"></div>
+
+        </div>
+
+
+
+        <!-- MARKT -->
+
+        <div class="nav-link">
+
+            <a href="#">
+                Markt
+            </a>
+
+            <div class="nav-line white-line"></div>
+
+        </div>
+
+
+
+        <!-- NOTIFICATIES -->
+
+        <div class="nav-link">
+
+            <a href="#">
+                Notificaties
+            </a>
+
+            <div class="nav-line white-line"></div>
+
+        </div>
+
+
+
+        <!-- PROFIEL -->
+
+        <div class="nav-link">
+
+            <a href="../profiel/profiel.html">
+                Profiel
+            </a>
+
+            <div class="nav-line white-line"></div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-container">
+
+
+
+        <!-- ================= FILTER SIDEBAR ================= -->
+
+        <aside class="filter-sidebar" id="filterSidebar">
+
+            <h2>Filter</h2>
+
+
+
+            <!-- BRANCHE -->
+
+            <div class="filter-group">
+
+                <h3>Branche</h3>
+
+                <label><input type="checkbox"> ICT</label>
+                <label><input type="checkbox"> Bouw</label>
+                <label><input type="checkbox"> Horeca</label>
+                <label><input type="checkbox"> Onderwijs</label>
+                <label><input type="checkbox"> Marketing</label>
+
+            </div>
+
+
+
+            <!-- WIJK -->
+
+            <div class="filter-group">
+
+                <h3>Wijk</h3>
+
+                <label><input type="checkbox"> Flora</label>
+                <label><input type="checkbox"> Centrum</label>
+                <label><input type="checkbox"> Blauwgrond</label>
+                <label><input type="checkbox"> Wanica</label>
+
+            </div>
+
+
+
+            <!-- UREN -->
+
+            <div class="filter-group">
+
+                <h3>Uren</h3>
+
+                <label><input type="checkbox"> Fulltime</label>
+                <label><input type="checkbox"> Parttime</label>
+                <label><input type="checkbox"> Freelance</label>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- ================= CONTENT ================= -->
+
+        <section class="content-section">
+
+
+
+            <!-- ================= RED HEADER ================= -->
+
+            <div class="werk-header">
+
+
+
+                <!-- FILTER BUTTON -->
+
+                <button class="filter-btn" id="filterBtn">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+
+
+                <!-- TITLE -->
+
+                <h1>Werkgelegenheid</h1>
+
+
+
+                <!-- RIGHT BUTTONS -->
+
+                <div class="view-buttons">
+
+                    <!-- SINGLE VIEW -->
+
+                    <button id="singleViewBtn">
+
+                        ☰
+
+                    </button>
+
+
+
+                    <!-- GRID VIEW -->
+
+                    <button id="gridViewBtn">
+
+                        ⊞
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- REFRESH -->
+
+                <button class="refresh-btn">
+
+                    ↻
+
+                </button>
+
+            </div>
+
+
+
+            <!-- ================= POSTS ================= -->
+
+            <div class="posts-container" id="postsContainer">
+
+
+
+                <!-- ================= POST 1 ================= -->
+
+                <div class="job-card">
+
+                    <!-- SAVE -->
+
+                    <button class="save-btn">
+
+                        Opslaan
+
+                    </button>
+
+
+
+                    <!-- IMAGE -->
+
+                    <div class="job-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200"
+                            alt="vacature"
+                        >
+
+                    </div>
+
+
+
+                    <!-- INFO -->
+
+                    <div class="job-info">
+
+                        <h2>Bedrijfsnaam</h2>
+
+                        <p>
+
+                            Hier komt later de vacature of promotie tekst
+                            van bedrijven te staan.
+
+                        </p>
+
+                        <span>
+
+                            Paramaribo • Fulltime
+
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- BUTTONS -->
+
+                    <div class="job-buttons">
+
+                        <button class="apply-btn">
+
+                            Soliciteer
+
+                        </button>
+
+                        <button class="info-btn">
+
+                            Meer info
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================= POST 2 ================= -->
+
+                <div class="job-card">
+
+                    <button class="save-btn">
+
+                        Opslaan
+
+                    </button>
+
+                    <div class="job-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200"
+                            alt="vacature"
+                        >
+
+                    </div>
+
+                    <div class="job-info">
+
+                        <h2>Creative Studio</h2>
+
+                        <p>
+
+                            Marketing designer gezocht voor social media
+                            campagnes en branding.
+
+                        </p>
+
+                        <span>
+
+                            Wanica • Parttime
+
+                        </span>
+
+                    </div>
+
+                    <div class="job-buttons">
+
+                        <button class="apply-btn">
+
+                            Soliciteer
+
+                        </button>
+
+                        <button class="info-btn">
+
+                            Meer info
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ================= POST 3 ================= -->
+
+                <div class="job-card">
+
+                    <button class="save-btn">
+
+                        Opslaan
+
+                    </button>
+
+                    <div class="job-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200"
+                            alt="vacature"
+                        >
+
+                    </div>
+
+                    <div class="job-info">
+
+                        <h2>Tech Solutions</h2>
+
+                        <p>
+
+                            ICT medewerker gezocht met ervaring in
+                            webdevelopment.
+
+                        </p>
+
+                        <span>
+
+                            Centrum • Fulltime
+
+                        </span>
+
+                    </div>
+
+                    <div class="job-buttons">
+
+                        <button class="apply-btn">
+
+                            Soliciteer
+
+                        </button>
+
+                        <button class="info-btn">
+
+                            Meer info
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= POST MODAL ================= -->
+
+            <div class="post-modal" id="postModal">
+
+                <div class="modal-content">
+
+
+
+                    <!-- CLOSE -->
+
+                    <button class="close-modal" id="closeModal">
+
+                        ✕
+
+                    </button>
+
+
+
+                    <!-- BIG IMAGE -->
+
+                    <div class="modal-image">
+
+                        <img
+                            id="modalImg"
+                            src=""
+                            alt="post"
+                        >
+
+                    </div>
+
+
+
+                    <!-- MODAL INFO -->
+
+                    <div class="modal-info">
+
+
+
+                        <!-- COMPANY TOP -->
+
+                        <div class="company-top">
+
+                            <img
+                                src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                                class="company-logo"
+                            >
+
+                            <div>
+
+                                <h2 id="modalTitle">
+
+                                    Bedrijfsnaam
+
+                                </h2>
+
+                                <p>
+
+                                    📍 Paramaribo
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- DESCRIPTION -->
+
+                        <div class="full-description">
+
+                            <p id="modalDescription">
+
+                                Volledige vacature beschrijving komt hier.
+
+                            </p>
+
+                        </div>
+
+
+
+                        <!-- EXTRA INFO -->
+
+                        <div class="extra-info">
+
+                            <p>🕒 Fulltime</p>
+                            <p>🏢 ICT</p>
+                            <p>💰 SRD 15.000</p>
+
+                        </div>
+
+
+
+                        <!-- BUTTONS -->
+
+                        <div class="modal-buttons">
+
+                            <button class="apply-btn">
+
+                                Soliciteer
+
+                            </button>
+
+                            <button class="info-btn">
+
+                                Bericht
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================= PROFILE BUTTON ================= -->
+
+    <a href="../profiel/profiel.html" class="profile-button">
+
+        <img
+            src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
+            alt="profiel"
+        >
+
+        <span>Profiel</span>
+
+    </a>
+
+
+
+    <script src="werkgelegenheid.js"></script>
+
+</body>
+</html>

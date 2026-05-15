@@ -1,0 +1,825 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    background:#ececec;
+    overflow-x:hidden;
+}
+
+/* ================= HEADER ================= */
+
+.top-header{
+    width:100%;
+    background:#b8b8b8;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:30px 40px;
+
+    animation:fadeDown 1s ease;
+}
+
+/* LOGO */
+
+.logo{
+    font-size:5rem;
+    font-weight:700;
+}
+
+.red{
+    color:darkred;
+}
+
+.green{
+    color:#0ca043;
+}
+
+/* ================= SEARCH ================= */
+
+.search-box{
+    width:520px;
+
+    background:white;
+
+    border:2px solid #0ca043;
+    border-radius:15px;
+
+    display:flex;
+    align-items:center;
+
+    padding:12px 18px;
+}
+
+.search-icon{
+    font-size:1.5rem;
+}
+
+.search-box input{
+    flex:1;
+
+    border:none;
+    outline:none;
+
+    margin-left:15px;
+
+    font-size:1.2rem;
+}
+
+#clearBtn{
+    border:none;
+    background:none;
+
+    color:darkred;
+
+    font-size:1.4rem;
+
+    cursor:pointer;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    background:#0ca043;
+
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+
+    padding:22px 10px;
+}
+
+.nav-link{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    gap:10px;
+}
+
+.nav-link a{
+    color:white;
+    text-decoration:none;
+
+    font-size:1.2rem;
+    font-weight:600;
+}
+
+.nav-line{
+    width:120px;
+    height:4px;
+
+    border-radius:30px;
+}
+
+.white-line{
+    background:white;
+}
+
+.red-line{
+    background:darkred;
+}
+
+/* ================= MAIN ================= */
+
+.main-container{
+    display:flex;
+}
+
+/* ================= FILTER SIDEBAR ================= */
+
+.filter-sidebar{
+    width:260px;
+
+    background:#f5f5f5;
+
+    border-right:4px solid gray;
+
+    position:absolute;
+
+    left:0;
+    top:188px;
+
+    height:calc(100vh - 188px);
+
+    z-index:100;
+
+    padding:20px;
+
+    transform:translateX(-100%);
+    opacity:0;
+
+    transition:0.4s;
+
+    overflow-y:auto;
+}
+
+/* ACTIVE SIDEBAR */
+
+.filter-sidebar.active{
+    transform:translateX(0);
+    opacity:1;
+}
+
+/* FILTER TITLE */
+
+.filter-sidebar h2{
+    margin-bottom:30px;
+
+    text-align:center;
+
+    font-size:2rem;
+}
+
+/* FILTER GROUP */
+
+.filter-group{
+    margin-bottom:35px;
+}
+
+.filter-group h3{
+    margin-bottom:15px;
+
+    font-size:1.4rem;
+}
+
+.filter-group label{
+    display:block;
+
+    margin-bottom:12px;
+
+    font-size:1.1rem;
+
+    cursor:pointer;
+}
+
+.filter-group input{
+    margin-right:10px;
+}
+
+/* ================= PROFILE BUTTON ================= */
+
+.profile-button{
+    position:fixed;
+
+    left:20px;
+    bottom:20px;
+
+    display:flex;
+    align-items:center;
+
+    gap:15px;
+
+    text-decoration:none;
+
+    color:black;
+
+    z-index:2000;
+
+    background:white;
+
+    padding:10px 18px;
+
+    border-radius:50px;
+
+    box-shadow:0 0 15px rgba(0,0,0,0.2);
+
+    transition:0.3s;
+}
+
+.profile-button:hover{
+    transform:scale(1.05);
+}
+
+/* PROFILE IMAGE */
+
+.profile-button img{
+    width:60px;
+    height:60px;
+
+    border-radius:50%;
+}
+
+/* PROFILE TEXT */
+
+.profile-button span{
+    font-size:2rem;
+    font-weight:500;
+}
+
+/* ================= CONTENT ================= */
+
+.content-section{
+    flex:1;
+    width:100%;
+}
+
+/* ================= RED HEADER ================= */
+
+.werk-header{
+    background:darkred;
+
+    color:white;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1500;
+
+    padding:18px 25px;
+
+    animation:fadeDown 1s ease;
+}
+
+/* FILTER BUTTON */
+
+.filter-btn{
+    background:none;
+    border:none;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:6px;
+
+    cursor:pointer;
+
+    position:absolute;
+
+    left:20px;
+
+    z-index:1000;
+
+    transition:0.4s;
+}
+
+/* MOVE BUTTON */
+
+.filter-btn.active-btn{
+    left:280px;
+}
+
+/* FILTER LINES */
+
+.filter-btn span{
+    width:55px;
+    height:4px;
+
+    background:white;
+
+    border-radius:20px;
+}
+
+.filter-btn span:nth-child(2){
+    width:40px;
+}
+
+.filter-btn span:nth-child(3){
+    width:25px;
+}
+
+/* TITLE */
+
+.werk-header h1{
+    font-size:2.4rem;
+    font-weight:500;
+}
+
+/* ================= REFRESH BUTTON ================= */
+
+.refresh-btn{
+    position:absolute;
+
+    right:25px;
+
+    background:none;
+    border:none;
+
+    color:white;
+
+    font-size:3rem;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.refresh-btn:hover{
+    transform:rotate(180deg);
+}
+
+/* ================= VIEW BUTTONS ================= */
+
+.view-buttons{
+    display:flex;
+    gap:15px;
+
+    position:absolute;
+
+    right:90px;
+}
+
+.view-buttons button{
+    width:50px;
+    height:50px;
+
+    border:none;
+    border-radius:10px;
+
+    background:white;
+
+    font-size:1.5rem;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.view-buttons button:hover{
+    transform:scale(1.08);
+}
+
+/* ================= POSTS ================= */
+
+.posts-container{
+    width:70%;
+
+    margin:auto;
+
+    padding:40px 0;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:50px;
+}
+
+/* GRID VIEW */
+
+.posts-container.grid-view{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit, minmax(350px, 1fr));
+
+    gap:30px;
+}
+
+/* ================= JOB CARD ================= */
+
+.job-card{
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 0 20px rgba(0,0,0,0.15);
+
+    animation:appear 0.8s ease;
+
+    position:relative;
+
+    width:100%;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.job-card:hover{
+    transform:translateY(-5px);
+}
+
+/* SAVE BUTTON */
+
+.save-btn{
+    position:absolute;
+
+    top:20px;
+    right:20px;
+
+    border:none;
+
+    background:#0ca043;
+
+    color:white;
+
+    padding:12px 24px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    z-index:2;
+
+    transition:0.3s;
+}
+
+/* IMAGE */
+
+.job-image{
+    width:100%;
+
+    height:420px;
+
+    overflow:hidden;
+
+    background:black;
+}
+
+.job-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+/* INFO */
+
+.job-info{
+    padding:25px;
+}
+
+.job-info h2{
+    margin-bottom:15px;
+}
+
+.job-info p{
+    margin-bottom:15px;
+
+    color:#555;
+
+    line-height:1.6;
+}
+
+.job-info span{
+    font-weight:600;
+
+    color:darkred;
+}
+
+/* BUTTONS */
+
+.job-buttons{
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:25px;
+}
+
+/* APPLY + INFO */
+
+.apply-btn,
+.info-btn{
+    border:none;
+
+    padding:15px 30px;
+
+    border-radius:40px;
+
+    color:white;
+
+    font-size:1rem;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.apply-btn{
+    background:#0ca043;
+}
+
+.info-btn{
+    background:darkred;
+}
+
+.apply-btn:hover,
+.info-btn:hover,
+.save-btn:hover{
+    transform:scale(1.05);
+}
+
+/* ================= POST MODAL ================= */
+
+.post-modal{
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,0.7);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:5000;
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:0.3s;
+}
+
+/* ACTIVE MODAL */
+
+.post-modal.active{
+    opacity:1;
+    pointer-events:auto;
+}
+
+/* MODAL CONTENT */
+
+.modal-content{
+    width:90%;
+    max-width:1200px;
+
+    background:white;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    display:grid;
+
+    grid-template-columns:1.2fr 1fr;
+
+    animation:appear 0.4s ease;
+
+    position:relative;
+}
+
+/* CLOSE */
+
+.close-modal{
+    position:absolute;
+
+    top:20px;
+    right:20px;
+
+    width:50px;
+    height:50px;
+
+    border:none;
+    border-radius:50%;
+
+    background:darkred;
+
+    color:white;
+
+    font-size:1.5rem;
+
+    cursor:pointer;
+
+    z-index:10;
+}
+
+/* MODAL IMAGE */
+
+.modal-image{
+    height:900px;
+}
+
+.modal-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+/* MODAL INFO */
+
+.modal-info{
+    padding:90px;
+
+    overflow-y:auto;
+}
+
+/* COMPANY TOP */
+
+.company-top{
+    display:flex;
+    align-items:center;
+
+    gap:20px;
+
+    margin-bottom:35px;
+}
+
+/* COMPANY LOGO */
+
+.company-logo{
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+}
+
+/* DESCRIPTION */
+
+.full-description{
+    margin-bottom:40px;
+}
+
+.full-description p{
+    line-height:1.9;
+
+    color:#444;
+
+    font-size:1.05rem;
+}
+
+/* EXTRA INFO */
+
+.extra-info{
+    display:flex;
+    flex-direction:column;
+
+    gap:15px;
+
+    margin-bottom:40px;
+
+    font-size:1.1rem;
+}
+
+/* MODAL BUTTONS */
+
+.modal-buttons{
+    display:flex;
+
+    gap:20px;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes fadeDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes appear{
+
+    from{
+        opacity:0;
+        transform:scale(0.8);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1100px){
+
+    .posts-container{
+        width:90%;
+    }
+
+}
+
+@media(max-width:1000px){
+
+    .modal-content{
+        grid-template-columns:1fr;
+    }
+
+    .modal-image{
+        height:350px;
+    }
+
+}
+
+@media(max-width:900px){
+
+    .top-header{
+        flex-direction:column;
+
+        gap:20px;
+    }
+
+    .search-box{
+        width:100%;
+    }
+
+    .navbar{
+        flex-wrap:wrap;
+
+        gap:20px;
+    }
+
+    .job-buttons{
+        flex-direction:column;
+
+        gap:15px;
+    }
+
+    .view-buttons{
+        right:90px;
+    }
+
+    .logo{
+        font-size:3.5rem;
+    }
+
+    .job-image{
+        height:320px;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .werk-header h1{
+        font-size:1.7rem;
+    }
+
+    .view-buttons{
+        gap:8px;
+    }
+
+    .view-buttons button{
+        width:40px;
+        height:40px;
+    }
+
+    .refresh-btn{
+        font-size:2.3rem;
+    }
+
+    .profile-button span{
+        display:none;
+    }
+
+    .posts-container{
+        width:100%;
+        padding:20px;
+    }
+
+}
