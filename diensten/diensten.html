@@ -1,534 +1,160 @@
-<!-- diensten.html -->
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>SURIJOBS - Diensten</title>
-
-    <link rel="stylesheet" href="../diensten/diensten.css">
-
+    <link rel="stylesheet" href="../css/global.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 </head>
-
 <body>
 
-    <!-- ================= HEADER ================= -->
-
     <header class="top-header">
-
         <div class="logo">
-
             <span class="red">Suri</span><span class="green">Jobs</span>
-
         </div>
-
-
-
-        <!-- SEARCH -->
-
         <div class="search-box">
-
             <span class="search-icon">🔍</span>
-
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Zoek dienst/branche"
-            >
-
+            <input type="text" id="searchInput" placeholder="Zoek dienst/branche">
             <button id="clearBtn">✕</button>
-
         </div>
-
     </header>
 
-
-
-    <!-- ================= NAVBAR ================= -->
-
     <nav class="navbar">
-
         <div class="nav-link">
-
-            <a href="../homepagina/homepagina.html">
-                Homepagina
-            </a>
-
+            <a href="../Homepagina/homepagina.html">Homepagina</a>
             <div class="nav-line white-line"></div>
-
         </div>
-
-
-
         <div class="nav-link">
-
-            <a href="../werkgelegenheid/werkgelegenheid.html">
-                Vacatures
-            </a>
-
+            <a href="../werkgelegenheid/werkgelegenheid.html">Werkgelegenheid</a>
             <div class="nav-line white-line"></div>
-
         </div>
-
-
-
         <div class="nav-link">
-
-            <a href="../diensten/diensten.html">
-                Diensten
-            </a>
-
+            <a href="../diensten/diensten.html">Diensten</a>
             <div class="nav-line red-line"></div>
-
         </div>
-
-
-
         <div class="nav-link">
-
-            <a href="#">
-                Markt
-            </a>
-
+            <a href="../markt/markt.html">Markt</a>
             <div class="nav-line white-line"></div>
-
         </div>
-
-
-
         <div class="nav-link">
-
-            <a href="#">
-                Notificaties
-            </a>
-
+            <a href="../notificaties/notificaties.html">Notificaties</a>
             <div class="nav-line white-line"></div>
-
         </div>
-
-
-
         <div class="nav-link">
-
-            <a href="../profiel/profiel.html">
-                Profiel
-            </a>
-
+            <a href="../profiel/profiel.html">Profiel</a>
             <div class="nav-line white-line"></div>
-
         </div>
-
     </nav>
 
+    <aside class="filter-sidebar" id="filterSidebar">
+        <h2>Filter</h2>
+        <div class="filter-group">
+            <h3>Branche</h3>
+            <label><input type="checkbox"> Nail Artist</label>
+            <label><input type="checkbox"> Kapper</label>
+            <label><input type="checkbox"> Makeup Artist</label>
+            <label><input type="checkbox"> Fotograaf</label>
+            <label><input type="checkbox"> DJ</label>
+        </div>
+        <div class="filter-group">
+            <h3>Wijk</h3>
+            <label><input type="checkbox"> Flora</label>
+            <label><input type="checkbox"> Centrum</label>
+            <label><input type="checkbox"> Wanica</label>
+            <label><input type="checkbox"> Blauwgrond</label>
+        </div>
+        <div class="filter-group">
+            <h3>Prijs</h3>
+            <label><input type="checkbox"> Goedkoop</label>
+            <label><input type="checkbox"> Gemiddeld</label>
+            <label><input type="checkbox"> Premium</label>
+        </div>
+    </aside>
 
+    <div class="diensten-header">
+        <button class="filter-btn" id="filterBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <h1>Diensten</h1>
+        <div class="view-buttons">
+            <button id="singleViewBtn">☰</button>
+            <button id="gridViewBtn">⊞</button>
+        </div>
+        <button class="refresh-btn">↻</button>
+    </div>
 
-    <!-- ================= MAIN ================= -->
+    <div class="posts-container" id="postsContainer">
 
-    <main class="main-container">
-
-
-
-        <!-- ================= FILTER ================= -->
-
-        <aside class="filter-sidebar" id="filterSidebar">
-
-            <h2>Filter</h2>
-
-
-
-            <!-- BRANCHE -->
-
-            <div class="filter-group">
-
-                <h3>Branche</h3>
-
-                <label><input type="checkbox"> Nail Artist</label>
-                <label><input type="checkbox"> Kapper</label>
-                <label><input type="checkbox"> Makeup Artist</label>
-                <label><input type="checkbox"> Fotograaf</label>
-                <label><input type="checkbox"> DJ</label>
-
-            </div>
-
-
-
-            <!-- WIJK -->
-
-            <div class="filter-group">
-
-                <h3>Wijk</h3>
-
-                <label><input type="checkbox"> Flora</label>
-                <label><input type="checkbox"> Centrum</label>
-                <label><input type="checkbox"> Wanica</label>
-                <label><input type="checkbox"> Blauwgrond</label>
-
-            </div>
-
-
-
-            <!-- PRIJS -->
-
-            <div class="filter-group">
-
-                <h3>Prijs</h3>
-
-                <label><input type="checkbox"> Goedkoop</label>
-                <label><input type="checkbox"> Gemiddeld</label>
-                <label><input type="checkbox"> Premium</label>
-
-            </div>
-
-        </aside>
-
-
-
-        <!-- ================= CONTENT ================= -->
-
-        <section class="content-section">
-
-
-
-            <!-- ================= RED HEADER ================= -->
-
-            <div class="diensten-header">
-
-
-
-                <!-- FILTER BUTTON -->
-
-                <button class="filter-btn" id="filterBtn">
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                </button>
-
-
-
-                <!-- TITLE -->
-
-                <h1>Diensten</h1>
-
-
-
-                <!-- VIEW BUTTONS -->
-
-                <div class="view-buttons">
-
-                    <button id="singleViewBtn">
-
-                        ☰
-
-                    </button>
-
-                    <button id="gridViewBtn">
-
-                        ⊞
-
-                    </button>
-
+        <div class="service-card">
+            <button class="save-btn">Opslaan</button>
+            <div class="service-left">
+                <div class="profile-circle">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="">
                 </div>
-
-
-
-                <!-- REFRESH -->
-
-                <button class="refresh-btn">
-
-                    ↻
-
-                </button>
-
+                <h2>Naomi Nails</h2>
+                <p>Professionele nail artist gespecialiseerd in gel nails en nail art designs.</p>
+                <button class="contact-btn">Contact</button>
             </div>
-
-
-
-            <!-- ================= POSTS ================= -->
-
-            <div class="posts-container" id="postsContainer">
-
-
-
-                <!-- ================= CARD ================= -->
-
-                <div class="service-card">
-
-                    <button class="save-btn">
-
-                        Opslaan
-
-                    </button>
-
-
-
-                    <!-- LEFT -->
-
-                    <div class="service-left">
-
-                        <div class="profile-circle">
-
-                            <img
-                                src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-                                alt=""
-                            >
-
-                        </div>
-
-
-
-                        <h2>
-
-                            Naomi Nails
-
-                        </h2>
-
-
-
-                        <p>
-
-                            Professionele nail artist gespecialiseerd
-                            in gel nails en nail art designs.
-
-                        </p>
-
-
-
-                        <button class="contact-btn">
-
-                            Contact
-
-                        </button>
-
-                    </div>
-
-
-
-                    <!-- RIGHT -->
-
-                    <div class="service-image">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?q=80&w=1200"
-                            alt=""
-                        >
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- ================= CARD ================= -->
-
-                <div class="service-card">
-
-                    <button class="save-btn">
-
-                        Opslaan
-
-                    </button>
-
-
-
-                    <div class="service-left">
-
-                        <div class="profile-circle">
-
-                            <img
-                                src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png"
-                                alt=""
-                            >
-
-                        </div>
-
-
-
-                        <h2>
-
-                            Mike Photography
-
-                        </h2>
-
-
-
-                        <p>
-
-                            Professionele fotograaf voor events,
-                            weddings en fotoshoots.
-
-                        </p>
-
-
-
-                        <button class="contact-btn">
-
-                            Contact
-
-                        </button>
-
-                    </div>
-
-
-
-                    <div class="service-image">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1200"
-                            alt=""
-                        >
-
-                    </div>
-
-                </div>
-
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?q=80&w=1200" alt="">
             </div>
+        </div>
 
-
-
-            <!-- ================= MODAL ================= -->
-
-            <div class="post-modal" id="postModal">
-
-                <div class="modal-content">
-
-
-
-                    <!-- CLOSE -->
-
-                    <button class="close-modal" id="closeModal">
-
-                        ✕
-
-                    </button>
-
-
-
-                    <!-- IMAGE -->
-
-                    <div class="modal-image">
-
-                        <img
-                            id="modalImg"
-                            src=""
-                            alt=""
-                        >
-
-                    </div>
-
-
-
-                    <!-- INFO -->
-
-                    <div class="modal-info">
-
-                        <div class="company-top">
-
-                            <img
-                                src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-                                class="company-logo"
-                            >
-
-                            <div>
-
-                                <h2 id="modalTitle">
-
-                                    Dienst naam
-
-                                </h2>
-
-                                <p>
-
-                                    📍 Paramaribo
-
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-
-                        <!-- DESCRIPTION -->
-
-                        <div class="full-description">
-
-                            <p id="modalDescription">
-
-                                Volledige beschrijving van dienst komt hier.
-
-                            </p>
-
-                        </div>
-
-
-
-                        <!-- EXTRA -->
-
-                        <div class="extra-info">
-
-                            <p>🛠️ Dienst</p>
-
-                            <p>📍 Paramaribo</p>
-
-                            <p>💰 Vanaf SRD 250</p>
-
-                        </div>
-
-
-
-                        <!-- BUTTONS -->
-
-                        <div class="modal-buttons">
-
-                            <button class="contact-btn">
-
-                                Contact
-
-                            </button>
-
-                            <button class="save-btn">
-
-                                Opslaan
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
+        <div class="service-card">
+            <button class="save-btn">Opslaan</button>
+            <div class="service-left">
+                <div class="profile-circle">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" alt="">
                 </div>
-
+                <h2>Mike Photography</h2>
+                <p>Professionele fotograaf voor events, weddings en fotoshoots.</p>
+                <button class="contact-btn">Contact</button>
             </div>
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1200" alt="">
+            </div>
+        </div>
 
-        </section>
+    </div>
 
-    </main>
-
-
-
-    <!-- ================= PROFILE ================= -->
+    <div class="post-modal" id="postModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">✕</button>
+            <div class="modal-image">
+                <img id="modalImg" src="" alt="">
+            </div>
+            <div class="modal-info">
+                <div class="company-top">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="company-logo">
+                    <div>
+                        <h2 id="modalTitle">Dienst naam</h2>
+                        <p>📍 Paramaribo</p>
+                    </div>
+                </div>
+                <div class="full-description">
+                    <p id="modalDescription">Volledige beschrijving van dienst komt hier.</p>
+                </div>
+                <div class="extra-info">
+                    <p>🛠️ Dienst</p>
+                    <p>📍 Paramaribo</p>
+                    <p>💰 Vanaf SRD 250</p>
+                </div>
+                <div class="modal-buttons">
+                    <button class="contact-btn">Contact</button>
+                    <button class="save-btn">Opslaan</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <a href="../profiel/profiel.html" class="profile-button">
-
-        <img
-            src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
-            alt=""
-        >
-
+        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
         <span>Profiel</span>
-
     </a>
 
-
-
     <script src="../diensten/diensten.js"></script>
-
 </body>
 </html>

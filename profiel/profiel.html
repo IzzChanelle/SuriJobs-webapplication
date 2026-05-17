@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SuriJobs - Profiel</title>
+
+    <link rel="stylesheet" href="../css/global.css">
+
+</head>
+
+<body>
+
+    <!-- ===================================================== -->
+    <!-- HEADER -->
+    <!-- ===================================================== -->
+
+    <header class="top-header">
+
+        <div class="logo">
+
+            <span class="red">Suri</span><span class="green">Jobs</span>
+
+        </div>
+
+        <div class="search-box">
+
+            <span class="search-icon">🔍</span>
+
+            <input
+                type="text"
+                placeholder="Zoek bedrijf/branche"
+            >
+
+            <button id="clearBtn">✕</button>
+
+        </div>
+
+    </header>
+
+    <!-- ===================================================== -->
+    <!-- NAVBAR -->
+    <!-- ===================================================== -->
+
+    <nav class="navbar">
+
+        <div class="nav-link">
+
+            <a href="../Homepagina/Homepagina.html">Homepagina</a>
+
+            <div class="nav-line white-line"></div>
+
+        </div>
+
+        <div class="nav-link">
+
+            <a href="../werkgelegenheid/werkgelegenheid.html">Werkgelegenheid</a>
+
+            <div class="nav-line white-line"></div>
+
+        </div>
+
+        <div class="nav-link">
+
+            <a href="../diensten/diensten.html">Diensten</a>
+
+            <div class="nav-line white-line"></div>
+
+        </div>
+
+        <div class="nav-link">
+
+            <a href="../markt/markt.html">Markt</a>
+
+            <div class="nav-line white-line"></div>
+
+        </div>
+
+        <div class="nav-link">
+
+            <a href="../notificaties/notificaties.html">Notificaties</a>
+
+            <div class="nav-line white-line"></div>
+
+        </div>
+
+        <div class="nav-link">
+
+            <a href="../profiel/profiel.html">Profiel</a>
+
+            <div class="nav-line red-line"></div>
+
+        </div>
+
+    </nav>
+
+    <!-- ===================================================== -->
+    <!-- TITLE -->
+    <!-- ===================================================== -->
+
+    <div class="title-bar">
+
+        <h1>Profiel</h1>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- MAIN -->
+    <!-- ===================================================== -->
+
+    <main class="profile-page-container">
+
+        <!-- ================================================= -->
+        <!-- LEFT -->
+        <!-- ================================================= -->
+
+        <section class="profile-sidebar">
+
+            <!-- PHOTO -->
+
+            <div class="profile-photo-upload">
+
+                <img
+                    src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
+                    alt=""
+                    id="profilePreview"
+                >
+
+                <button class="upload-photo-btn">
+
+                    +
+
+                </button>
+
+            </div>
+
+            <!-- COMPLETION -->
+
+            <div class="profile-completion">
+
+                <h3>Profiel compleetheid</h3>
+
+                <div class="progress-bar">
+
+                    <div class="progress-fill" id="progressFill"></div>
+
+                </div>
+
+                <p class="profile-status-text">
+
+                    <span id="progressText">0%</span> compleet
+
+                </p>
+
+            </div>
+
+            <!-- PROFILE INFO -->
+
+            <div class="profile-card">
+
+                <h2>Persoonlijke info</h2>
+
+                <div class="profile-form">
+
+                    <div class="form-group">
+
+                        <label>Voornaam</label>
+
+                        <input type="text" class="profile-input">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Achternaam</label>
+
+                        <input type="text" class="profile-input">
+
+                    </div>
+
+                    <div class="form-group full-width">
+
+                        <label>Email adres</label>
+
+                        <input type="email" class="profile-input">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Telefoonnummer</label>
+
+                        <input type="text" class="profile-input">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Leeftijd</label>
+
+                        <input type="number" class="profile-input">
+
+                    </div>
+
+                    <div class="form-group full-width">
+
+                        <label>Woonplaats / Wijk</label>
+
+                        <select class="profile-input">
+
+                            <option>Kies wijk</option>
+                            <option>Flora</option>
+                            <option>Blauwgrond</option>
+                            <option>Centrum</option>
+                            <option>Wanica</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- MATCH -->
+
+            <div class="profile-card">
+
+                <h2>Matching voorkeuren</h2>
+
+                <div class="profile-form">
+
+                    <div class="form-group full-width">
+
+                        <label>Werk branche</label>
+
+                        <select class="profile-input">
+
+                            <option>ICT</option>
+                            <option>Marketing</option>
+                            <option>Horeca</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Type werk</label>
+
+                        <select class="profile-input">
+
+                            <option>Fulltime</option>
+                            <option>Parttime</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Ervaringsniveau</label>
+
+                        <select class="profile-input">
+
+                            <option>Beginner</option>
+                            <option>Expert</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================================================= -->
+        <!-- RIGHT -->
+        <!-- ================================================= -->
+
+        <section class="profile-main">
+
+            <!-- ABOUT -->
+
+            <div class="profile-card">
+
+                <h2>Over mij</h2>
+
+                <div class="form-group">
+
+                    <textarea
+                        class="profile-input"
+                        placeholder="Vertel iets over jezelf..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+            <!-- EDUCATION -->
+
+            <div class="profile-card">
+
+                <h2>School & Educatie</h2>
+
+                <div class="profile-form">
+
+                    <div class="form-group">
+
+                        <label>School naam</label>
+
+                        <input type="text" class="profile-input">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Richting / Opleiding</label>
+
+                        <input type="text" class="profile-input">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Start jaar</label>
+
+                        <input type="number" class="profile-input">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Eind jaar</label>
+
+                        <input type="number" class="profile-input">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- WORK -->
+
+            <div class="profile-card">
+
+                <h2>Werk ervaring</h2>
+
+                <div class="profile-form">
+
+                    <div class="form-group">
+
+                        <label>Bedrijf naam</label>
+
+                        <input type="text" class="profile-input">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Functie</label>
+
+                        <input type="text" class="profile-input">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Werk periode</label>
+
+                        <input type="text" class="profile-input">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Werk locatie</label>
+
+                        <input type="text" class="profile-input">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- SKILLS -->
+
+            <div class="profile-card">
+
+                <h2>Skills</h2>
+
+                <div class="profile-form">
+
+                    <div class="form-group">
+
+                        <input
+                            type="text"
+                            placeholder="Bijv. Photoshop"
+                            id="skillInput"
+                            class="profile-input"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <button
+                            class="cv-upload-btn"
+                            id="addSkillBtn"
+                        >
+
+                            Skill toevoegen
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div id="skillsContainer"></div>
+
+            </div>
+
+            <!-- CV -->
+
+            <div class="profile-card">
+
+                <h2>CV & Templates</h2>
+
+                <div class="cv-upload-box">
+
+                    <p>PDF, DOCX of TXT bestand</p>
+
+                    <button class="cv-upload-btn">
+
+                        Bestand kiezen
+
+                    </button>
+
+                </div>
+
+                <div class="cv-templates">
+
+                    <h3>CV Templates</h3>
+
+                    <div class="template-grid">
+
+                        <div class="cv-template"></div>
+                        <div class="cv-template"></div>
+                        <div class="cv-template"></div>
+                        <div class="cv-template"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- SAVE -->
+
+            <div class="save-profile-container">
+
+                <button class="save-profile-btn">
+
+                    Profiel posten
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="../profiel/profiel.js"></script>
+
+</body>
+
+</html>

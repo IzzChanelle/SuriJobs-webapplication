@@ -1,117 +1,371 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SuriJobs</title>
-    <link rel="stylesheet" href="../Homepagina/homepagina.css">
-</head>
-<body>
+    <title>SuriJobs | Home</title>
 
-    <!-- Background -->
+    <link rel="stylesheet" href="../css/global.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+</head>
+<body class="home-page">
+
+    <!-- BACKGROUND -->
     <div class="background-blur"></div>
 
-    <!-- Header -->
-    <header>
+    <!-- HEADER -->
+    <header class="top-header">
+
         <div class="logo">
             <span class="red">Suri</span><span class="green">Jobs</span>
         </div>
 
         <div class="search-box">
-            <span>🔍</span>
-            <input type="text" placeholder="Zoek bedrijf/branche">
-            <span class="close-btn">✖</span>
+
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+
+            <input
+                type="text"
+                placeholder="Zoek bedrijf/branche"
+            >
+
+            <button id="clearBtn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
         </div>
+
     </header>
 
-    <!-- Navbar -->
-    <nav>
-        <a href="../Homepagina/homepagina.html" class="nav-link active">Homepagina</a>
-        <a href="../Werkgelegenheid/werkgelegenheid.html" class="nav-link">Werkgelegenheid</a>
-        <a href="../Diensten/diensten.html" class="nav-link">Diensten</a>
-        <a href="../Markt/markt.html" class="nav-link">Markt</a>
-        <a href="../Notificaties/notificaties.html" class="nav-link">Notificaties</a>
-        <a href="../Profiel/profiel.html" class="nav-link">Profiel</a>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="nav-link">
+            <a href="../homepagina/homepagina.html">Homepagina</a>
+            <div class="nav-line red-line"></div>
+        </div>
+
+        <div class="nav-link">
+            <a href="../werkgelegenheid/werkgelegenheid.html">Werkgelegenheid</a>
+            <div class="nav-line white-line"></div>
+        </div>
+
+        <div class="nav-link">
+            <a href="../diensten/diensten.html">Diensten</a>
+            <div class="nav-line white-line"></div>
+        </div>
+
+        <div class="nav-link">
+            <a href="../markt/markt.html">Markt</a>
+            <div class="nav-line white-line"></div>
+        </div>
+
+        <div class="nav-link">
+            <a href="../notificaties/notificaties.html">Notificaties</a>
+            <div class="nav-line white-line"></div>
+        </div>
+
+        <div class="nav-link">
+            <a href="../profiel/profiel.html">Profiel</a>
+            <div class="nav-line white-line"></div>
+        </div>
+
     </nav>
 
-    <!-- Red title bar -->
+    <!-- TITLE BAR -->
     <div class="title-bar">
-        <h2>Homepagina</h2>
+        <h1>Homepagina</h1>
     </div>
 
-    <main>
+    <!-- HERO -->
+    <section class="hero-section">
 
-        <!-- Welcome -->
-        <section class="welcome card animate">
-            <h1>Hello (naam)</h1>
-            <p>
-                Welkom bij SuriJobs — het platform dat werkzoekenden en bedrijven
-                in Suriname samenbrengt. Maak eenvoudig een profiel aan, ontdek
-                vacatures die bij jou passen en vind sneller jouw ideale baan.
-            </p>
-        </section>
+        <div class="hero-card">
 
-        <!-- Cards -->
-        <section class="cards-grid">
+            <div class="hero-left">
 
-            <div class="small-card animate">
-                <h3>Werkgelegenheid</h3>
+                <span class="welcome-badge">
+                    Welkom terug 👋
+                </span>
+
+                <h1>
+                    Hallo, <span>(jouw naam)</span>
+                </h1>
+
                 <p>
-                    Bekijk vacatures en promoties van bedrijven die op zoek zijn
-                    naar nieuwe werknemers en carrièremogelijkheden aanbieden.
+                    Ontdek vacatures, diensten, producten
+                    en connect met bedrijven in Suriname.
                 </p>
+
+                <div class="hero-buttons">
+
+                    <a href="../werkgelegenheid/werkgelegenheid.html" class="hero-btn green-btn">
+                        Vacatures bekijken
+                    </a>
+
+                    <a href="../profiel/profiel.html" class="hero-btn red-btn">
+                        Mijn profiel
+                    </a>
+
+                </div>
+
             </div>
 
-            <div class="small-card animate">
-                <h3>Diensten</h3>
+            <div class="hero-right">
+
+                <div class="stat-card">
+                    <h2>320+</h2>
+                    <p>Vacatures</p>
+                </div>
+
+                <div class="stat-card">
+                    <h2>140+</h2>
+                    <p>Bedrijven</p>
+                </div>
+
+                <div class="stat-card">
+                    <h2>95+</h2>
+                    <p>Diensten</p>
+                </div>
+
+                <div class="stat-card">
+                    <h2>220+</h2>
+                    <p>Markt posts</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- QUICK ACTIONS -->
+    <section class="quick-actions">
+
+        <a href="../profiel/profiel.html" class="action-card">
+            <i class="fa-solid fa-user"></i>
+            <span>Profiel bewerken</span>
+        </a>
+
+        <a href="../werkgelegenheid/werkgelegenheid.html" class="action-card">
+            <i class="fa-solid fa-briefcase"></i>
+            <span>Vacatures</span>
+        </a>
+
+        <a href="../diensten/diensten.html" class="action-card">
+            <i class="fa-solid fa-camera"></i>
+            <span>Diensten</span>
+        </a>
+
+        <a href="../markt/markt.html" class="action-card">
+            <i class="fa-solid fa-store"></i>
+            <span>Markt</span>
+        </a>
+
+    </section>
+
+    <!-- TRENDING -->
+    <section class="home-section">
+
+        <div class="section-title">
+
+            <h2>Trending vacatures</h2>
+
+            <a href="../werkgelegenheid/werkgelegenheid.html">Bekijk alles</a>
+
+        </div>
+
+        <div class="trending-grid">
+
+            <div class="trend-card">
+
+                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
+
+                <div class="trend-content">
+
+                    <h3>Frontend Designer</h3>
+
+                    <p>Creative Tech NV</p>
+
+                    <span>Paramaribo</span>
+
+                </div>
+
+            </div>
+
+            <div class="trend-card">
+
+                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72">
+
+                <div class="trend-content">
+
+                    <h3>Receptionist</h3>
+
+                    <p>Hotel Elegance</p>
+
+                    <span>Wanica</span>
+
+                </div>
+
+            </div>
+
+            <div class="trend-card">
+
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
+
+                <div class="trend-content">
+
+                    <h3>Social Media Manager</h3>
+
+                    <p>Nova Agency</p>
+
+                    <span>Remote</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- MARKET PREVIEW -->
+    <section class="home-section">
+
+        <div class="section-title">
+
+            <h2>Nieuw op markt</h2>
+
+            <a href="../markt/markt.html">Bekijk alles</a>
+
+        </div>
+
+        <div class="market-preview-grid">
+
+            <div class="market-preview-card">
+
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
+
+                <h3>Nike Sneakers</h3>
+
+                <span>SRD 850</span>
+
+            </div>
+
+            <div class="market-preview-card">
+
+                <img src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8">
+
+                <h3>Macbook Air</h3>
+
+                <span>SRD 6500</span>
+
+            </div>
+
+            <div class="market-preview-card">
+
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e">
+
+                <h3>Headphones</h3>
+
+                <span>SRD 1200</span>
+
+            </div>
+
+            <div class="market-preview-card">
+
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
+
+                <h3>Vintage Shirt</h3>
+
+                <span>SRD 300</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PROFILE PREVIEW -->
+    <section class="profile-preview">
+
+        <div class="profile-preview-card">
+
+            <div class="profile-preview-left">
+
+                <img
+                    src="https://randomuser.me/api/portraits/women/44.jpg"
+                >
+
+            </div>
+
+            <div class="profile-preview-right">
+
+                <div class="profile-top">
+
+                    <h2>Jouw profiel</h2>
+
+                    <span class="online-badge">
+                        Beschikbaar voor werk
+                    </span>
+
+                </div>
+
+                <h3>Frontend Designer</h3>
+
                 <p>
-                    Ontdek diensten die gebruikers aanbieden, zoals catering,
-                    partyplanning, fotografie, koken en andere professionele services.
+                    Paramaribo • Creatief • Fulltime
                 </p>
+
+                <div class="skill-tags">
+
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>UI Design</span>
+
+                </div>
+
+                <div class="profile-progress-section">
+
+                    <div class="progress-top">
+
+                        <span>Profiel compleet</span>
+                        <span>78%</span>
+
+                    </div>
+
+                    <div class="progress-bar-home">
+
+                        <div class="progress-fill-home"></div>
+
+                    </div>
+
+                </div>
+
+                <div class="profile-buttons">
+
+                    <a href="../profiel/profiel.html" class="profile-view-btn">
+                        Profiel bekijken
+                    </a>
+
+                    <button class="profile-update-btn">
+                        Profiel updaten
+                    </button>
+
+                </div>
+
             </div>
 
-            <div class="small-card animate">
-                <h3>Markt</h3>
-                <p>
-                    Koop, verkoop en ontdek verschillende goederen en producten
-                    die door gebruikers worden aangeboden.
-                </p>
-            </div>
+        </div>
 
-            <div class="small-card animate">
-                <h3>Notificaties</h3>
-                <p>
-                    Ontvang meldingen over berichten van bedrijven, opgeslagen
-                    vacatures, promoties, diensten en updates.
-                </p>
-            </div>
+    </section>
 
-            <div class="small-card center-card animate">
-                <h3>Profiel</h3>
-                <p>
-                    Beheer jouw persoonlijk profiel, voeg informatie toe over jouw
-                    vaardigheden en maak jezelf zichtbaar.
-                </p>
-            </div>
+    <script src="../homepagina/homepagina.js"></script>
 
-        </section>
-
-        <!-- Profile -->
-        <section class="profile-section animate">
-            <div class="profile-photo">
-                <img id="userPhoto" src="https://via.placeholder.com/180" alt="Profile">
-            </div>
-
-            <div class="profile-info">
-                <h2 id="userName">Volledige naam</h2>
-                <p id="userEmail">contact@email.com</p>
-            </div>
-
-            <button class="contact-btn">❔ Contact ons</button>
-        </section>
-
-    </main>
-
-    <script src="../Homepagina/homepagina.js"></script>
 </body>
 </html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>SuriJobs | Markt</title>
+
+    <link rel="stylesheet" href="../css/global.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="top-header">
+
+        <div class="logo">
+            <span class="red">Suri</span><span class="green">Jobs</span>
+        </div>
+
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+
+            <input
+                type="text"
+                id="marketSearch"
+                placeholder="Zoek producten..."
+            />
+
+            <button id="clearBtn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+    </header>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="nav-link">
+            <a href="../homepagina/homepagina.html">Homepagina</a>
+            <div class="nav-line white-line"></div>
+        </div>
+
+        <div class="nav-link">
+            <a href="../werkgelegenheid/werkgelegenheid.html">Werkgelegenheid</a>
+            <div class="nav-line white-line"></div>
+        </div>
+
+        <div class="nav-link">
+            <a href="../diensten/diensten.html">Diensten</a>
+            <div class="nav-line white-line"></div>
+        </div>
+
+        <div class="nav-link">
+            <a href="../markt/markt.html">Markt</a>
+            <div class="nav-line red-line"></div>
+        </div>
+
+        <div class="nav-link">
+            <a href="../notificaties/notificaties.html">Notificaties</a>
+            <div class="nav-line white-line"></div>
+        </div>
+
+        <div class="nav-link">
+            <a href="../profiel/profiel.html">Profiel</a>
+            <div class="nav-line white-line"></div>
+        </div>
+
+    </nav>
+
+    <!-- PAGINA HEADER -->
+    <section class="markt-header">
+
+        <button class="filter-btn" id="filterBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <h1>Markt</h1>
+
+        <button class="refresh-btn" id="refreshBtn">
+            <i class="fa-solid fa-rotate-right"></i>
+        </button>
+
+    </section>
+
+    <!-- FILTER -->
+    <aside class="market-sidebar" id="marketSidebar">
+
+        <h2>Filters</h2>
+
+        <div class="market-filter-group">
+
+            <h3>Categorie</h3>
+
+            <label><input type="checkbox"> Electronica</label>
+            <label><input type="checkbox"> Fashion</label>
+            <label><input type="checkbox"> Beauty</label>
+            <label><input type="checkbox"> Huis</label>
+            <label><input type="checkbox"> Auto</label>
+
+        </div>
+
+        <div class="market-filter-group">
+
+            <h3>Staat</h3>
+
+            <label><input type="checkbox"> Nieuw</label>
+            <label><input type="checkbox"> Gebruikt</label>
+
+        </div>
+
+        <div class="market-filter-group">
+
+            <h3>Prijs</h3>
+
+            <label><input type="checkbox"> SRD 0 - 500</label>
+            <label><input type="checkbox"> SRD 500 - 2000</label>
+            <label><input type="checkbox"> SRD 2000+</label>
+
+        </div>
+
+    </aside>
+
+    <!-- MARKET SECTION -->
+    <main class="market-page">
+
+        <section class="market-grid" id="marketGrid">
+
+            <!-- CARD -->
+            <div class="market-card">
+
+                <button class="market-save">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+                <div class="market-image">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="">
+                </div>
+
+                <div class="market-content">
+
+                    <div class="market-top">
+
+                        <h2>Nike Sneakers</h2>
+
+                        <span>SRD 850</span>
+
+                    </div>
+
+                    <p>
+                        Bijna nieuw • Paramaribo
+                    </p>
+
+                    <div class="market-user">
+
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg">
+
+                        <div>
+                            <h4>Shania</h4>
+                            <small>2 uur geleden</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="market-card">
+
+                <button class="market-save">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+                <div class="market-image">
+                    <img src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8" alt="">
+                </div>
+
+                <div class="market-content">
+
+                    <div class="market-top">
+
+                        <h2>MacBook Air</h2>
+
+                        <span>SRD 6500</span>
+
+                    </div>
+
+                    <p>
+                        Perfecte staat • Wanica
+                    </p>
+
+                    <div class="market-user">
+
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg">
+
+                        <div>
+                            <h4>Jerrel</h4>
+                            <small>Vandaag</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="market-card">
+
+                <button class="market-save">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+                <div class="market-image">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" alt="">
+                </div>
+
+                <div class="market-content">
+
+                    <div class="market-top">
+
+                        <h2>Vintage Shirt</h2>
+
+                        <span>SRD 300</span>
+
+                    </div>
+
+                    <p>
+                        Fashion item • Centrum
+                    </p>
+
+                    <div class="market-user">
+
+                        <img src="https://randomuser.me/api/portraits/women/12.jpg">
+
+                        <div>
+                            <h4>Kimora</h4>
+                            <small>1 dag geleden</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="market-card">
+
+                <button class="market-save">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+                <div class="market-image">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e" alt="">
+                </div>
+
+                <div class="market-content">
+
+                    <div class="market-top">
+
+                        <h2>Headphones</h2>
+
+                        <span>SRD 1200</span>
+
+                    </div>
+
+                    <p>
+                        Noise cancelling
+                    </p>
+
+                    <div class="market-user">
+
+                        <img src="https://randomuser.me/api/portraits/men/41.jpg">
+
+                        <div>
+                            <h4>Kevin</h4>
+                            <small>3 uur geleden</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="../markt/markt.js"></script>
+
+</body>
+</html>
