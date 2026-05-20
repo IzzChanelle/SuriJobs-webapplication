@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SuriJobs Werkgever</title>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="top-header">
+
+    <div class="logo-section">
+      <h1><span class="red">Suri</span><span class="green">Jobs</span></h1>
+      <p>Vind talent. Bouw aan de toekomst.</p>
+    </div>
+
+    <div class="search-box">
+      <i class="fa fa-search"></i>
+      <input type="text" placeholder="Zoek kandidaten / branche">
+    </div>
+
+    <div class="header-right">
+      <button class="notification-btn">
+        <i class="fa-solid fa-bell"></i>
+      </button>
+
+      <div class="account-box">
+        <div class="account-icon">?</div>
+
+        <div>
+          <h4>Nog niet ingelogd</h4>
+          <p>Werkgever account</p>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+
+    <a href="#" class="active">Homepage</a>
+    <a href="#">Markt</a>
+    <a href="#">Plaats vacature</a>
+    <a href="#">Meldingen</a>
+    <a href="#">Bedrijfsprofiel</a>
+
+    <!-- SETTINGS BUTTON -->
+    <div class="settings-dropdown">
+
+      <button class="settings-btn" id="settingsBtn">
+        Instellingen
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+
+      <div class="dropdown-menu" id="dropdownMenu">
+
+        <a href="#"><i class="fa-solid fa-user"></i> Account</a>
+
+        <a href="#"><i class="fa-solid fa-lock"></i> Privacy</a>
+
+        <a href="#"><i class="fa-solid fa-bell"></i> Meldingen</a>
+
+        <a href="#"><i class="fa-solid fa-language"></i> Taal</a>
+
+        <a href="#"><i class="fa-solid fa-moon"></i> Donkere modus</a>
+
+        <a href="#"><i class="fa-solid fa-gear"></i> Algemene instellingen</a>
+
+        <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Uitloggen</a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-left">
+
+      <h2>Hallo <span>Werkgever</span></h2>
+
+      <p>
+        Vind snel geschikte werknemers in Suriname.
+        Plaats vacatures, ontdek kandidaten en beheer sollicitaties eenvoudig via SuriJobs.
+      </p>
+
+      <button class="main-btn">
+        + Nieuwe vacature plaatsen
+      </button>
+
+    </div>
+
+    <!-- MARKET -->
+    <div class="hero-right">
+
+      <h3>Markt</h3>
+
+      <p>Verkoop producten en diensten aan andere bedrijven.</p>
+
+      <button class="market-btn">
+        Naar de markt
+      </button>
+
+      <div class="products">
+
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?q=80&w=800&auto=format&fit=crop" alt="">
+          <h4>Smart TV 55 inch</h4>
+          <span>SRD 6.500</span>
+        </div>
+
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=800&auto=format&fit=crop" alt="">
+          <h4>Laptop Pro 15"</h4>
+          <span>SRD 12.500</span>
+        </div>
+
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?q=80&w=800&auto=format&fit=crop" alt="">
+          <h4>Printer All-in-One</h4>
+          <span>SRD 2.800</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT US -->
+  <section class="contact-section">
+
+    <h2>Contact Us</h2>
+
+    <p>
+      Heb je hulp nodig of vragen over SuriJobs?
+      Neem contact met ons op.
+    </p>
+
+    <div class="contact-container">
+
+      <div class="contact-info">
+
+        <div class="info-box">
+          <i class="fa-solid fa-phone"></i>
+          <div>
+            <h4>Telefoon</h4>
+            <p>+597 000 0000</p>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <h4>Email</h4>
+            <p>support@surijobs.com</p>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <h4>Locatie</h4>
+            <p>Paramaribo, Suriname</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CONTACT FORM -->
+      <form class="contact-form">
+
+        <input type="text" placeholder="Naam">
+
+        <input type="email" placeholder="Email">
+
+        <textarea placeholder="Typ uw bericht..."></textarea>
+
+        <button type="submit">
+          Bericht verzenden
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

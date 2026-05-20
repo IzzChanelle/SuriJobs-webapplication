@@ -2100,7 +2100,196 @@ header{
 @media(max-width:600px){
 
     html{
-        font-size:70%;
+        font-size:65%;
+    }
+
+    /* HEADER */
+
+    .top-header,
+    header{
+        padding:15px !important;
+        gap:15px !important;
+    }
+
+    .logo{
+        font-size:2.2rem !important;
+        text-align:center;
+    }
+
+    .search-box{
+        width:100% !important;
+        padding:10px !important;
+    }
+
+    .search-box input{
+        font-size:.9rem !important;
+    }
+
+    /* NAVBAR */
+
+    .navbar{
+        gap:10px !important;
+        padding:12px 5px !important;
+    }
+
+    .nav-link a{
+        font-size:.9rem !important;
+    }
+
+    .nav-line{
+        width:50px !important;
+    }
+
+    /* PAGE HEADERS */
+
+    .werk-header h1,
+    .diensten-header h1,
+    .notif-header h1,
+    .markt-header h1{
+        font-size:1.3rem !important;
+    }
+
+    /* FILTER */
+
+    .filter-btn{
+        left:10px !important;
+    }
+
+    .filter-btn span{
+        width:35px !important;
+    }
+
+    .filter-sidebar,
+    .market-sidebar{
+        width:200px !important;
+        top:140px !important;
+        height:calc(100vh - 140px) !important;
+    }
+
+    /* POSTS */
+
+    .posts-container{
+        width:95% !important;
+        padding:20px 0 !important;
+    }
+
+    .job-image{
+        height:220px !important;
+    }
+
+    .job-info h2{
+        font-size:1.2rem !important;
+    }
+
+    .job-buttons{
+        flex-direction:column !important;
+        gap:10px !important;
+    }
+
+    /* SERVICE */
+
+    .service-card{
+        grid-template-columns:1fr !important;
+    }
+
+    .service-image{
+        height:250px !important;
+    }
+
+    .profile-circle{
+        width:120px !important;
+        height:120px !important;
+    }
+
+    /* BUTTONS */
+
+    .apply-btn,
+    .info-btn,
+    .contact-btn{
+        width:100% !important;
+        text-align:center;
+    }
+
+    /* HOME */
+
+    .hero-card{
+        padding:20px !important;
+    }
+
+    .hero-left h1{
+        font-size:2rem !important;
+    }
+
+    .hero-left p{
+        font-size:.9rem !important;
+    }
+
+    .hero-buttons{
+        flex-direction:column !important;
+    }
+
+    .quick-actions,
+    .market-preview-grid,
+    .trending-grid,
+    .hero-right{
+        grid-template-columns:1fr !important;
+    }
+
+    /* MARKET */
+
+    .market-page{
+        padding:15px !important;
+    }
+
+    .market-grid{
+        grid-template-columns:1fr !important;
+    }
+
+    /* PROFILE */
+
+    .profile-page-container{
+        width:95% !important;
+        grid-template-columns:1fr !important;
+    }
+
+    .profile-form{
+        grid-template-columns:1fr !important;
+    }
+
+    .double-card-grid{
+        grid-template-columns:1fr !important;
+    }
+
+    .profile-preview-card{
+        flex-direction:column !important;
+        text-align:center;
+    }
+
+    /* MODAL */
+
+    .modal-content{
+        width:95% !important;
+        grid-template-columns:1fr !important;
+    }
+
+    .modal-image{
+        height:250px !important;
+    }
+
+    .modal-info{
+        padding:20px !important;
+    }
+
+    /* FLOAT PROFILE BUTTON */
+
+    .profile-button{
+        left:10px !important;
+        bottom:10px !important;
+        padding:6px 12px !important;
+    }
+
+    .profile-button span{
+        display:none !important;
     }
 
 }
