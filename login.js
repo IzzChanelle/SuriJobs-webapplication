@@ -51,20 +51,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
    // --- AL ACCOUNT / NAAR DASHBOARD LOGICA (ZONDER DOORSTUREN) ---
 
-// Als iemand al een account heeft en op de link klikt (Stap 1)
+// Als iemand al een account heeft en op de link klikt (Stap 1) -> Direct naar index.html
 const alreadyAccountBtn = document.getElementById("already-have-account");
 if (alreadyAccountBtn) {
     alreadyAccountBtn.addEventListener("click", (e) => {
         e.preventDefault(); 
-        alert("Inlogscherm & Dashboard worden momenteel ontwikkeld . Bedankt voor je geduld!");
+        window.location.href = 'index.html'; 
     });
 }
 
-// Als iemand de registratie afrondt en op "Naar Dashboard" klikt (Stap 4)
+// Als iemand de registratie afrondt en op "Naar Dashboard" klikt (Stap 4) -> Direct naar index.html
 const goToDashboardBtn = document.getElementById("go-to-dashboard");
 if (goToDashboardBtn) {
     goToDashboardBtn.addEventListener("click", () => {
-        alert("Bedankt voor het registreren! Het dashboard wordt momenteel ontwikkeld . Bedankt voor je geduld!");
+        window.location.href = 'index.html'; 
     });
 }
 
