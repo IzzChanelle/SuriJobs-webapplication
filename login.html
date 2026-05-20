@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuriJobs - Account Aanmaken</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body style="background-image: url('img/mainsj.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 100vh; display: flex; justify-content: center; align-items: center; margin: 0; padding: 0;">
+    
+    <div class="phone-container" style="width: 100%; max-width: 420px; position: relative;">
+        <div class="overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.45); z-index: 1; pointer-events: none;"></div>
+
+        <div class="card" style="position: relative; z-index: 2; background: white; width: 100%; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
+            <h1 style="text-align: center; margin-bottom: 5px;"><span class="red" style="color: #8b1e1e;">Suri</span><span class="green" style="color: #1b5e20;">Jobs</span></h1>
+
+            <p class="subtitle" style="text-align: center; color: #666; font-size: 0.9rem; margin-bottom: 20px; line-height: 1.4;">Maak een account aan om<br>te beginnen</p>
+
+            <div class="progress-bar">
+                <div id="prog-1" class="active"></div>
+                <div id="prog-2"></div>
+                <div id="prog-3"></div>
+            </div>
+
+            <div id="step-1-content">
+                <p class="login-text" style="font-weight: 600; margin-bottom: 10px; color: #333;">Inloggen als:</p>
+                
+                <button class="role-btn employer-btn" style="background-color: #ee4a4a; color: #000;">Werkgever</button>
+                <button class="role-btn service-btn" style="background-color: #fdd835; color: #000;">Dienstverlener</button>
+                <button class="role-btn worker-btn" style="background-color: #43a047; color: #000;">Werknemer</button>
+                
+                <small>Kan alsnog later veranderen</small>
+                
+                <a href="#" id="to-step-2" class="next-btn">Volgende</a>
+
+                <div class="divider"><span>Of ga verder met</span></div>
+
+                <div class="social-icons">
+                    <button class="social-btn google">Google</button>
+                    <button class="social-btn linkedin">LinkedIn</button>
+                </div>
+                
+                <a href="#" id="already-have-account" class="back-link" style="display: block; text-align: center; color: #1b5e20; font-weight: 600; text-decoration: none; margin-top: 15px;">Al een account? Log direct in</a>
+            </div>
+
+            <div id="step-2-content" style="display: none;">
+                <div id="dynamic-fields"></div>
+
+                <div class="input-group">
+                    <label>E-mailadres</label>
+                    <input type="email" id="reg-email" placeholder="naam@email.com">
+                </div>
+
+                <div class="input-group password-wrapper">
+                    <label>Wachtwoord</label>
+                    <input type="password" id="password-field" placeholder="Minimaal 8 tekens">
+                    <span id="toggle-password" class="eye-icon">👁️</span>
+                </div>
+
+                <button class="next-btn" id="create-account">Registreren</button>
+                <a href="#" id="back-to-1" class="back-link">Ga terug</a>
+            </div>
+
+            <div id="step-3-content" class="fade-in" style="display: none;">
+                <div class="input-group">
+                    <label for="district-select">In welk district woon je?</label>
+                    <select id="district-select" class="district-dropdown">
+                        <option value="" disabled selected>Kies een district...</option>
+                        <option value="paramaribo">Paramaribo</option>
+                        <option value="wanica">Wanica</option>
+                        <option value="nickerie">Nickerie</option>
+                        <option value="commewijne">Commewijne</option>
+                        <option value="saramacca">Saramacca</option>
+                        <option value="coronie">Coronie</option>
+                        <option value="marowijne">Marowijne</option>
+                        <option value="para">Para</option>
+                        <option value="brokopondo">Brokopondo</option>
+                        <option value="sipaliwini">Sipaliwini</option>
+                    </select>
+                </div>
+
+                <button class="next-btn" id="finish-step">Volgende</button>
+                <a href="#" class="back-link" id="back-to-2">Ga terug</a>
+            </div>
+
+            <div id="step-4-content" class="fade-in" style="display: none;">
+                <div class="success-icon">✅</div>
+                <h2>Welkom bij de club!</h2>
+                
+                <div class="summary-box">
+                    <p><strong>Naam:</strong> <span id="summary-name">...</span></p>
+                    <p><strong>Email:</strong> <span id="summary-email">...</span></p>
+                    <p><strong>District:</strong> <span id="summary-district">...</span></p>
+                    <p><strong>Rol:</strong> <span id="summary-role">...</span></p>
+                </div>
+
+                <p class="subtitle">Je account voor <span class="red">Suri</span><span class="green">Jobs</span> is nu klaar.</p>
+                
+                <button class="next-btn" id="go-to-dashboard">Naar Dashboard</button>
+            </div>
+
+        </div> </div> <script src="login.js"></script>
+</body>
+</html>
