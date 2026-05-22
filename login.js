@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } 
             else if (gekozenRol === "Dienstverlener") {
                 alert("Je wordt nu doorgestuurd naar het Dienstverlener Dashboard!");
-                window.location.href = 'SuriJobs/dienstverlener.html'; // In de map SuriJobs
+                window.location.href = 'SuriJobs/indexdienstverlener.html'; // In de map SuriJobs
             } 
             else if (gekozenRol === "Werknemer") {
                 alert("Je wordt nu doorgestuurd naar het Werknemer Dashboard!");
