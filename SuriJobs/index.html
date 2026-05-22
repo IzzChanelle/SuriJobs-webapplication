@@ -3,19 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SuriJobs Werkgever</title>
+  <title>SuriJobs Werkgever - Homepage</title>
 
   <link rel="stylesheet" href="style.css"/>
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 <body>
 
-  <!-- HEADER -->
   <header class="top-header">
 
     <div class="logo-section">
-      <h1><span class="red">Suri</span><span class="green">Jobs</span></h1>
+      <h1><span class="red" style="color: #8b1e1e;">Suri</span><span class="green" style="color: #1b5e20;">Jobs</span></h1>
       <p>Vind talent. Bouw aan de toekomst.</p>
     </div>
 
@@ -41,16 +39,18 @@
 
   </header>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
+  <nav class="navbar" style="display: flex; align-items: center; gap: 15px;">
 
-    <a href="#" class="active">Homepage</a>
-    <a href="#">Markt</a>
-    <a href="#">Plaats vacature</a>
-    <a href="#">Meldingen</a>
-    <a href="#">Bedrijfsprofiel</a>
+    <a href="index.html" class="active">Homepage</a>
+    <a href="markt.html">Markt</a>
+    <a href="vacatures.html">Plaats vacature</a>
+    <a href="meldingen.html">Meldingen</a>
+    <a href="bedrijfsprofiel.html">Bedrijfsprofiel</a>
 
-    <!-- SETTINGS BUTTON -->
+    <a href="werknemer/Surijobs/werkgever.html" style="background-color: #fdd835; color: #000; padding: 6px 14px; border-radius: 15px; font-weight: 600; margin-left: auto; text-decoration: none; font-size: 0.9rem;">
+      Inloggen als Werknemer ➡️
+    </a>
+
     <div class="settings-dropdown">
 
       <button class="settings-btn" id="settingsBtn">
@@ -64,7 +64,7 @@
 
         <a href="#"><i class="fa-solid fa-lock"></i> Privacy</a>
 
-        <a href="#"><i class="fa-solid fa-bell"></i> Meldingen</a>
+        <a href="meldingen.html"><i class="fa-solid fa-bell"></i> Meldingen</a>
 
         <a href="#"><i class="fa-solid fa-language"></i> Taal</a>
 
@@ -72,7 +72,7 @@
 
         <a href="#"><i class="fa-solid fa-gear"></i> Algemene instellingen</a>
 
-        <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Uitloggen</a>
+        <a href="#" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Uitloggen</a>
 
       </div>
 
@@ -80,7 +80,6 @@
 
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
 
     <div class="hero-left">
@@ -92,39 +91,38 @@
         Plaats vacatures, ontdek kandidaten en beheer sollicitaties eenvoudig via SuriJobs.
       </p>
 
-      <button class="main-btn">
+      <button class="main-btn" onclick="window.location.href='vacatures.html'">
         + Nieuwe vacature plaatsen
       </button>
 
     </div>
 
-    <!-- MARKET -->
     <div class="hero-right">
 
       <h3>Markt</h3>
 
       <p>Verkoop producten en diensten aan andere bedrijven.</p>
 
-      <button class="market-btn">
+      <button class="market-btn" onclick="window.location.href='markt.html'">
         Naar de markt
       </button>
 
       <div class="products">
 
         <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?q=80&w=800&auto=format&fit=crop" alt="">
+          <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?q=80&w=800&auto=format&fit=crop" alt="Smart TV">
           <h4>Smart TV 55 inch</h4>
           <span>SRD 6.500</span>
         </div>
 
         <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=800&auto=format&fit=crop" alt="">
+          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=800&auto=format&fit=crop" alt="Laptop Pro">
           <h4>Laptop Pro 15"</h4>
           <span>SRD 12.500</span>
         </div>
 
         <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?q=80&w=800&auto=format&fit=crop" alt="">
+          <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?q=80&w=800&auto=format&fit=crop" alt="Printer">
           <h4>Printer All-in-One</h4>
           <span>SRD 2.800</span>
         </div>
@@ -135,7 +133,6 @@
 
   </section>
 
-  <!-- CONTACT US -->
   <section class="contact-section">
 
     <h2>Contact Us</h2>
@@ -175,14 +172,13 @@
 
       </div>
 
-      <!-- CONTACT FORM -->
       <form class="contact-form">
 
-        <input type="text" placeholder="Naam">
+        <input type="text" placeholder="Naam" required>
 
-        <input type="email" placeholder="Email">
+        <input type="email" placeholder="Email" required>
 
-        <textarea placeholder="Typ uw bericht..."></textarea>
+        <textarea placeholder="Typ uw bericht..." required></textarea>
 
         <button type="submit">
           Bericht verzenden
