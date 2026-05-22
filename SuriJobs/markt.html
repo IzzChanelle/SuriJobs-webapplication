@@ -1,331 +1,599 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SuriJobs Markt</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
+    <title>SuriJobs - Markt</title>
 
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
 </head>
+
 <body>
 
-  <!-- HEADER -->
+    <!-- HEADER -->
 
-  <header class="header">
+    <header class="top-header">
 
-    <div class="logo">
-      <h1>
-        <span class="red">Suri</span><span class="green">Jobs</span>
-      </h1>
+        <!-- LOGO -->
 
-      <p>Werkgevers Markt</p>
-    </div>
+        <div class="logo">
 
-    <div class="search-box">
+            <span class="red">Suri</span><span class="green">Jobs</span>
 
-      <i class="fa fa-search"></i>
-
-      <input type="text" placeholder="Zoek producten of diensten">
-
-    </div>
-
-    <div class="right-header">
-
-      <button class="notification-btn">
-        <i class="fa-solid fa-bell"></i>
-      </button>
-
-      <div class="profile-box">
-
-        <div class="profile-icon">
-          W
         </div>
 
-        <div>
-          <h4>Werkgever</h4>
-          <p>Bedrijfsaccount</p>
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+            type="text"
+            placeholder="Zoek producten / bedrijven">
+
+            <button>
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
         </div>
 
-      </div>
+        <!-- RIGHT -->
 
-    </div>
+        <div class="header-right">
 
-  </header>
+            <!-- NOTIFICATION -->
 
-  <!-- NAVBAR -->
+            <div class="notification-box">
 
-  <nav class="navbar">
+                <i class="fa-solid fa-bell"></i>
 
-    <a href="#" class="active">Markt</a>
-    <a href="#">Categorieën</a>
-    <a href="#">Mijn producten</a>
-    <a href="#">Bestellingen</a>
-    <a href="#">Berichten</a>
+                <span>5</span>
 
-    <!-- SETTINGS -->
+            </div>
 
-    <div class="settings-container">
+            <!-- ACCOUNT -->
 
-      <button class="settings-btn" id="settingsBtn">
-        Instellingen
-        <i class="fa-solid fa-chevron-down"></i>
-      </button>
+            <div class="account-box">
 
-      <div class="settings-menu" id="settingsMenu">
+                <div class="account-circle">
+                    BK
+                </div>
 
-        <a href="#">
-          <i class="fa-solid fa-user"></i>
-          Account instellingen
+                <div>
+
+                    <h4>Bedrijfsaccount</h4>
+
+                    <p>Marketplace</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <!-- HOMEPAGE -->
+
+        <a href="index.html">
+
+            <i class="fa-solid fa-house"></i>
+
+            Homepage
+
         </a>
 
-        <a href="#">
-          <i class="fa-solid fa-lock"></i>
-          Privacy & beveiliging
+        <!-- MARKT -->
+
+        <a href="markt.html" class="active">
+
+            <i class="fa-solid fa-store"></i>
+
+            Markt
+
         </a>
 
-        <a href="#">
-          <i class="fa-solid fa-bell"></i>
-          Meldingen
+        <!-- VACATURES -->
+
+        <a href="vacatures.html">
+
+            <i class="fa-solid fa-briefcase"></i>
+
+            Plaats vacatures
+
         </a>
 
-        <a href="#">
-          <i class="fa-solid fa-language"></i>
-          Taal wijzigen
+        <!-- MELDINGEN -->
+
+        <a href="meldingen.html">
+
+            <i class="fa-solid fa-bell"></i>
+
+            Meldingen
+
         </a>
 
-        <a href="#">
-          <i class="fa-solid fa-moon"></i>
-          Donkere modus
+        <!-- PROFIEL -->
+
+        <a href="profiel.html">
+
+            <i class="fa-solid fa-user"></i>
+
+            Bedrijfsprofiel
+
         </a>
 
-        <a href="#">
-          <i class="fa-solid fa-store"></i>
-          Winkel instellingen
-        </a>
+        <!-- SETTINGS BUTTON -->
 
-        <a href="#">
-          <i class="fa-solid fa-credit-card"></i>
-          Betalingen
-        </a>
+        <div class="settings-wrapper">
 
-        <a href="#">
-          <i class="fa-solid fa-right-from-bracket"></i>
-          Uitloggen
-        </a>
+            <button class="settings-btn" id="settingsBtn">
 
-      </div>
+                <i class="fa-solid fa-gear"></i>
+
+                Instellingen
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+    <!-- SETTINGS SIDEBAR -->
+
+    <div class="settings-sidebar" id="settingsSidebar">
+
+        <div class="settings-sidebar-top">
+
+            <h2>Instellingen</h2>
+
+            <button id="closeSettings">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <div class="settings-sidebar-links">
+
+            <a href="#">
+
+                <i class="fa-solid fa-user"></i>
+
+                Account instellingen
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-lock"></i>
+
+                Privacy & beveiliging
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-bell"></i>
+
+                Meldingen instellingen
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-wallet"></i>
+
+                Betalingen
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-language"></i>
+
+                Taal wijzigen
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-moon"></i>
+
+                Donkere modus
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-circle-question"></i>
+
+                Help Center
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-headset"></i>
+
+                Contact Support
+
+            </a>
+
+            <a href="#" class="logout">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Uitloggen
+
+            </a>
+
+        </div>
 
     </div>
 
-  </nav>
+    <!-- HERO -->
 
-  <!-- HERO -->
+    <section class="market-hero">
 
-  <section class="hero">
+        <!-- LEFT -->
 
-    <div class="hero-left">
+        <div class="market-left">
 
-      <h2>
-        Verkoop producten & diensten
-      </h2>
+            <h1>
 
-      <p>
-        Werkgevers kunnen hun eigen producten, apparatuur,
-        diensten en zakelijke aanbiedingen verkopen aan
-        andere bedrijven via de SuriJobs Markt.
-      </p>
+                Verkoop uw <span>producten</span>
 
-      <button class="sell-btn">
-        + Nieuw product plaatsen
-      </button>
+            </h1>
+
+            <p>
+
+                Plaats producten online, bereik klanten in heel Suriname
+                en laat uw bedrijf groeien via de SuriJobs markt.
+
+            </p>
+
+            <div class="market-buttons">
+
+                <button class="primary-btn" id="openModalBtn">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Product plaatsen
+
+                </button>
+
+                <button class="secondary-btn">
+
+                    Mijn producten
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="market-right">
+
+            <img
+            src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200"
+            alt="">
+
+        </div>
+
+    </section>
+
+    <!-- PRODUCTEN -->
+
+    <section class="market-products">
+
+        <div class="section-top">
+
+            <h2>Trending producten</h2>
+
+            <a href="#">Bekijk alles</a>
+
+        </div>
+
+        <!-- GRID -->
+
+        <div class="market-grid">
+
+            <!-- CARD -->
+
+            <div class="market-card">
+
+                <button class="save-btn">
+
+                    <i class="fa-regular fa-heart"></i>
+
+                </button>
+
+                <div class="market-image">
+
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1200">
+
+                </div>
+
+                <div class="market-content">
+
+                    <div class="market-top">
+
+                        <h3>iPhone 15 Pro</h3>
+
+                        <span>SRD 38.500</span>
+
+                    </div>
+
+                    <p>
+                        Nieuw toestel • Paramaribo
+                    </p>
+
+                    <div class="market-user">
+
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg">
+
+                        <div>
+
+                            <h4>TechWorld NV</h4>
+
+                            <small>Vandaag geplaatst</small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+
+            <div class="market-card">
+
+                <button class="save-btn">
+
+                    <i class="fa-regular fa-heart"></i>
+
+                </button>
+
+                <div class="market-image">
+
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200">
+
+                </div>
+
+                <div class="market-content">
+
+                    <div class="market-top">
+
+                        <h3>Nike Air Max</h3>
+
+                        <span>SRD 2.850</span>
+
+                    </div>
+
+                    <p>
+                        Limited edition • Wanica
+                    </p>
+
+                    <div class="market-user">
+
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg">
+
+                        <div>
+
+                            <h4>Urban Fashion</h4>
+
+                            <small>2 uur geleden</small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+
+            <div class="market-card">
+
+                <button class="save-btn">
+
+                    <i class="fa-regular fa-heart"></i>
+
+                </button>
+
+                <div class="market-image">
+
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200">
+
+                </div>
+
+                <div class="market-content">
+
+                    <div class="market-top">
+
+                        <h3>Gaming Headset</h3>
+
+                        <span>SRD 1.450</span>
+
+                    </div>
+
+                    <p>
+                        RGB headset • Centrum
+                    </p>
+
+                    <div class="market-user">
+
+                        <img src="https://randomuser.me/api/portraits/men/12.jpg">
+
+                        <div>
+
+                            <h4>GameHub</h4>
+
+                            <small>1 dag geleden</small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PRODUCT MODAL -->
+
+    <div class="product-modal" id="productModal">
+
+        <div class="modal-content">
+
+            <button class="close-modal" id="closeModalBtn">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+            <h2>Nieuw product plaatsen</h2>
+
+            <input type="text" placeholder="Product naam">
+
+            <input type="text" placeholder="Prijs">
+
+            <input type="text" placeholder="Locatie">
+
+            <textarea placeholder="Beschrijving"></textarea>
+
+            <input type="text" placeholder="Afbeelding URL">
+
+            <button>
+
+                Product publiceren
+
+            </button>
+
+        </div>
 
     </div>
 
-    <div class="hero-right">
+    <!-- CONTACT -->
 
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="">
+    <section class="contact-section">
 
-    </div>
+        <h1>Contact Us</h1>
 
-  </section>
+        <p>
 
-  <!-- PRODUCTS -->
+            Heeft u vragen over verkopen via SuriJobs?
+            Neem gerust contact met ons op.
 
-  <section class="market-section">
+        </p>
 
-    <div class="section-title">
+        <div class="contact-container">
 
-      <h2>Populaire producten</h2>
+            <!-- INFO -->
 
-      <button>
-        Bekijk alles
-      </button>
+            <div class="contact-info">
 
-    </div>
+                <div class="contact-box">
 
-    <div class="products-grid">
+                    <i class="fa-solid fa-phone"></i>
 
-      <!-- PRODUCT -->
+                    <div>
 
-      <div class="product-card">
+                        <h3>Telefoon</h3>
 
-        <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?q=80&w=1200&auto=format&fit=crop" alt="">
+                        <p>+597 0000000</p>
 
-        <div class="product-info">
+                    </div>
 
-          <h3>Samsung Smart TV</h3>
+                </div>
 
-          <p>55 inch zakelijke smart televisie.</p>
+                <div class="contact-box">
 
-          <span>SRD 6.500</span>
+                    <i class="fa-solid fa-envelope"></i>
 
-          <button>Contact verkoper</button>
+                    <div>
 
-        </div>
+                        <h3>Email</h3>
 
-      </div>
+                        <p>market@surijobs.com</p>
 
-      <!-- PRODUCT -->
+                    </div>
 
-      <div class="product-card">
+                </div>
 
-        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1200&auto=format&fit=crop" alt="">
+                <div class="contact-box">
 
-        <div class="product-info">
+                    <i class="fa-solid fa-location-dot"></i>
 
-          <h3>Laptop Pro 15"</h3>
+                    <div>
 
-          <p>Krachtige laptop voor bedrijven.</p>
+                        <h3>Adres</h3>
 
-          <span>SRD 12.500</span>
+                        <p>Paramaribo, Suriname</p>
 
-          <button>Contact verkoper</button>
+                    </div>
 
-        </div>
+                </div>
 
-      </div>
+            </div>
 
-      <!-- PRODUCT -->
+            <!-- FORM -->
 
-      <div class="product-card">
+            <form class="contact-form">
 
-        <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?q=80&w=1200&auto=format&fit=crop" alt="">
+                <input type="text" placeholder="Uw naam">
 
-        <div class="product-info">
+                <input type="email" placeholder="Uw email">
 
-          <h3>Printer All-in-One</h3>
+                <textarea placeholder="Uw bericht"></textarea>
 
-          <p>Professionele kantoor printer.</p>
+                <button type="submit">
 
-          <span>SRD 2.800</span>
+                    Bericht verzenden
 
-          <button>Contact verkoper</button>
+                </button>
 
-        </div>
-
-      </div>
-
-      <!-- PRODUCT -->
-
-      <div class="product-card">
-
-        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" alt="">
-
-        <div class="product-info">
-
-          <h3>IT Support Service</h3>
-
-          <p>Zakelijke technische ondersteuning.</p>
-
-          <span>SRD 950 p/m</span>
-
-          <button>Contact verkoper</button>
+            </form>
 
         </div>
 
-      </div>
+    </section>
 
-    </div>
+    <!-- JS -->
 
-  </section>
-
-  <!-- CONTACT -->
-
-  <section class="contact-section">
-
-    <h2>Contact Us</h2>
-
-    <p>
-      Neem contact op met SuriJobs Markt voor hulp,
-      vragen of ondersteuning.
-    </p>
-
-    <div class="contact-wrapper">
-
-      <!-- INFO -->
-
-      <div class="contact-info">
-
-        <div class="info-box">
-
-          <i class="fa-solid fa-phone"></i>
-
-          <div>
-            <h4>Telefoon</h4>
-            <p>+597 0000000</p>
-          </div>
-
-        </div>
-
-        <div class="info-box">
-
-          <i class="fa-solid fa-envelope"></i>
-
-          <div>
-            <h4>Email</h4>
-            <p>support@surijobs.com</p>
-          </div>
-
-        </div>
-
-        <div class="info-box">
-
-          <i class="fa-solid fa-location-dot"></i>
-
-          <div>
-            <h4>Adres</h4>
-            <p>Paramaribo, Suriname</p>
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- FORM -->
-
-      <form class="contact-form">
-
-        <input type="text" placeholder="Uw naam">
-
-        <input type="email" placeholder="Uw email">
-
-        <textarea placeholder="Uw bericht"></textarea>
-
-        <button type="submit">
-          Bericht verzenden
-        </button>
-
-      </form>
-
-    </div>
-
-  </section>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>

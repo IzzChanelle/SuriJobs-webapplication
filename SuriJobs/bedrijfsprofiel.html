@@ -1,346 +1,550 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SuriJobs - Bedrijfsprofiel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
+    <title>SuriJobs - Bedrijfsprofiel</title>
 
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
 </head>
+
 <body>
 
-  <!-- HEADER -->
+    <!-- HEADER -->
 
-  <header class="header">
+    <header class="top-header">
 
-    <div class="logo">
+        <div class="logo">
 
-      <h1>
-        <span class="red">Suri</span><span class="green">Jobs</span>
-      </h1>
+            <span class="red">Suri</span><span class="green">Jobs</span>
 
-      <p>Werkgevers Dashboard</p>
-
-    </div>
-
-    <div class="search-box">
-
-      <i class="fa fa-search"></i>
-
-      <input type="text" placeholder="Zoek kandidaten of vacatures">
-
-    </div>
-
-    <div class="header-right">
-
-      <button class="notification-btn">
-        <i class="fa-solid fa-bell"></i>
-      </button>
-
-      <div class="profile-box">
-
-        <div class="profile-icon">
-          W
         </div>
 
-        <div>
-          <h4>Werkgever</h4>
-          <p>Bedrijfsaccount</p>
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+            type="text"
+            placeholder="Zoek kandidaten / bedrijven">
+
+            <button>
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
         </div>
 
-      </div>
+        <!-- RIGHT -->
 
-    </div>
+        <div class="header-right">
 
-  </header>
+            <div class="notification-box">
 
-  <!-- NAVBAR -->
+                <i class="fa-solid fa-bell"></i>
 
-  <nav class="navbar">
+                <span>4</span>
 
-    <a href="#">Homepage</a>
-    <a href="#">Vacatures</a>
-    <a href="#">Kandidaten</a>
-    <a href="#">Meldingen</a>
-    <a href="#" class="active">Bedrijfsprofiel</a>
+            </div>
 
-    <!-- SETTINGS -->
+            <div class="account-box">
 
-    <div class="settings-container">
+                <div class="account-circle">
+                    BK
+                </div>
 
-      <button class="settings-btn" id="settingsBtn">
+                <div>
 
-        Instellingen
+                    <h4>Bedrijfsaccount</h4>
 
-        <i class="fa-solid fa-chevron-down"></i>
+                    <p>Mijn profiel</p>
 
-      </button>
+                </div>
 
-      <div class="settings-menu" id="settingsMenu">
+            </div>
 
-        <a href="#">
-          <i class="fa-solid fa-user"></i>
-          Account instellingen
+        </div>
+
+    </header>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <a href="index.html">
+
+            <i class="fa-solid fa-house"></i>
+
+            Homepage
+
         </a>
 
-        <a href="#">
-          <i class="fa-solid fa-lock"></i>
-          Privacy & beveiliging
+        <a href="markt.html">
+
+            <i class="fa-solid fa-store"></i>
+
+            Markt
+
         </a>
 
-        <a href="#">
-          <i class="fa-solid fa-bell"></i>
-          Meldingen
+        <a href="vacatures.html">
+
+            <i class="fa-solid fa-briefcase"></i>
+
+            Plaats vacatures
+
         </a>
 
-        <a href="#">
-          <i class="fa-solid fa-language"></i>
-          Taal wijzigen
+        <a href="meldingen.html">
+
+            <i class="fa-solid fa-bell"></i>
+
+            Meldingen
+
         </a>
 
-        <a href="#">
-          <i class="fa-solid fa-building"></i>
-          Bedrijfs instellingen
+        <a href="profiel.html" class="active">
+
+            <i class="fa-solid fa-user"></i>
+
+            Bedrijfsprofiel
+
         </a>
 
-        <a href="#">
-          <i class="fa-solid fa-credit-card"></i>
-          Betalingen
-        </a>
+        <!-- SETTINGS -->
 
-        <a href="#">
-          <i class="fa-solid fa-circle-half-stroke"></i>
-          Donkere modus
-        </a>
+        <div class="settings-wrapper">
 
-        <a href="#">
-          <i class="fa-solid fa-right-from-bracket"></i>
-          Uitloggen
-        </a>
+            <button class="settings-btn" id="settingsBtn">
 
-      </div>
+                <i class="fa-solid fa-gear"></i>
+
+                Instellingen
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+    <!-- SETTINGS SIDEBAR -->
+
+    <div class="settings-sidebar" id="settingsSidebar">
+
+        <div class="settings-sidebar-top">
+
+            <h2>Instellingen</h2>
+
+            <button id="closeSettings">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <div class="settings-sidebar-links">
+
+            <a href="#">
+
+                <i class="fa-solid fa-user"></i>
+
+                Account instellingen
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-lock"></i>
+
+                Privacy & beveiliging
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-bell"></i>
+
+                Meldingen instellingen
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-wallet"></i>
+
+                Betalingen
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-language"></i>
+
+                Taal wijzigen
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-moon"></i>
+
+                Donkere modus
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-headset"></i>
+
+                Contact support
+
+            </a>
+
+            <a href="#" class="logout">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Uitloggen
+
+            </a>
+
+        </div>
 
     </div>
 
-  </nav>
+    <!-- PROFILE HERO -->
 
-  <!-- HERO -->
+    <section class="profile-hero">
 
-  <section class="hero">
+        <div class="profile-banner">
 
-    <div class="hero-left">
-
-      <h2>Bedrijfsprofiel beheren</h2>
-
-      <p>
-        Werk uw bedrijfsinformatie bij, upload uw logo,
-        beheer vacatures en presenteer uw bedrijf professioneel
-        aan kandidaten in Suriname.
-      </p>
-
-      <button class="hero-btn">
-        Profiel bewerken
-      </button>
-
-    </div>
-
-    <div class="hero-right">
-
-      <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200&auto=format&fit=crop" alt="">
-
-    </div>
-
-  </section>
-
-  <!-- PROFILE SECTION -->
-
-  <section class="profile-section">
-
-    <div class="company-card">
-
-      <div class="company-top">
-
-        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="">
-
-        <div>
-
-          <h2>SuriTech Solutions</h2>
-
-          <p>IT & Software Bedrijf</p>
-
-          <span>
-            <i class="fa-solid fa-location-dot"></i>
-            Paramaribo, Suriname
-          </span>
+            <img
+            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1600"
+            alt="">
 
         </div>
 
-      </div>
+        <div class="profile-main">
 
-      <div class="company-stats">
+            <div class="profile-image">
 
-        <div class="stat-box">
-          <h3>24</h3>
-          <p>Open vacatures</p>
-        </div>
+                <img
+                src="https://randomuser.me/api/portraits/men/32.jpg"
+                alt="">
 
-        <div class="stat-box">
-          <h3>1.2K</h3>
-          <p>Kandidaten bekeken</p>
-        </div>
+            </div>
 
-        <div class="stat-box">
-          <h3>150+</h3>
-          <p>Aangenomen werknemers</p>
-        </div>
+            <div class="profile-info">
 
-      </div>
+                <h1>BK Solutions NV</h1>
 
-    </div>
+                <p>
+                    ICT • Marketing • Design • Paramaribo
+                </p>
 
-    <!-- PROFILE FORM -->
+                <div class="profile-tags">
 
-    <div class="profile-form-container">
+                    <span>⭐ 4.9 Reviews</span>
 
-      <h2>Bedrijfsinformatie</h2>
+                    <span>120 Werknemers</span>
 
-      <form class="profile-form">
+                    <span>15 Vacatures</span>
 
-        <div class="input-group">
+                </div>
 
-          <label>Bedrijfsnaam</label>
+            </div>
 
-          <input type="text" placeholder="Bedrijfsnaam">
+            <div class="profile-actions">
 
-        </div>
+                <button class="primary-btn">
 
-        <div class="input-group">
+                    Bewerken
 
-          <label>Email adres</label>
+                </button>
 
-          <input type="email" placeholder="bedrijf@email.com">
+                <button class="secondary-btn">
 
-        </div>
+                    Delen
 
-        <div class="input-group">
+                </button>
 
-          <label>Telefoonnummer</label>
-
-          <input type="text" placeholder="+597 0000000">
+            </div>
 
         </div>
 
-        <div class="input-group">
+    </section>
 
-          <label>Website</label>
+    <!-- PROFILE CONTENT -->
 
-          <input type="text" placeholder="www.bedrijf.com">
+    <section class="profile-content">
 
-        </div>
+        <!-- LEFT -->
 
-        <div class="input-group full-width">
+        <div class="profile-left">
 
-          <label>Bedrijfsbeschrijving</label>
+            <!-- ABOUT -->
 
-          <textarea placeholder="Vertel iets over uw bedrijf..."></textarea>
+            <div class="profile-card">
 
-        </div>
+                <h2>Over ons</h2>
 
-        <div class="input-group full-width">
+                <p>
 
-          <label>Upload bedrijfslogo</label>
+                    BK Solutions is een modern bedrijf gespecialiseerd
+                    in technologie, marketing en creatieve oplossingen.
+                    Wij helpen bedrijven groeien met innovatieve digitale diensten.
 
-          <input type="file">
+                </p>
 
-        </div>
+            </div>
 
-        <button type="submit" class="save-btn">
-          Wijzigingen opslaan
-        </button>
+            <!-- CONTACT -->
 
-      </form>
+            <div class="profile-card">
 
-    </div>
+                <h2>Bedrijfsgegevens</h2>
 
-  </section>
+                <div class="profile-details">
 
-  <!-- CONTACT -->
+                    <div>
 
-  <section class="contact-section">
+                        <i class="fa-solid fa-envelope"></i>
 
-    <h2>Contact Us</h2>
+                        support@bksolutions.com
 
-    <p>
-      Heeft u hulp nodig bij uw bedrijfsprofiel?
-      Neem contact op met het SuriJobs support team.
-    </p>
+                    </div>
 
-    <div class="contact-wrapper">
+                    <div>
 
-      <!-- CONTACT INFO -->
+                        <i class="fa-solid fa-phone"></i>
 
-      <div class="contact-info">
+                        +597 000000
 
-        <div class="info-box">
+                    </div>
 
-          <i class="fa-solid fa-phone"></i>
+                    <div>
 
-          <div>
-            <h4>Telefoon</h4>
-            <p>+597 0000000</p>
-          </div>
+                        <i class="fa-solid fa-location-dot"></i>
 
-        </div>
+                        Paramaribo, Suriname
 
-        <div class="info-box">
+                    </div>
 
-          <i class="fa-solid fa-envelope"></i>
+                    <div>
 
-          <div>
-            <h4>Email</h4>
-            <p>support@surijobs.com</p>
-          </div>
+                        <i class="fa-solid fa-globe"></i>
 
-        </div>
+                        www.bksolutions.com
 
-        <div class="info-box">
+                    </div>
 
-          <i class="fa-solid fa-location-dot"></i>
+                </div>
 
-          <div>
-            <h4>Adres</h4>
-            <p>Paramaribo, Suriname</p>
-          </div>
+            </div>
 
         </div>
 
-      </div>
+        <!-- RIGHT -->
 
-      <!-- CONTACT FORM -->
+        <div class="profile-right">
 
-      <form class="contact-form">
+            <!-- STATS -->
 
-        <input type="text" placeholder="Uw naam">
+            <div class="profile-card">
 
-        <input type="email" placeholder="Uw email">
+                <h2>Statistieken</h2>
 
-        <textarea placeholder="Uw bericht"></textarea>
+                <div class="stats-grid">
 
-        <button type="submit">
-          Bericht verzenden
-        </button>
+                    <div class="stat-box">
 
-      </form>
+                        <h3>15</h3>
 
-    </div>
+                        <p>Actieve vacatures</p>
 
-  </section>
+                    </div>
 
-  <script src="script.js"></script>
+                    <div class="stat-box">
+
+                        <h3>530</h3>
+
+                        <p>Sollicitaties</p>
+
+                    </div>
+
+                    <div class="stat-box">
+
+                        <h3>12K</h3>
+
+                        <p>Profiel bezoeken</p>
+
+                    </div>
+
+                    <div class="stat-box">
+
+                        <h3>4.9</h3>
+
+                        <p>Reviews</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- TEAM -->
+
+            <div class="profile-card">
+
+                <h2>Ons team</h2>
+
+                <div class="team-grid">
+
+                    <div class="team-member">
+
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg">
+
+                        <h4>Shania</h4>
+
+                        <p>HR Manager</p>
+
+                    </div>
+
+                    <div class="team-member">
+
+                        <img src="https://randomuser.me/api/portraits/men/41.jpg">
+
+                        <h4>Kevin</h4>
+
+                        <p>Developer</p>
+
+                    </div>
+
+                    <div class="team-member">
+
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg">
+
+                        <h4>Kim</h4>
+
+                        <p>Marketing</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="contact-section">
+
+        <h1>Contact Us</h1>
+
+        <p>
+
+            Heeft u vragen over uw bedrijfsprofiel?
+            Neem gerust contact op.
+
+        </p>
+
+        <div class="contact-container">
+
+            <!-- INFO -->
+
+            <div class="contact-info">
+
+                <div class="contact-box">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    <div>
+
+                        <h3>Telefoon</h3>
+
+                        <p>+597 000000</p>
+
+                    </div>
+
+                </div>
+
+                <div class="contact-box">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <div>
+
+                        <h3>Email</h3>
+
+                        <p>support@surijobs.com</p>
+
+                    </div>
+
+                </div>
+
+                <div class="contact-box">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <div>
+
+                        <h3>Adres</h3>
+
+                        <p>Paramaribo, Suriname</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FORM -->
+
+            <form class="contact-form">
+
+                <input type="text" placeholder="Uw naam">
+
+                <input type="email" placeholder="Uw email">
+
+                <textarea placeholder="Uw bericht"></textarea>
+
+                <button type="submit">
+
+                    Bericht verzenden
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- JS -->
+
+    <script src="script.js"></script>
 
 </body>
 </html>

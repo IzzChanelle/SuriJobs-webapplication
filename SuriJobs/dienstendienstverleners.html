@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Plaats Dienst</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+
+<!-- HEADER -->
+
+<header class="top-header">
+
+    <!-- LOGO -->
+
+    <div class="logo">
+        <span class="red">Suri</span><span class="green">Jobs</span>
+    </div>
+
+    <!-- SEARCH -->
+
+    <div class="search-box">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input type="text" placeholder="Zoek diensten">
+
+        <button>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
+
+    <!-- RIGHT -->
+
+    <div class="header-right">
+
+        <div class="notification-box">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <span>2</span>
+
+        </div>
+
+        <div class="account-box">
+
+            <div class="account-circle">
+                DV
+            </div>
+
+            <div>
+
+                <h4>Dienstverlener</h4>
+
+                <p>Mijn account</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <a href="indexdienstverlener.html">
+        <i class="fa-solid fa-house"></i>
+        Homepage
+    </a>
+
+    <a href="marktdienstverlener.html">
+        <i class="fa-solid fa-store"></i>
+        Markt
+    </a>
+
+    <a href="dienstendienstverleners.html" class="active">
+        <i class="fa-solid fa-plus"></i>
+        Plaats dienst
+    </a>
+
+    <a href="berichtendienstverleners.html">
+        <i class="fa-solid fa-message"></i>
+        Berichten
+    </a>
+
+    <a href="profieldienstverlener.html">
+        <i class="fa-solid fa-user"></i>
+        Profiel
+    </a>
+
+    <!-- SETTINGS -->
+
+    <div class="settings-wrapper">
+
+        <button id="settingsBtn" class="settings-btn">
+
+            <i class="fa-solid fa-gear"></i>
+
+            Instellingen
+
+        </button>
+
+        <!-- SETTINGS MENU -->
+
+        <div id="settingsMenu" class="settings-menu">
+
+            <a href="#">
+                <i class="fa-regular fa-user"></i>
+                Account instellingen
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-lock"></i>
+                Privacy & beveiliging
+            </a>
+
+            <a href="#">
+                <i class="fa-regular fa-bell"></i>
+                Meldingen
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-credit-card"></i>
+                Betalingen
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-globe"></i>
+                Taal wijzigen
+            </a>
+
+            <a href="#" onclick="toggleDarkMode()">
+                <i class="fa-solid fa-moon"></i>
+                Donkere modus
+            </a>
+
+            <a href="#" class="logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Uitloggen
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<!-- PLAATS DIENST -->
+
+<section class="contact-section">
+
+    <h1>
+        Plaats een nieuwe dienst
+    </h1>
+
+    <p>
+        Vul alle informatie in zodat klanten jouw dienst kunnen vinden.
+    </p>
+
+    <div class="contact-container">
+
+        <!-- INFO -->
+
+        <div class="contact-info">
+
+            <div class="contact-box">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                <div>
+
+                    <h3>Professionele tips</h3>
+
+                    <p>
+                        Gebruik duidelijke foto's en beschrijvingen.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="contact-box">
+
+                <i class="fa-solid fa-star"></i>
+
+                <div>
+
+                    <h3>Krijg meer klanten</h3>
+
+                    <p>
+                        Snelle reacties verhogen je zichtbaarheid.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="contact-box">
+
+                <i class="fa-solid fa-shield"></i>
+
+                <div>
+
+                    <h3>Veilige betalingen</h3>
+
+                    <p>
+                        Werk veilig via het platform.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- FORM -->
+
+        <form class="contact-form">
+
+            <input type="text" placeholder="Naam van dienst">
+
+            <input type="text" placeholder="Categorie">
+
+            <input type="number" placeholder="Prijs in SRD">
+
+            <input type="text" placeholder="Locatie">
+
+            <input type="file">
+
+            <textarea placeholder="Beschrijving van je dienst"></textarea>
+
+            <button type="submit">
+
+                Dienst plaatsen
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- JS -->
+<script src="script.js"></script>
+
+</body>
+</html>

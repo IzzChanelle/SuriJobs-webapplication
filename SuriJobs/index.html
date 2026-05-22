@@ -1,196 +1,492 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SuriJobs Werkgever - Homepage</title>
 
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SuriJobs - Bedrijfsaccount</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
 </head>
+
 <body>
 
-  <header class="top-header">
+    <!-- HEADER -->
 
-    <div class="logo-section">
-      <h1><span class="red" style="color: #8b1e1e;">Suri</span><span class="green" style="color: #1b5e20;">Jobs</span></h1>
-      <p>Vind talent. Bouw aan de toekomst.</p>
-    </div>
+    <header class="top-header">
 
-    <div class="search-box">
-      <i class="fa fa-search"></i>
-      <input type="text" placeholder="Zoek kandidaten / branche">
-    </div>
+        <!-- LOGO -->
 
-    <div class="header-right">
-      <button class="notification-btn">
-        <i class="fa-solid fa-bell"></i>
-      </button>
+        <div class="logo">
 
-      <div class="account-box">
-        <div class="account-icon">?</div>
+            <span class="red">Suri</span><span class="green">Jobs</span>
 
-        <div>
-          <h4>Nog niet ingelogd</h4>
-          <p>Werkgever account</p>
-        </div>
-      </div>
-    </div>
-
-  </header>
-
-  <nav class="navbar" style="display: flex; align-items: center; gap: 15px;">
-
-    <a href="index.html" class="active">Homepage</a>
-    <a href="markt.html">Markt</a>
-    <a href="vacatures.html">Plaats vacature</a>
-    <a href="meldingen.html">Meldingen</a>
-    <a href="bedrijfsprofiel.html">Bedrijfsprofiel</a>
-
-    <a href="werknemer/Surijobs/werkgever.html" style="background-color: #fdd835; color: #000; padding: 6px 14px; border-radius: 15px; font-weight: 600; margin-left: auto; text-decoration: none; font-size: 0.9rem;">
-      Inloggen als Werknemer ➡️
-    </a>
-
-    <div class="settings-dropdown">
-
-      <button class="settings-btn" id="settingsBtn">
-        Instellingen
-        <i class="fa-solid fa-chevron-down"></i>
-      </button>
-
-      <div class="dropdown-menu" id="dropdownMenu">
-
-        <a href="#"><i class="fa-solid fa-user"></i> Account</a>
-
-        <a href="#"><i class="fa-solid fa-lock"></i> Privacy</a>
-
-        <a href="meldingen.html"><i class="fa-solid fa-bell"></i> Meldingen</a>
-
-        <a href="#"><i class="fa-solid fa-language"></i> Taal</a>
-
-        <a href="#"><i class="fa-solid fa-moon"></i> Donkere modus</a>
-
-        <a href="#"><i class="fa-solid fa-gear"></i> Algemene instellingen</a>
-
-        <a href="#" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Uitloggen</a>
-
-      </div>
-
-    </div>
-
-  </nav>
-
-  <section class="hero">
-
-    <div class="hero-left">
-
-      <h2>Hallo <span>Werkgever</span></h2>
-
-      <p>
-        Vind snel geschikte werknemers in Suriname.
-        Plaats vacatures, ontdek kandidaten en beheer sollicitaties eenvoudig via SuriJobs.
-      </p>
-
-      <button class="main-btn" onclick="window.location.href='vacatures.html'">
-        + Nieuwe vacature plaatsen
-      </button>
-
-    </div>
-
-    <div class="hero-right">
-
-      <h3>Markt</h3>
-
-      <p>Verkoop producten en diensten aan andere bedrijven.</p>
-
-      <button class="market-btn" onclick="window.location.href='markt.html'">
-        Naar de markt
-      </button>
-
-      <div class="products">
-
-        <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?q=80&w=800&auto=format&fit=crop" alt="Smart TV">
-          <h4>Smart TV 55 inch</h4>
-          <span>SRD 6.500</span>
         </div>
 
-        <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=800&auto=format&fit=crop" alt="Laptop Pro">
-          <h4>Laptop Pro 15"</h4>
-          <span>SRD 12.500</span>
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+            type="text"
+            placeholder="Zoek kandidaten / branche">
+
+            <button>
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
         </div>
 
-        <div class="product-card">
-          <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?q=80&w=800&auto=format&fit=crop" alt="Printer">
-          <h4>Printer All-in-One</h4>
-          <span>SRD 2.800</span>
+        <!-- RIGHT -->
+
+        <div class="header-right">
+
+            <!-- NOTIFICATION -->
+
+            <div class="notification-box">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <span>3</span>
+
+            </div>
+
+            <!-- ACCOUNT -->
+
+            <div class="account-box">
+
+                <div class="account-circle">
+                    BK
+                </div>
+
+                <div>
+
+                    <h4>Bedrijfsaccount</h4>
+
+                    <p>Mijn account</p>
+
+                </div>
+
+            </div>
+
         </div>
 
-      </div>
+    </header>
 
-    </div>
+    <!-- NAVBAR -->
 
-  </section>
+    <nav class="navbar">
 
-  <section class="contact-section">
+        <!-- HOMEPAGE -->
 
-    <h2>Contact Us</h2>
+        <a href="index.html" class="active">
 
-    <p>
-      Heb je hulp nodig of vragen over SuriJobs?
-      Neem contact met ons op.
-    </p>
+            <i class="fa-solid fa-house"></i>
 
-    <div class="contact-container">
+            Homepage
 
-      <div class="contact-info">
+        </a>
 
-        <div class="info-box">
-          <i class="fa-solid fa-phone"></i>
-          <div>
-            <h4>Telefoon</h4>
-            <p>+597 000 0000</p>
-          </div>
+        <!-- MARKT -->
+
+        <a href="markt.html">
+
+            <i class="fa-solid fa-store"></i>
+
+            Markt
+
+        </a>
+
+        <!-- VACATURES -->
+
+        <a href="vacatures.html">
+
+            <i class="fa-solid fa-briefcase"></i>
+
+            Plaats vacatures
+
+        </a>
+
+        <!-- MELDINGEN -->
+
+        <a href="meldingen.html">
+
+            <i class="fa-solid fa-bell"></i>
+
+            Meldingen
+
+        </a>
+
+        <!-- PROFIEL -->
+
+        <a href="profiel.html">
+
+            <i class="fa-solid fa-user"></i>
+
+            Bedrijfsprofiel
+
+        </a>
+
+        <!-- SETTINGS BUTTON -->
+
+        <div class="settings-wrapper">
+
+            <button class="settings-btn" id="settingsBtn">
+
+                <i class="fa-solid fa-gear"></i>
+
+                Instellingen
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </button>
+
+            <!-- SETTINGS MENU -->
+
+            <div class="settings-menu" id="settingsMenu">
+
+                <a href="#">
+                    <i class="fa-solid fa-user"></i>
+                    Account instellingen
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-lock"></i>
+                    Privacy & beveiliging
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-bell"></i>
+                    Meldingen instellingen
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-wallet"></i>
+                    Betalingen
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-language"></i>
+                    Taal wijzigen
+                </a>
+
+                <a href="#" onclick="toggleDarkMode()">
+                    <i class="fa-solid fa-moon"></i>
+                    Donkere modus
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-headset"></i>
+                    Contact support
+                </a>
+
+                <a href="#" class="logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Uitloggen
+                </a>
+
+            </div>
+
         </div>
 
-        <div class="info-box">
-          <i class="fa-solid fa-envelope"></i>
-          <div>
-            <h4>Email</h4>
-            <p>support@surijobs.com</p>
-          </div>
+    </nav>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <!-- LEFT -->
+
+        <div class="hero-left">
+
+            <h1>
+
+                Hallo <span>Werkgever</span>
+
+            </h1>
+
+            <p>
+
+                Vind snel geschikte werknemers in Suriname.
+                Plaats vacatures, ontdek talent en beheer sollicitaties eenvoudig via SuriJobs.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn">
+
+                    + Nieuwe vacature plaatsen
+
+                </button>
+
+                <button class="secondary-btn">
+
+                    Mijn vacatures
+
+                </button>
+
+            </div>
+
         </div>
 
-        <div class="info-box">
-          <i class="fa-solid fa-location-dot"></i>
-          <div>
-            <h4>Locatie</h4>
-            <p>Paramaribo, Suriname</p>
-          </div>
+        <!-- RIGHT -->
+
+        <div class="hero-right">
+
+            <div class="section-top">
+
+                <h2>Populaire vacatures</h2>
+
+                <a href="#">Bekijk alles</a>
+
+            </div>
+
+            <!-- GRID -->
+
+            <div class="jobs-grid">
+
+                <!-- CARD -->
+
+                <div class="job-card">
+
+                    <div class="job-icon blue">
+
+                        <i class="fa-solid fa-laptop-code"></i>
+
+                    </div>
+
+                    <h3>ICT Specialist</h3>
+
+                    <p>Vanaf SRD 4500</p>
+
+                    <span>⭐ 4.9 (120)</span>
+
+                </div>
+
+                <!-- CARD -->
+
+                <div class="job-card">
+
+                    <div class="job-icon green-bg">
+
+                        <i class="fa-solid fa-chart-line"></i>
+
+                    </div>
+
+                    <h3>Marketing</h3>
+
+                    <p>Vanaf SRD 3000</p>
+
+                    <span>⭐ 4.8 (95)</span>
+
+                </div>
+
+                <!-- CARD -->
+
+                <div class="job-card">
+
+                    <div class="job-icon orange">
+
+                        <i class="fa-solid fa-camera"></i>
+
+                    </div>
+
+                    <h3>Fotografie</h3>
+
+                    <p>Vanaf SRD 2500</p>
+
+                    <span>⭐ 4.7 (80)</span>
+
+                </div>
+
+            </div>
+
         </div>
 
-      </div>
+    </section>
 
-      <form class="contact-form">
+    <!-- FEATURES -->
 
-        <input type="text" placeholder="Naam" required>
+    <section class="features">
 
-        <input type="email" placeholder="Email" required>
+        <div class="feature-card">
 
-        <textarea placeholder="Typ uw bericht..." required></textarea>
+            <div class="feature-icon green-bg">
 
-        <button type="submit">
-          Bericht verzenden
-        </button>
+                <i class="fa-solid fa-user-plus"></i>
 
-      </form>
+            </div>
 
-    </div>
+            <div>
 
-  </section>
+                <h3>Plaats vacatures</h3>
 
-  <script src="script.js"></script>
+                <p>Bereik duizenden kandidaten in Suriname.</p>
+
+            </div>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon blue">
+
+                <i class="fa-solid fa-envelope"></i>
+
+            </div>
+
+            <div>
+
+                <h3>Ontvang sollicitaties</h3>
+
+                <p>Beheer kandidaten en berichten eenvoudig.</p>
+
+            </div>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon yellow">
+
+                <i class="fa-solid fa-star"></i>
+
+            </div>
+
+            <div>
+
+                <h3>Bouw reputatie</h3>
+
+                <p>Krijg reviews en groei uw bedrijf online.</p>
+
+            </div>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon purple">
+
+                <i class="fa-solid fa-lock"></i>
+
+            </div>
+
+            <div>
+
+                <h3>Veilige betalingen</h3>
+
+                <p>Werk veilig via het platform.</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="contact-section">
+
+        <h1>Contact</h1>
+
+        <p>
+
+            Heeft u vragen? Neem gerust contact met ons op.
+
+        </p>
+
+        <div class="contact-container">
+
+            <!-- INFO -->
+
+            <div class="contact-info">
+
+                <div class="contact-box">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    <div>
+
+                        <h3>Telefoon</h3>
+
+                        <p>+597 0000000</p>
+
+                    </div>
+
+                </div>
+
+                <div class="contact-box">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <div>
+
+                        <h3>Email</h3>
+
+                        <p>support@surijobs.com</p>
+
+                    </div>
+
+                </div>
+
+                <div class="contact-box">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <div>
+
+                        <h3>Adres</h3>
+
+                        <p>Paramaribo, Suriname</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FORM -->
+
+            <form class="contact-form">
+
+                <input type="text" placeholder="Uw naam">
+
+                <input type="email" placeholder="Uw email">
+
+                <textarea placeholder="Uw bericht"></textarea>
+
+                <button type="submit">
+
+                    Bericht verzenden
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- JS -->
+
+    <script src="script.js"></script>
 
 </body>
 </html>

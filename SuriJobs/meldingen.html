@@ -1,368 +1,560 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SuriJobs - Meldingen & Berichten</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
+    <title>SuriJobs - Meldingen</title>
 
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
 </head>
+
 <body>
 
-  <!-- HEADER -->
+    <!-- HEADER -->
 
-  <header class="header">
+    <header class="top-header">
 
-    <div class="logo">
-
-      <h1>
-        <span class="red">Suri</span><span class="green">Jobs</span>
-      </h1>
-
-      <p>Werkgevers Dashboard</p>
-
-    </div>
-
-    <div class="search-box">
-
-      <i class="fa fa-search"></i>
-
-      <input type="text" placeholder="Zoek berichten of kandidaten">
-
-    </div>
-
-    <div class="header-right">
-
-      <button class="notification-btn">
-        <i class="fa-solid fa-bell"></i>
-      </button>
-
-      <div class="profile-box">
-
-        <div class="profile-icon">
-          W
+        <div class="logo">
+            <span class="red">Suri</span><span class="green">Jobs</span>
         </div>
 
-        <div>
-          <h4>Werkgever</h4>
-          <p>Bedrijfsaccount</p>
-        </div>
+        <!-- SEARCH -->
 
-      </div>
+        <div class="search-box">
 
-    </div>
+            <i class="fa-solid fa-magnifying-glass"></i>
 
-  </header>
+            <input
+            type="text"
+            placeholder="Zoek meldingen / berichten">
 
-  <!-- NAVBAR -->
-
-  <nav class="navbar">
-
-    <a href="#">Homepage</a>
-    <a href="#">Vacatures</a>
-    <a href="#">Kandidaten</a>
-    <a href="#" class="active">Meldingen</a>
-    <a href="#">Bedrijfsprofiel</a>
-
-    <!-- SETTINGS -->
-
-    <div class="settings-container">
-
-      <button class="settings-btn" id="settingsBtn">
-
-        Instellingen
-
-        <i class="fa-solid fa-chevron-down"></i>
-
-      </button>
-
-      <div class="settings-menu" id="settingsMenu">
-
-        <a href="#">
-          <i class="fa-solid fa-user"></i>
-          Account instellingen
-        </a>
-
-        <a href="#">
-          <i class="fa-solid fa-lock"></i>
-          Privacy & beveiliging
-        </a>
-
-        <a href="#">
-          <i class="fa-solid fa-bell"></i>
-          Meldingen voorkeuren
-        </a>
-
-        <a href="#">
-          <i class="fa-solid fa-language"></i>
-          Taal wijzigen
-        </a>
-
-        <a href="#">
-          <i class="fa-solid fa-briefcase"></i>
-          Vacature instellingen
-        </a>
-
-        <a href="#">
-          <i class="fa-solid fa-circle-half-stroke"></i>
-          Donkere modus
-        </a>
-
-        <a href="#">
-          <i class="fa-solid fa-shield-halved"></i>
-          Beveiliging
-        </a>
-
-        <a href="#">
-          <i class="fa-solid fa-right-from-bracket"></i>
-          Uitloggen
-        </a>
-
-      </div>
-
-    </div>
-
-  </nav>
-
-  <!-- HERO -->
-
-  <section class="hero">
-
-    <div class="hero-left">
-
-      <h2>Meldingen & sollicitaties</h2>
-
-      <p>
-        Bekijk nieuwe sollicitaties, berichten van kandidaten
-        en reageer direct vanuit het werkgevers dashboard.
-      </p>
-
-      <button class="hero-btn">
-        Bekijk alle sollicitaties
-      </button>
-
-    </div>
-
-    <div class="hero-right">
-
-      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" alt="">
-
-    </div>
-
-  </section>
-
-  <!-- NOTIFICATIONS -->
-
-  <section class="notifications-section">
-
-    <div class="section-title">
-
-      <h2>Nieuwe berichten</h2>
-
-      <p>
-        Kandidaten die hebben gesolliciteerd of contact hebben opgenomen.
-      </p>
-
-    </div>
-
-    <div class="messages-container">
-
-      <!-- SIDEBAR -->
-
-      <div class="messages-sidebar">
-
-        <div class="message-user active-user">
-
-          <img src="https://randomuser.me/api/portraits/women/44.jpg">
-
-          <div>
-            <h4>Sarah K.</h4>
-            <p>Sollicitatie Front-End Developer</p>
-          </div>
+            <button>
+                <i class="fa-solid fa-xmark"></i>
+            </button>
 
         </div>
 
-        <div class="message-user">
+        <!-- RIGHT -->
 
-          <img src="https://randomuser.me/api/portraits/men/32.jpg">
+        <div class="header-right">
 
-          <div>
-            <h4>Ryan S.</h4>
-            <p>Interesse in Marketing functie</p>
-          </div>
+            <div class="notification-box">
 
-        </div>
+                <i class="fa-solid fa-bell"></i>
 
-        <div class="message-user">
+                <span>8</span>
 
-          <img src="https://randomuser.me/api/portraits/women/65.jpg">
+            </div>
 
-          <div>
-            <h4>Naomi P.</h4>
-            <p>CV verzonden</p>
-          </div>
+            <div class="account-box">
 
-        </div>
+                <div class="account-circle">
+                    BK
+                </div>
 
-        <div class="message-user">
+                <div>
 
-          <img src="https://randomuser.me/api/portraits/men/77.jpg">
+                    <h4>Bedrijfsaccount</h4>
 
-          <div>
-            <h4>Kevin R.</h4>
-            <p>Vraag over vacature</p>
-          </div>
+                    <p>Meldingen</p>
+
+                </div>
+
+            </div>
 
         </div>
 
-      </div>
+    </header>
 
-      <!-- CHAT -->
+    <!-- NAVBAR -->
 
-      <div class="chat-box">
+    <nav class="navbar">
 
-        <div class="chat-header">
+        <a href="index.html">
 
-          <img src="https://randomuser.me/api/portraits/women/44.jpg">
+            <i class="fa-solid fa-house"></i>
 
-          <div>
-            <h3>Sarah K.</h3>
-            <p>Online</p>
-          </div>
+            Homepage
+
+        </a>
+
+        <a href="markt.html">
+
+            <i class="fa-solid fa-store"></i>
+
+            Markt
+
+        </a>
+
+        <a href="vacatures.html">
+
+            <i class="fa-solid fa-briefcase"></i>
+
+            Plaats vacatures
+
+        </a>
+
+        <a href="meldingen.html" class="active">
+
+            <i class="fa-solid fa-bell"></i>
+
+            Meldingen
+
+        </a>
+
+        <a href="profiel.html">
+
+            <i class="fa-solid fa-user"></i>
+
+            Bedrijfsprofiel
+
+        </a>
+
+        <!-- SETTINGS BUTTON -->
+
+        <div class="settings-wrapper">
+
+            <button class="settings-btn" id="settingsBtn">
+
+                <i class="fa-solid fa-gear"></i>
+
+                Instellingen
+
+            </button>
 
         </div>
 
-        <div class="chat-messages">
+    </nav>
 
-          <div class="message received">
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <!-- LEFT -->
+
+        <div class="hero-left">
+
+            <h1>
+
+                Uw <span>meldingen</span>
+
+            </h1>
 
             <p>
-              Hallo, ik heb interesse in de functie
-              Front-End Developer.
+
+                Bekijk alle nieuwe sollicitaties,
+                berichten en updates van uw bedrijf.
+
             </p>
 
-            <span>09:15</span>
+            <div class="hero-buttons">
 
-          </div>
+                <button class="primary-btn">
 
-          <div class="message sent">
+                    Bekijk sollicitaties
 
-            <p>
-              Bedankt voor uw sollicitatie.
-              Kunt u uw portfolio sturen?
-            </p>
+                </button>
 
-            <span>09:18</span>
+                <button class="secondary-btn">
 
-          </div>
+                    Open inbox
 
-          <div class="message received">
+                </button>
 
-            <p>
-              Natuurlijk, ik stuur het meteen door.
-            </p>
-
-            <span>09:20</span>
-
-          </div>
+            </div>
 
         </div>
 
-        <!-- CHAT INPUT -->
+        <!-- RIGHT -->
 
-        <div class="chat-input">
+        <div class="hero-right">
 
-          <input type="text" placeholder="Typ een bericht...">
+            <div class="section-top">
 
-          <button>
-            <i class="fa-solid fa-paper-plane"></i>
-          </button>
+                <h2>Activiteit overzicht</h2>
+
+            </div>
+
+            <div class="jobs-grid">
+
+                <div class="job-card">
+
+                    <div class="job-icon blue">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                    </div>
+
+                    <h3>24</h3>
+
+                    <p>Nieuwe berichten</p>
+
+                </div>
+
+                <div class="job-card">
+
+                    <div class="job-icon green-bg">
+
+                        <i class="fa-solid fa-user-check"></i>
+
+                    </div>
+
+                    <h3>15</h3>
+
+                    <p>Nieuwe sollicitaties</p>
+
+                </div>
+
+                <div class="job-card">
+
+                    <div class="job-icon orange">
+
+                        <i class="fa-solid fa-bell"></i>
+
+                    </div>
+
+                    <h3>7</h3>
+
+                    <p>Nieuwe updates</p>
+
+                </div>
+
+            </div>
 
         </div>
 
-      </div>
+    </section>
+
+    <!-- MELDINGEN -->
+
+    <section class="market-products">
+
+        <div class="section-top">
+
+            <h2>Nieuwe meldingen</h2>
+
+            <a href="#">Bekijk alles</a>
+
+        </div>
+
+        <div class="market-grid">
+
+            <!-- CARD -->
+
+            <div class="market-card">
+
+                <div class="market-image">
+
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200">
+
+                </div>
+
+                <div class="market-content">
+
+                    <div class="market-top">
+
+                        <h2>Nieuwe sollicitatie</h2>
+
+                        <span>Vandaag</span>
+
+                    </div>
+
+                    <p>
+                        Kevin heeft gesolliciteerd voor ICT Specialist.
+                    </p>
+
+                    <div class="market-user">
+
+                        <img src="https://randomuser.me/api/portraits/men/41.jpg">
+
+                        <div>
+
+                            <h4>Kevin Jansen</h4>
+
+                            <small>10 minuten geleden</small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+
+            <div class="market-card">
+
+                <div class="market-image">
+
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200">
+
+                </div>
+
+                <div class="market-content">
+
+                    <div class="market-top">
+
+                        <h2>Nieuw bericht</h2>
+
+                        <span>Nieuw</span>
+
+                    </div>
+
+                    <p>
+                        Sarah stuurde een bericht over uw vacature.
+                    </p>
+
+                    <div class="market-user">
+
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg">
+
+                        <div>
+
+                            <h4>Sarah Kross</h4>
+
+                            <small>25 minuten geleden</small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+
+            <div class="market-card">
+
+                <div class="market-image">
+
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1200">
+
+                </div>
+
+                <div class="market-content">
+
+                    <div class="market-top">
+
+                        <h2>Vacature populair</h2>
+
+                        <span>Trending</span>
+
+                    </div>
+
+                    <p>
+                        Uw Marketing vacature kreeg veel views vandaag.
+                    </p>
+
+                    <div class="market-user">
+
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg">
+
+                        <div>
+
+                            <h4>SuriJobs</h4>
+
+                            <small>1 uur geleden</small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SETTINGS SIDEBAR -->
+
+    <div class="settings-sidebar" id="settingsSidebar">
+
+        <div class="settings-sidebar-header">
+
+            <h2>Instellingen</h2>
+
+            <button id="closeSettings">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <div class="settings-profile">
+
+            <div class="settings-profile-circle">
+                BK
+            </div>
+
+            <div>
+
+                <h3>Bedrijfsaccount</h3>
+
+                <p>bedrijf@surijobs.com</p>
+
+            </div>
+
+        </div>
+
+        <!-- SETTINGS OPTIONS -->
+
+        <div class="settings-option">
+
+            <i class="fa-solid fa-user"></i>
+
+            <span>Account instellingen</span>
+
+        </div>
+
+        <div class="settings-option">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <span>Privacy & beveiliging</span>
+
+        </div>
+
+        <div class="settings-option">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <span>Meldingen instellingen</span>
+
+        </div>
+
+        <div class="settings-option">
+
+            <i class="fa-solid fa-wallet"></i>
+
+            <span>Betalingen</span>
+
+        </div>
+
+        <div class="settings-option">
+
+            <i class="fa-solid fa-language"></i>
+
+            <span>Taal wijzigen</span>
+
+        </div>
+
+        <div class="settings-option">
+
+            <i class="fa-solid fa-moon"></i>
+
+            <span>Donkere modus</span>
+
+        </div>
+
+        <div class="settings-option">
+
+            <i class="fa-solid fa-headset"></i>
+
+            <span>Contact support</span>
+
+        </div>
+
+        <div class="settings-option logout-option">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            <span>Uitloggen</span>
+
+        </div>
 
     </div>
 
-  </section>
+    <!-- OVERLAY -->
 
-  <!-- CONTACT -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-  <section class="contact-section">
+    <!-- CONTACT -->
 
-    <h2>Contact Us</h2>
+    <section class="contact-section">
 
-    <p>
-      Heeft u hulp nodig met sollicitaties of berichten?
-      Neem contact op met het SuriJobs support team.
-    </p>
+        <h1>Contact Support</h1>
 
-    <div class="contact-wrapper">
+        <p>
+            Heeft u hulp nodig met meldingen of berichten?
+        </p>
 
-      <!-- INFO -->
+        <div class="contact-container">
 
-      <div class="contact-info">
+            <div class="contact-info">
 
-        <div class="info-box">
+                <div class="contact-box">
 
-          <i class="fa-solid fa-phone"></i>
+                    <i class="fa-solid fa-phone"></i>
 
-          <div>
-            <h4>Telefoon</h4>
-            <p>+597 0000000</p>
-          </div>
+                    <div>
+
+                        <h3>Telefoon</h3>
+
+                        <p>+597 0000000</p>
+
+                    </div>
+
+                </div>
+
+                <div class="contact-box">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <div>
+
+                        <h3>Email</h3>
+
+                        <p>support@surijobs.com</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FORM -->
+
+            <form class="contact-form">
+
+                <input type="text" placeholder="Uw naam">
+
+                <input type="email" placeholder="Uw email">
+
+                <textarea placeholder="Uw bericht"></textarea>
+
+                <button type="submit">
+
+                    Bericht verzenden
+
+                </button>
+
+            </form>
 
         </div>
 
-        <div class="info-box">
+    </section>
 
-          <i class="fa-solid fa-envelope"></i>
+    <!-- JS -->
 
-          <div>
-            <h4>Email</h4>
-            <p>support@surijobs.com</p>
-          </div>
-
-        </div>
-
-        <div class="info-box">
-
-          <i class="fa-solid fa-location-dot"></i>
-
-          <div>
-            <h4>Adres</h4>
-            <p>Paramaribo, Suriname</p>
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- FORM -->
-
-      <form class="contact-form">
-
-        <input type="text" placeholder="Uw naam">
-
-        <input type="email" placeholder="Uw email">
-
-        <textarea placeholder="Uw bericht"></textarea>
-
-        <button type="submit">
-          Bericht verzenden
-        </button>
-
-      </form>
-
-    </div>
-
-  </section>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
