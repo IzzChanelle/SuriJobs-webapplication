@@ -95,6 +95,7 @@ window.addEventListener("click", (e) => {
 // =========================
 
 const saveButtons = document.querySelectorAll(".save-btn");
+const deleteButtons = document.querySelectorAll(".delete-btn, .card-delete-btn");
 
 saveButtons.forEach(btn => {
 
@@ -110,6 +111,20 @@ saveButtons.forEach(btn => {
         }
 
         btn.classList.toggle("saved");
+
+    });
+
+});
+
+deleteButtons.forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+        const card = btn.closest(".market-card, .service-card");
+
+        if(card){
+            card.remove();
+        }
 
     });
 
@@ -419,3 +434,50 @@ function revealCards(){
 }
 
 revealCards();
+
+// =========================
+// SETTINGS TABS
+// =========================
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const settingsTabs = document.querySelectorAll(".settings-tab-btn");
+    
+    settingsTabs.forEach(btn => {
+        btn.addEventListener("click", function(){
+            const tabName = this.getAttribute("data-tab");
+            
+            // Remove active class from all buttons
+            settingsTabs.forEach(b => b.classList.remove("active"));
+            
+            // Add active class to clicked button
+            this.classList.add("active");
+            
+            // Hide all tabs
+            const allTabs = document.querySelectorAll(".settings-tab");
+            allTabs.forEach(tab => tab.classList.remove("active"));
+            
+            // Show selected tab
+            const selectedTab = document.getElementById(tabName + "-tab");
+            if(selectedTab){
+                selectedTab.classList.add("active");
+            }
+        });
+    });
+
+    // Dark mode toggle
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    if(darkModeToggle){
+        darkModeToggle.addEventListener("change", toggleDarkMode);
+    }
+
+    // Settings form submissions
+    const settingsForms = document.querySelectorAll(".settings-form");
+    settingsForms.forEach(form => {
+        form.addEventListener("submit", function(e){
+            e.preventDefault();
+            alert("Instellingen opgeslagen!");
+        });
+    });
+
+});

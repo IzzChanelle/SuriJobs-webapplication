@@ -115,15 +115,14 @@
 
         </a>
 
-        <a href="profiel.html">
+        <a href="bedrijfsprofiel.html">
 
             <i class="fa-solid fa-user"></i>
 
             Bedrijfsprofiel
 
         </a>
-
-        <!-- SETTINGS BUTTON -->
+     <!-- SETTINGS BUTTON -->
 
         <div class="settings-wrapper">
 
@@ -133,11 +132,163 @@
 
                 Instellingen
 
+                <i class="fa-solid fa-chevron-down"></i>
+
             </button>
 
         </div>
 
     </nav>
+
+    <div class="page-title-bar">
+        <p>Meldingen</p>
+    </div>
+
+    <!-- SETTINGS SIDEBAR -->
+
+    <div class="settings-sidebar" id="settingsSidebar">
+
+        <div class="settings-sidebar-top">
+
+            <h2>Instellingen</h2>
+
+            <button id="closeSettings">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <div class="settings-tabs">
+            <button class="settings-tab-btn active" data-tab="account">Account</button>
+            <button class="settings-tab-btn" data-tab="privacy">Privacy</button>
+            <button class="settings-tab-btn" data-tab="notifications">Meldingen</button>
+            <button class="settings-tab-btn" data-tab="payments">Betalingen</button>
+            <button class="settings-tab-btn" data-tab="other">Overig</button>
+        </div>
+
+        <div class="settings-content">
+            <!-- ACCOUNT TAB -->
+            <div class="settings-tab active" id="account-tab">
+                <form class="settings-form">
+                    <div class="form-group">
+                        <label>Bedrijfsnaam</label>
+                        <input type="text" placeholder="Uw bedrijfsnaam">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="uw@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Telefoon</label>
+                        <input type="tel" placeholder="+597 0000000">
+                    </div>
+                    <div class="form-group">
+                        <label>Adres</label>
+                        <input type="text" placeholder="Uw adres">
+                    </div>
+                    <button type="submit" class="save-btn">Opslaan</button>
+                </form>
+            </div>
+
+            <!-- PRIVACY TAB -->
+            <div class="settings-tab" id="privacy-tab">
+                <form class="settings-form">
+                    <div class="form-group">
+                        <label>Huidig wachtwoord</label>
+                        <input type="password" placeholder="Uw huidige wachtwoord">
+                    </div>
+                    <div class="form-group">
+                        <label>Nieuw wachtwoord</label>
+                        <input type="password" placeholder="Nieuw wachtwoord">
+                    </div>
+                    <div class="form-group">
+                        <label>Bevestig wachtwoord</label>
+                        <input type="password" placeholder="Herhaal wachtwoord">
+                    </div>
+                    <button type="submit" class="save-btn">Wachtwoord wijzigen</button>
+                </form>
+            </div>
+
+            <!-- NOTIFICATIONS TAB -->
+            <div class="settings-tab" id="notifications-tab">
+                <form class="settings-form">
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            Email meldingen
+                        </label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            Aanbiedingen & promoties
+                        </label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            Nieuwsbrieven
+                        </label>
+                    </div>
+                    <button type="submit" class="save-btn">Opslaan</button>
+                </form>
+            </div>
+
+            <!-- PAYMENTS TAB -->
+            <div class="settings-tab" id="payments-tab">
+                <form class="settings-form">
+                    <div class="form-group">
+                        <label>Rekeninghouder</label>
+                        <input type="text" placeholder="Naam rekeninghouder">
+                    </div>
+                    <div class="form-group">
+                        <label>Bankrekeningnummer</label>
+                        <input type="text" placeholder="Rekeningnummer">
+                    </div>
+                    <div class="form-group">
+                        <label>Banknaam</label>
+                        <input type="text" placeholder="Banknaam">
+                    </div>
+                    <button type="submit" class="save-btn">Opslaan</button>
+                </form>
+            </div>
+
+            <!-- OTHER TAB -->
+            <div class="settings-tab" id="other-tab">
+                <form class="settings-form">
+                    <div class="form-group">
+                        <label>Taal</label>
+                        <select>
+                            <option>Nederlands</option>
+                            <option>English</option>
+                            <option>Español</option>
+                        </select>
+                    </div>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="darkModeToggle">
+                            Donkere modus
+                        </label>
+                    </div>
+                    <button type="submit" class="save-btn">Opslaan</button>
+                </form>
+                <hr>
+                <div class="settings-bottom">
+                    <a href="#" class="settings-link">
+                        <i class="fa-solid fa-headset"></i>
+                        Contact support
+                    </a>
+                    <a href="#" class="logout">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        Uitloggen
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
     <!-- HERO -->
 
@@ -523,6 +674,20 @@
                         <h3>Email</h3>
 
                         <p>support@surijobs.com</p>
+
+                    </div>
+
+                </div>
+
+                <div class="contact-box">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <div>
+
+                        <h3>Adres</h3>
+
+                        <p>Paramaribo, Suriname</p>
 
                     </div>
 
