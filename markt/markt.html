@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>SuriJobs | Markt</title>
 
-    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="global.css">
 
     <link
         rel="stylesheet"
@@ -21,18 +21,46 @@
             <span class="red">Suri</span><span class="green">Jobs</span>
         </div>
 
-        <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <div class="search-settings">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
 
-            <input
-                type="text"
-                id="marketSearch"
-                placeholder="Zoek producten..."
-            />
+                <input
+                    type="text"
+                    id="marketSearch"
+                    placeholder="Zoek producten..."
+                />
 
-            <button id="clearBtn">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+                <button id="clearBtn">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="settings-wrapper">
+                <button class="settings-btn" id="settingsBtn" aria-label="Instellingen">⚙️</button>
+                <div class="settings-menu" id="settingsMenu">
+                    <a href="#">Opgeslagen Items</a>
+                    <div class="settings-item language-toggle">
+                        Talen
+                        <div class="submenu">
+                            <button>Nederlands</button>
+                            <button>Engels</button>
+                            <button>Spaans</button>
+                        </div>
+                    </div>
+                    <div class="settings-item theme-toggle">
+                        Thema
+                        <div class="submenu">
+                            <button id="lightMode">Light Mode</button>
+                            <button id="darkMode">Dark Mode</button>
+                            <button id="textSmall">Kleine tekst</button>
+                            <button id="textBig">Grote tekst</button>
+                        </div>
+                    </div>
+                    <a href="contact.html">Contact Us</a>
+                    <button class="settings-item logout-btn" id="logoutBtn" data-logout-path="../login.html">Uitloggen</button>
+                </div>
+            </div>
         </div>
 
     </header>
@@ -320,7 +348,8 @@
 
     </main>
 
-    <script src="../markt/markt.js"></script>
+    <script src="../markt.js"></script>
+    <script src="../settings.js"></script>
 
 </body>
 </html>

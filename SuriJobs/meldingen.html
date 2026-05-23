@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SuriJobs - Meldingen</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="top-header">
+
+        <div class="logo">
+            <span class="red">Suri</span><span class="green">Jobs</span>
+        </div>
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+            type="text"
+            placeholder="Zoek meldingen / berichten">
+
+            <button>
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="header-right">
+
+            <div class="notification-box">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <span>8</span>
+
+            </div>
+
+            <div class="account-box">
+
+                <div class="account-circle">
+                    BK
+                </div>
+
+                <div>
+
+                    <h4>Bedrijfsaccount</h4>
+
+                    <p>Meldingen</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <a href="index.html">
+
+            <i class="fa-solid fa-house"></i>
+
+            Homepage
+
+        </a>
+
+        <a href="markt.html">
+
+            <i class="fa-solid fa-store"></i>
+
+            Markt
+
+        </a>
+
+        <a href="vacatures.html">
+
+            <i class="fa-solid fa-briefcase"></i>
+
+            Plaats vacatures
+
+        </a>
+
+        <a href="meldingen.html" class="active">
+
+            <i class="fa-solid fa-bell"></i>
+
+            Meldingen
+
+        </a>
+
+        <a href="bedrijfsprofiel.html">
+
+            <i class="fa-solid fa-user"></i>
+
+            Bedrijfsprofiel
+
+        </a>
+     <!-- SETTINGS BUTTON -->
+
+        <div class="settings-wrapper">
+
+            <button class="settings-btn" id="settingsBtn">
+
+                <i class="fa-solid fa-gear"></i>
+
+                Instellingen
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+    <div class="page-title-bar">
+        <p>Meldingen</p>
+    </div>
+
+    <!-- SETTINGS SIDEBAR -->
+
+    <div class="settings-sidebar" id="settingsSidebar">
+
+        <div class="settings-sidebar-top">
+
+            <h2>Instellingen</h2>
+
+            <button id="closeSettings">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <div class="settings-tabs">
+            <button class="settings-tab-btn active" data-tab="account">Account</button>
+            <button class="settings-tab-btn" data-tab="privacy">Privacy</button>
+            <button class="settings-tab-btn" data-tab="notifications">Meldingen</button>
+            <button class="settings-tab-btn" data-tab="payments">Betalingen</button>
+            <button class="settings-tab-btn" data-tab="other">Overig</button>
+        </div>
+
+        <div class="settings-content">
+            <!-- ACCOUNT TAB -->
+            <div class="settings-tab active" id="account-tab">
+                <form class="settings-form">
+                    <div class="form-group">
+                        <label>Bedrijfsnaam</label>
+                        <input type="text" placeholder="Uw bedrijfsnaam">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="uw@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Telefoon</label>
+                        <input type="tel" placeholder="+597 0000000">
+                    </div>
+                    <div class="form-group">
+                        <label>Adres</label>
+                        <input type="text" placeholder="Uw adres">
+                    </div>
+                    <button type="submit" class="save-btn">Opslaan</button>
+                </form>
+            </div>
+
+            <!-- PRIVACY TAB -->
+            <div class="settings-tab" id="privacy-tab">
+                <form class="settings-form">
+                    <div class="form-group">
+                        <label>Huidig wachtwoord</label>
+                        <input type="password" placeholder="Uw huidige wachtwoord">
+                    </div>
+                    <div class="form-group">
+                        <label>Nieuw wachtwoord</label>
+                        <input type="password" placeholder="Nieuw wachtwoord">
+                    </div>
+                    <div class="form-group">
+                        <label>Bevestig wachtwoord</label>
+                        <input type="password" placeholder="Herhaal wachtwoord">
+                    </div>
+                    <button type="submit" class="save-btn">Wachtwoord wijzigen</button>
+                </form>
+            </div>
+
+            <!-- NOTIFICATIONS TAB -->
+            <div class="settings-tab" id="notifications-tab">
+                <form class="settings-form">
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            Email meldingen
+                        </label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            Aanbiedingen & promoties
+                        </label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" checked>
+                            Nieuwsbrieven
+                        </label>
+                    </div>
+                    <button type="submit" class="save-btn">Opslaan</button>
+                </form>
+            </div>
+
+            <!-- PAYMENTS TAB -->
+            <div class="settings-tab" id="payments-tab">
+                <form class="settings-form">
+                    <div class="form-group">
+                        <label>Rekeninghouder</label>
+                        <input type="text" placeholder="Naam rekeninghouder">
+                    </div>
+                    <div class="form-group">
+                        <label>Bankrekeningnummer</label>
+                        <input type="text" placeholder="Rekeningnummer">
+                    </div>
+                    <div class="form-group">
+                        <label>Banknaam</label>
+                        <input type="text" placeholder="Banknaam">
+                    </div>
+                    <button type="submit" class="save-btn">Opslaan</button>
+                </form>
+            </div>
+
+            <!-- OTHER TAB -->
+            <div class="settings-tab" id="other-tab">
+                <form class="settings-form">
+                    <div class="form-group">
+                        <label>Taal</label>
+                        <select>
+                            <option>Nederlands</option>
+                            <option>English</option>
+                            <option>Español</option>
+                        </select>
+                    </div>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="darkModeToggle">
+                            Donkere modus
+                        </label>
+                    </div>
+                    <button type="submit" class="save-btn">Opslaan</button>
+                </form>
+                <hr>
+                <div class="settings-bottom">
+                    <a href="#" class="settings-link">
+                        <i class="fa-solid fa-headset"></i>
+                        Contact support
+                    </a>
+                    <a href="#" class="logout">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        Uitloggen
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <!-- LEFT -->
+
+        <div class="hero-left">
+
+            <h1>
+
+                Uw <span>meldingen</span>
+
+            </h1>
+
+            <p>
+
+                Bekijk alle nieuwe sollicitaties,
+                berichten en updates van uw bedrijf.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="primary-btn">
+
+                    Bekijk sollicitaties
+
+                </button>
+
+                <button class="secondary-btn">
+
+                    Open inbox
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="hero-right">
+
+            <div class="section-top">
+
+                <h2>Activiteit overzicht</h2>
+
+            </div>
+
+            <div class="jobs-grid">
+
+                <div class="job-card">
+
+                    <div class="job-icon blue">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                    </div>
+
+                    <h3>24</h3>
+
+                    <p>Nieuwe berichten</p>
+
+                </div>
+
+                <div class="job-card">
+
+                    <div class="job-icon green-bg">
+
+                        <i class="fa-solid fa-user-check"></i>
+
+                    </div>
+
+                    <h3>15</h3>
+
+                    <p>Nieuwe sollicitaties</p>
+
+                </div>
+
+                <div class="job-card">
+
+                    <div class="job-icon orange">
+
+                        <i class="fa-solid fa-bell"></i>
+
+                    </div>
+
+                    <h3>7</h3>
+
+                    <p>Nieuwe updates</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- MELDINGEN -->
+
+    <section class="market-products">
+
+        <div class="section-top">
+
+            <h2>Nieuwe meldingen</h2>
+
+            <a href="#">Bekijk alles</a>
+
+        </div>
+
+        <div class="market-grid">
+
+            <!-- CARD -->
+
+            <div class="market-card">
+
+                <div class="market-image">
+
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200">
+
+                </div>
+
+                <div class="market-content">
+
+                    <div class="market-top">
+
+                        <h2>Nieuwe sollicitatie</h2>
+
+                        <span>Vandaag</span>
+
+                    </div>
+
+                    <p>
+                        Kevin heeft gesolliciteerd voor ICT Specialist.
+                    </p>
+
+                    <div class="market-user">
+
+                        <img src="https://randomuser.me/api/portraits/men/41.jpg">
+
+                        <div>
+
+                            <h4>Kevin Jansen</h4>
+
+                            <small>10 minuten geleden</small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+
+            <div class="market-card">
+
+                <div class="market-image">
+
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200">
+
+                </div>
+
+                <div class="market-content">
+
+                    <div class="market-top">
+
+                        <h2>Nieuw bericht</h2>
+
+                        <span>Nieuw</span>
+
+                    </div>
+
+                    <p>
+                        Sarah stuurde een bericht over uw vacature.
+                    </p>
+
+                    <div class="market-user">
+
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg">
+
+                        <div>
+
+                            <h4>Sarah Kross</h4>
+
+                            <small>25 minuten geleden</small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CARD -->
+
+            <div class="market-card">
+
+                <div class="market-image">
+
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1200">
+
+                </div>
+
+                <div class="market-content">
+
+                    <div class="market-top">
+
+                        <h2>Vacature populair</h2>
+
+                        <span>Trending</span>
+
+                    </div>
+
+                    <p>
+                        Uw Marketing vacature kreeg veel views vandaag.
+                    </p>
+
+                    <div class="market-user">
+
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg">
+
+                        <div>
+
+                            <h4>SuriJobs</h4>
+
+                            <small>1 uur geleden</small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SETTINGS SIDEBAR -->
+
+    <div class="settings-sidebar" id="settingsSidebar">
+
+        <div class="settings-sidebar-header">
+
+            <h2>Instellingen</h2>
+
+            <button id="closeSettings">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <div class="settings-profile">
+
+            <div class="settings-profile-circle">
+                BK
+            </div>
+
+            <div>
+
+                <h3>Bedrijfsaccount</h3>
+
+                <p>bedrijf@surijobs.com</p>
+
+            </div>
+
+        </div>
+
+        <!-- SETTINGS OPTIONS -->
+
+        <div class="settings-option">
+
+            <i class="fa-solid fa-user"></i>
+
+            <span>Account instellingen</span>
+
+        </div>
+
+        <div class="settings-option">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <span>Privacy & beveiliging</span>
+
+        </div>
+
+        <div class="settings-option">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <span>Meldingen instellingen</span>
+
+        </div>
+
+        <div class="settings-option">
+
+            <i class="fa-solid fa-wallet"></i>
+
+            <span>Betalingen</span>
+
+        </div>
+
+        <div class="settings-option">
+
+            <i class="fa-solid fa-language"></i>
+
+            <span>Taal wijzigen</span>
+
+        </div>
+
+        <div class="settings-option">
+
+            <i class="fa-solid fa-moon"></i>
+
+            <span>Donkere modus</span>
+
+        </div>
+
+        <div class="settings-option">
+
+            <i class="fa-solid fa-headset"></i>
+
+            <span>Contact support</span>
+
+        </div>
+
+        <div class="settings-option logout-option">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            <span>Uitloggen</span>
+
+        </div>
+
+    </div>
+
+    <!-- OVERLAY -->
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- CONTACT -->
+
+    <section class="contact-section">
+
+        <h1>Contact Support</h1>
+
+        <p>
+            Heeft u hulp nodig met meldingen of berichten?
+        </p>
+
+        <div class="contact-container">
+
+            <div class="contact-info">
+
+                <div class="contact-box">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    <div>
+
+                        <h3>Telefoon</h3>
+
+                        <p>+597 0000000</p>
+
+                    </div>
+
+                </div>
+
+                <div class="contact-box">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <div>
+
+                        <h3>Email</h3>
+
+                        <p>support@surijobs.com</p>
+
+                    </div>
+
+                </div>
+
+                <div class="contact-box">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <div>
+
+                        <h3>Adres</h3>
+
+                        <p>Paramaribo, Suriname</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FORM -->
+
+            <form class="contact-form">
+
+                <input type="text" placeholder="Uw naam">
+
+                <input type="email" placeholder="Uw email">
+
+                <textarea placeholder="Uw bericht"></textarea>
+
+                <button type="submit">
+
+                    Bericht verzenden
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- JS -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
