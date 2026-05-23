@@ -24,21 +24,57 @@
             <span class="red">Suri</span><span class="green">Jobs</span>
         </div>
 
-        <div class="search-box">
+        <div class="search-settings">
+            <div class="search-box">
 
-            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
 
-            <input
-                type="text"
-                placeholder="Zoek bedrijf/branche"
-            >
+                <input
+                    type="text"
+                    placeholder="Zoek bedrijf/branche"
+                >
 
-            <button id="clearBtn">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+                <button id="clearBtn">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
 
+            </div>
+
+            <div class="settings-wrapper">
+
+                <button class="settings-btn" id="settingsBtn" aria-label="Instellingen">
+                    ⚙️
+                </button>
+
+                <div class="settings-menu" id="settingsMenu">
+
+        <a href="#savedSection">Opgeslagen Items</a>
+
+        <div class="settings-item language-toggle">
+            Talen
+            <div class="submenu">
+                <button>Nederlands</button>
+                <button>Engels</button>
+                <button>Spaans</button>
+            </div>
         </div>
 
+        <div class="settings-item theme-toggle">
+            Thema
+            <div class="submenu">
+                <button id="lightMode">Light Mode</button>
+                <button id="darkMode">Dark Mode</button>
+                <button id="textSmall">Kleine tekst</button>
+                <button id="textBig">Grote tekst</button>
+            </div>
+        </div>
+
+        <a href="contact.html">Contact Us</a>
+        <button class="settings-item logout-btn" id="logoutBtn" data-logout-path="login.html">Uitloggen</button>
+
+    </div>
+
+</div>
     </header>
 
     <!-- NAVBAR -->
@@ -167,7 +203,23 @@
         </a>
 
     </section>
+<section class="home-section saved-section" id="savedSection">
 
+    <div class="section-title">
+        <h2>Opgeslagen Items</h2>
+
+        <a href="#" id="openSavedPage">
+            Alles bekijken
+        </a>
+    </div>
+
+    <div class="saved-grid" id="savedGrid">
+
+        <!-- SAVED CARDS COME HERE -->
+
+    </div>
+
+</section>
     <!-- TRENDING -->
     <section class="home-section">
 
@@ -366,6 +418,7 @@
     </section>
 
     <script src="homepage.js"></script>
+    <script src="settings.js"></script>
 
 </body>
 </html>

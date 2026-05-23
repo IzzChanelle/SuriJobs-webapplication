@@ -1,5 +1,11 @@
 // diensten.js
+/* ================= DARK MODE LOAD ================= */
 
+const savedTheme = localStorage.getItem("theme");
+
+if(savedTheme === "dark"){
+    document.body.classList.add("dark-mode");
+}
 // FILTER
 
 const filterBtn =
@@ -134,4 +140,60 @@ postModal.addEventListener("click", (e) => {
 
     }
 
+});
+document.addEventListener("DOMContentLoaded", () => {
+
+    const darkModeBtn = document.getElementById("darkModeBtn");
+    const lightModeBtn = document.getElementById("lightModeBtn");
+
+    /* LOAD SAVED THEME */
+
+    if(localStorage.getItem("theme") === "dark"){
+
+        document.body.classList.add("dark-mode");
+
+    }
+
+    /* DARK MODE */
+
+    if(darkModeBtn){
+
+        darkModeBtn.addEventListener("click", () => {
+
+            document.body.classList.add("dark-mode");
+
+            localStorage.setItem("theme", "dark");
+
+        });
+
+    }
+
+    /* LIGHT MODE */
+
+    if(lightModeBtn){
+
+        lightModeBtn.addEventListener("click", () => {
+
+            document.body.classList.remove("dark-mode");
+
+            localStorage.setItem("theme", "light");
+
+        });
+
+    }
+
+});
+/* ================= DARK MODE BUTTONS ================= */
+
+const darkModeBtn = document.getElementById("darkModeBtn");
+const lightModeBtn = document.getElementById("lightModeBtn");
+
+darkModeBtn?.addEventListener("click", () => {
+    document.body.classList.add("dark-mode");
+    localStorage.setItem("theme", "dark");
+});
+
+lightModeBtn?.addEventListener("click", () => {
+    document.body.classList.remove("dark-mode");
+    localStorage.setItem("theme", "light");
 });

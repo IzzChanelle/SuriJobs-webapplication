@@ -13,10 +13,37 @@
         <div class="logo">
             <span class="red">Suri</span><span class="green">Jobs</span>
         </div>
-        <div class="search-box">
-            <span class="search-icon">🔍</span>
-            <input type="text" id="searchInput" placeholder="Zoek dienst/branche">
-            <button id="clearBtn">✕</button>
+        <div class="search-settings">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="Zoek dienst/branche">
+                <button id="clearBtn">✕</button>
+            </div>
+            <div class="settings-wrapper">
+                <button class="settings-btn" id="settingsBtn" aria-label="Instellingen">⚙️</button>
+                <div class="settings-menu" id="settingsMenu">
+                    <a href="#">Opgeslagen Items</a>
+                    <div class="settings-item language-toggle">
+                        Talen
+                        <div class="submenu">
+                            <button>Nederlands</button>
+                            <button>Engels</button>
+                            <button>Spaans</button>
+                        </div>
+                    </div>
+                    <div class="settings-item theme-toggle">
+                        Thema
+                        <div class="submenu">
+                            <button id="lightMode">Light Mode</button>
+                            <button id="darkMode">Dark Mode</button>
+                            <button id="textSmall">Kleine tekst</button>
+                            <button id="textBig">Grote tekst</button>
+                        </div>
+                    </div>
+                    <a href="contact.html">Contact Us</a>
+                    <button class="settings-item logout-btn" id="logoutBtn" data-logout-path="login.html">Uitloggen</button>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -156,5 +183,6 @@
     </a>
 
     <script src="diensten.js"></script>
+    <script src="settings.js"></script>
 </body>
 </html>

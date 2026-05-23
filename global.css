@@ -97,6 +97,18 @@ header {
     gap: 12px;
 }
 
+.search-settings {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.settings-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
 .search-box input {
     flex: 1;
     border: none;
@@ -191,7 +203,7 @@ header {
     cursor: pointer;
     position: absolute;
     left: 20px;
-    z-index: 6000;
+    z-index: 9000;
     transition: 0.4s;
     transform: translateX(0);
 }
@@ -231,20 +243,32 @@ header {
     gap: 10px;
     position: absolute;
     right: 100px;
+    z-index: 7001; /* ensure view buttons sit above most header elements */
+    touch-action: manipulation;
 }
 
 .view-buttons button {
-    width: 50px;
-    height: 50px;
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    min-height: 52px;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     background: var(--white);
     font-size: 1.5rem;
     cursor: pointer;
     transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .view-buttons button:hover { transform: scale(1.08); }
+
+/* Make sure filter and refresh are below view buttons when needed */
+.filter-btn { z-index: 7000; touch-action: manipulation; }
+.refresh-btn { z-index: 7002; touch-action: manipulation; }
 
 /* ================= FILTER SIDEBAR ================= */
 
@@ -256,7 +280,7 @@ header {
     left: 0;
     top: 188px;
     height: calc(100vh - 188px);
-    z-index: 5500;
+    z-index: 4500;
     padding: 20px;
     transform: translateX(-100%);
     opacity: 0;
@@ -267,8 +291,8 @@ header {
 /* OPEN SIDEBAR */
 
 .filter-sidebar.active {
-    transform: translateX(0);
-    opacity: 1;
+    transform: translateX(0) !important;
+    opacity: 1 !important;
 }
 
 .filter-sidebar h2 {
@@ -324,8 +348,29 @@ main             { padding: 30px; }
 
 .posts-container.grid-view {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+}
+
+@media (max-width: 900px) {
+    .posts-container.grid-view {
+        grid-template-columns: repeat(3, minmax(100px, 1fr));
+        gap: 16px;
+    }
+}
+
+@media (max-width: 700px) {
+    .posts-container.grid-view {
+        grid-template-columns: repeat(3, minmax(90px, 1fr));
+        gap: 14px;
+    }
+}
+
+@media (max-width: 500px) {
+    .posts-container.grid-view {
+        grid-template-columns: repeat(2, minmax(90px, 1fr));
+        gap: 12px;
+    }
 }
 
 /* ================= JOB CARD ================= */
@@ -864,6 +909,73 @@ body.home-page .contact-btn {
     padding: 10px 16px;
     border-radius: 30px;
 }
+/* ============================================================
+   SAVED SECTION
+============================================================ */
+
+.saved-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.saved-card{
+    background:white;
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 6px 20px rgba(0,0,0,0.10);
+    transition:.3s;
+}
+
+.saved-card:hover{
+    transform:translateY(-5px);
+}
+
+.saved-card img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+}
+
+.saved-content{
+    padding:20px;
+}
+
+.saved-content h3{
+    margin-bottom:10px;
+}
+
+.saved-content p{
+    color:#666;
+    margin-bottom:15px;
+}
+
+.saved-type{
+    background:var(--green);
+    color:white;
+    padding:8px 14px;
+    border-radius:30px;
+    display:inline-block;
+    font-size:.9rem;
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+    .saved-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:700px){
+
+    .saved-grid{
+        grid-template-columns:1fr;
+    }
+
+}
 
 /* PROFILE PREVIEW */
 
@@ -1035,12 +1147,22 @@ body.home-page .contact-btn {
 }
 
 @media (max-width: 900px) {
-    .top-header, header { flex-direction: column; gap: 20px; padding: 20px; }
-    .search-box         { width: 100%; }
+    .top-header, header { flex-direction: column; gap: 20px; padding: 20px; align-items: stretch; }
+    .search-settings { display: flex; align-items: center; justify-content: space-between; gap: 15px; width: 100%; flex-wrap: wrap; }
+    .search-box { width: auto; flex: 1; min-width: 0; }
+    .settings-wrapper { margin-left: 0; }
+    .settings-btn { width: 50px; height: 50px; font-size: 1.2rem; }
     .navbar             { flex-wrap: wrap; gap: 20px; }
     .job-buttons        { flex-direction: column; gap: 15px; }
     .logo               { font-size: 3.5rem; }
     .job-image          { height: 320px; }
+}
+
+@media (max-width: 700px) {
+    .search-settings { align-items: center; }
+    .search-box { width: 100%; }
+    .settings-wrapper { width: auto; }
+    .settings-menu { right: 0; top: calc(100% + 10px); }
 }
     /* ================= FIX NAVBAR FULL WIDTH ================= */
 
@@ -1066,6 +1188,8 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
+    min-width: 320px;
+    overflow-x: hidden;
 }
 
 .navbar {
@@ -1819,7 +1943,8 @@ header{
 /* SEARCH */
 
 .search-box{
-    width: 430px !important;
+    width: 100% !important;
+    max-width: 430px !important;
     padding: 10px 16px !important;
 }
 
@@ -2100,199 +2225,563 @@ header{
 @media(max-width:600px){
 
     html{
-        font-size:65%;
-    }
-
-    /* HEADER */
-
-    .top-header,
-    header{
-        padding:15px !important;
-        gap:15px !important;
-    }
-
-    .logo{
-        font-size:2.2rem !important;
-        text-align:center;
-    }
-
-    .search-box{
-        width:100% !important;
-        padding:10px !important;
-    }
-
-    .search-box input{
-        font-size:.9rem !important;
-    }
-
-    /* NAVBAR */
-
-    .navbar{
-        gap:10px !important;
-        padding:12px 5px !important;
-    }
-
-    .nav-link a{
-        font-size:.9rem !important;
-    }
-
-    .nav-line{
-        width:50px !important;
-    }
-
-    /* PAGE HEADERS */
-
-    .werk-header h1,
-    .diensten-header h1,
-    .notif-header h1,
-    .markt-header h1{
-        font-size:1.3rem !important;
-    }
-
-    /* FILTER */
-
-    .filter-btn{
-        left:10px !important;
-    }
-
-    .filter-btn span{
-        width:35px !important;
-    }
-
-    .filter-sidebar,
-    .market-sidebar{
-        width:200px !important;
-        top:140px !important;
-        height:calc(100vh - 140px) !important;
-    }
-
-    /* POSTS */
-
-    .posts-container{
-        width:95% !important;
-        padding:20px 0 !important;
-    }
-
-    .job-image{
-        height:220px !important;
-    }
-
-    .job-info h2{
-        font-size:1.2rem !important;
-    }
-
-    .job-buttons{
-        flex-direction:column !important;
-        gap:10px !important;
-    }
-
-    /* SERVICE */
-
-    .service-card{
-        grid-template-columns:1fr !important;
-    }
-
-    .service-image{
-        height:250px !important;
-    }
-
-    .profile-circle{
-        width:120px !important;
-        height:120px !important;
-    }
-
-    /* BUTTONS */
-
-    .apply-btn,
-    .info-btn,
-    .contact-btn{
-        width:100% !important;
-        text-align:center;
-    }
-
-    /* HOME */
-
-    .hero-card{
-        padding:20px !important;
-    }
-
-    .hero-left h1{
-        font-size:2rem !important;
-    }
-
-    .hero-left p{
-        font-size:.9rem !important;
-    }
-
-    .hero-buttons{
-        flex-direction:column !important;
-    }
-
-    .quick-actions,
-    .market-preview-grid,
-    .trending-grid,
-    .hero-right{
-        grid-template-columns:1fr !important;
-    }
-
-    /* MARKET */
-
-    .market-page{
-        padding:15px !important;
-    }
-
-    .market-grid{
-        grid-template-columns:1fr !important;
-    }
-
-    /* PROFILE */
-
-    .profile-page-container{
-        width:95% !important;
-        grid-template-columns:1fr !important;
-    }
-
-    .profile-form{
-        grid-template-columns:1fr !important;
-    }
-
-    .double-card-grid{
-        grid-template-columns:1fr !important;
-    }
-
-    .profile-preview-card{
-        flex-direction:column !important;
-        text-align:center;
-    }
-
-    /* MODAL */
-
-    .modal-content{
-        width:95% !important;
-        grid-template-columns:1fr !important;
-    }
-
-    .modal-image{
-        height:250px !important;
-    }
-
-    .modal-info{
-        padding:20px !important;
-    }
-
-    /* FLOAT PROFILE BUTTON */
-
-    .profile-button{
-        left:10px !important;
-        bottom:10px !important;
-        padding:6px 12px !important;
-    }
-
-    .profile-button span{
-        display:none !important;
+        font-size:70%;
     }
 
 }
+
+/* CUSTOM PHONE/TABLET FIXES */
+
+@media (max-width: 1200px) {
+    .home-section,
+    .hero-section,
+    .profile-preview-section,
+    .profile-page-container,
+    .posts-container,
+    .market-page,
+    .notifications-container {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .hero-card,
+    .profile-preview-card,
+    .market-preview-grid,
+    .trending-grid,
+    .quick-actions,
+    .double-card-grid,
+    .profile-form,
+    .template-grid,
+    .cv-main-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .profile-page-container {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    .profile-sidebar,
+    .market-sidebar {
+        position: static !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        top: auto !important;
+    }
+
+    .filter-sidebar {
+        position: absolute !important;
+        width: 200px !important;
+        max-width: 100% !important;
+        height: calc(100vh - 296px) !important;
+        top: 296px !important;
+        left: 0 !important;
+        transform: translateX(-100%) !important;
+        opacity: 0 !important;
+        z-index: 4500 !important;
+        overflow-y: auto !important;
+    }
+
+    .search-box {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .nav-link {
+        width: auto !important;
+        text-align: center;
+    }
+
+    .profile-photo-wrapper {
+        width: 90px !important;
+        height: 90px !important;
+    }
+
+    .profile-photo-card,
+    .profile-card,
+    .preference-card,
+    .small-section-card {
+        padding: 20px !important;
+    }
+
+    .modal-content,
+    .product-modal-content,
+    .sell-form {
+        width: 95% !important;
+        max-width: 100% !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .top-header,
+    header,
+    .title-bar,
+    .diensten-header,
+    .werk-header,
+    .notif-header,
+    .markt-header {
+        padding: 16px 18px !important;
+    }
+
+    .logo {
+        font-size: 3rem !important;
+    }
+
+    .navbar {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        padding: 16px 10px !important;
+    }
+
+    .nav-link {
+        flex: 1 1 45% !important;
+        max-width: 45% !important;
+        min-width: 120px !important;
+        margin: 0 auto !important;
+    }
+
+    .nav-link a {
+        font-size: 1rem !important;
+    }
+
+    .nav-line {
+        width: 60px !important;
+    }
+
+    .hero-left h1 {
+        font-size: 2.2rem !important;
+    }
+
+    .hero-card,
+    .profile-preview-card,
+    .modal-content,
+    .product-modal-content {
+        padding: 24px !important;
+    }
+
+    .action-card {
+        padding: 20px !important;
+    }
+
+    .posts-container {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .market-grid,
+    .market-preview-grid,
+    .trending-grid,
+    .quick-actions {
+        grid-template-columns: 1fr !important;
+    }
+
+    .market-card {
+        width: 100% !important;
+    }
+
+    .market-save {
+        width: 42px !important;
+        height: 42px !important;
+    }
+
+    .job-buttons,
+    .profile-buttons {
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+
+    .profile-page-container {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        justify-content: flex-start !important;
+        gap: 12px !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 16px 10px !important;
+        min-width: 100%;
+    }
+
+    .nav-link {
+        display: inline-flex !important;
+        flex: 0 0 auto !important;
+        min-width: auto !important;
+        padding: 8px 14px !important;
+        margin: 6px 8px 6px 0 !important;
+        max-width: none !important;
+        white-space: nowrap;
+    }
+
+    .nav-link:last-child {
+        margin-right: 0 !important;
+    }
+
+    .nav-link a {
+        font-size: 1rem !important;
+        text-align: center;
+        width: auto !important;
+        white-space: nowrap;
+    }
+
+    .nav-line {
+        width: 40px !important;
+    }
+
+    .top-header,
+    header,
+    .title-bar,
+    .diensten-header,
+    .werk-header,
+    .notif-header,
+    .markt-header {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 10px !important;
+        padding: 16px 18px !important;
+    }
+
+    .diensten-header h1,
+    .werk-header h1,
+    .notif-header h1,
+    .markt-header h1 {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        text-align: center !important;
+        margin: 0 !important;
+    }
+
+    .filter-btn,
+    .refresh-btn,
+    .view-buttons,
+    .add-product-btn {
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        flex: 0 0 auto !important;
+        width: auto !important;
+        margin: 0 !important;
+    }
+
+    .view-buttons {
+        position: relative !important;
+        right: auto !important;
+        margin-left: auto !important;
+    }
+
+    .view-buttons button {
+        width: 45px !important;
+        height: 45px !important;
+        padding: 0 !important;
+    }
+
+    .markt-header .add-product-btn {
+        order: 3 !important;
+        padding: 10px 14px !important;
+        font-size: 0.95rem !important;
+    }
+
+    .markt-header .refresh-btn,
+    .view-buttons {
+        order: 4 !important;
+    }
+
+    .hero-left h1 {
+        font-size: 1.9rem !important;
+    }
+
+    .search-box input {
+        font-size: 0.95rem !important;
+    }
+
+    .nav-link a {
+        font-size: 1.2rem !important;
+    }
+
+    .profile-view-btn,
+    .profile-update-btn,
+    .apply-btn,
+    .info-btn,
+    .contact-btn {
+        width: 100% !important;
+    }
+
+    .hero-left h1 {
+        font-size: 1.9rem !important;
+    }
+
+    .search-box input {
+        font-size: 0.95rem !important;
+    }
+
+    .nav-link a {
+        font-size: 1.2rem !important;
+    }
+
+    .profile-view-btn,
+    .profile-update-btn,
+    .apply-btn,
+    .info-btn,
+    .contact-btn {
+        width: 100% !important;
+    }
+
+    .profile-photo-wrapper {
+        width: 80px !important;
+        height: 80px !important;
+    }
+
+    .market-image,
+    .job-image,
+    .modal-image {
+        height: auto !important;
+    }
+
+    .market-header h1 {
+        font-size: 1.6rem !important;
+    }
+
+    @media (max-width: 450px) {
+        .nav-link {
+            flex: 1 1 100% !important;
+            max-width: 100% !important;
+            min-width: 0 !important;
+        }
+
+        .nav-link a {
+            font-size: 0.95rem !important;
+        }
+
+        .markt-header {
+            padding: 14px 12px !important;
+        }
+
+        .markt-header .refresh-btn {
+            font-size: 2rem !important;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .navbar {
+        justify-content: flex-start !important;
+        gap: 12px !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 16px 10px !important;
+        min-width: 100%;
+    }
+
+    .nav-link {
+        display: inline-flex !important;
+        flex: 0 0 auto !important;
+        min-width: auto !important;
+        padding: 8px 14px !important;
+        margin: 6px 8px 6px 0 !important;
+        max-width: none !important;
+        white-space: nowrap;
+    }
+
+    .nav-link a {
+        font-size: 1rem !important;
+        text-align: center;
+        width: auto !important;
+        white-space: nowrap;
+    }
+
+    .top-header,
+    header,
+    .title-bar,
+    .diensten-header,
+    .werk-header,
+    .notif-header,
+    .markt-header {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 10px !important;
+        padding: 16px 18px !important;
+    }
+
+    .filter-btn,
+    .refresh-btn,
+    .add-product-btn {
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        flex: 0 0 auto !important;
+        width: auto !important;
+        margin: 0 !important;
+    }
+
+    .markt-header h1 {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        text-align: center !important;
+        margin: 0 !important;
+    }
+
+    .filter-btn,
+    .refresh-btn,
+    .view-buttons {
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        transform: translateX(0) !important;
+    }
+
+    .filter-btn.active-btn {
+        transform: translateX(var(--sidebar-width)) !important;
+    }
+
+    /* Keep red headers compact on small screens: title centered, buttons inline */
+    .werk-header,
+    .diensten-header,
+    .markt-header,
+    .notif-header {
+        flex-wrap: nowrap !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 8px !important;
+        padding: 12px 14px !important;
+    }
+
+    .filter-btn {
+        order: 0 !important;
+        margin: 0 10px 0 0 !important;
+        flex: 0 0 auto !important;
+    }
+
+    .werk-header h1,
+    .diensten-header h1,
+    .markt-header h1,
+    .notif-header h1 {
+        order: 1 !important;
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        text-align: center !important;
+        margin: 0 !important;
+        font-size: 1.6rem !important;
+    }
+
+    .view-buttons { order: 2 !important; margin-left: 8px !important; }
+    .refresh-btn  { order: 3 !important; margin-left: 8px !important; }
+
+    .view-buttons {
+        order: 3 !important;
+        margin-left: auto !important;
+    }
+
+    .refresh-btn {
+        order: 4 !important;
+        margin-left: auto !important;
+    }
+}
+
+@media (max-width: 700px) {
+    .diensten-header,
+    .werk-header,
+    .markt-header,
+    .notif-header {
+        z-index: 9000 !important;
+    }
+
+    .filter-sidebar {
+        z-index: 7000 !important;
+    }
+    .filter-sidebar {
+        width: min(200px, 70vw) !important;
+        top: 150px !important;
+        height: calc(100vh - 150px) !important;
+        padding: 16px !important;
+    }
+
+    .filter-sidebar h2 {
+        font-size: 1.8rem !important;
+        margin-bottom: 24px !important;
+    }
+
+    .filter-group label {
+        font-size: 1rem !important;
+    }
+
+    .filter-btn span {
+        width: 45px !important;
+    }
+
+    /* Keep filter button visible when sidebar opens on phones */
+    .filter-btn {
+        z-index: 10000 !important;
+        position: relative !important;
+    }
+
+    .filter-btn.active-btn {
+        transform: none !important;
+    }
+
+    .view-buttons button {
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 1.3rem !important;
+    }
+
+    .refresh-btn {
+        font-size: 2.4rem !important;
+    }
+
+    .posts-container {
+        width: 100% !important;
+        padding: 20px 16px !important;
+    }
+
+    .service-card {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+
+    .service-left {
+        padding: 20px !important;
+    }
+
+    .service-image {
+        height: 260px !important;
+    }
+
+    .profile-circle {
+        width: 140px !important;
+        height: 140px !important;
+        margin-bottom: 16px !important;
+    }
+
+    .service-left h2 {
+        font-size: 1.5rem !important;
+    }
+
+    .service-left p {
+        font-size: 0.95rem !important;
+    }
+}
+
 /* PRODUCT MODAL */
 
 .add-product-btn{
@@ -2386,4 +2875,371 @@ header{
     color: white;
     cursor: pointer;
     z-index: 5;
+}
+
+/* FINAL MOBILE FIXES FOR DIENSTEN / SIDEBAR / SERVICE CARDS */
+@media (max-width: 700px) {
+    .filter-btn {
+        z-index: 9500 !important;
+    }
+
+    .filter-sidebar {
+        position: absolute !important;
+        top: 296px !important;
+        left: 0 !important;
+        width: 200px !important;
+        height: calc(100vh - 296px) !important;
+        padding: 18px !important;
+        transform: translateX(-100%) !important;
+        opacity: 0 !important;
+        z-index: 4500 !important;
+        box-shadow: 6px 0 30px rgba(0,0,0,0.18);
+        background: var(--gray-light) !important;
+    }
+
+    .filter-sidebar.active {
+        transform: translateX(0) !important;
+        opacity: 1 !important;
+    }
+
+    .posts-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 20px 14px !important;
+        gap: 22px !important;
+    }
+
+    .service-card {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-shadow: var(--shadow-lg) !important;
+    }
+
+    .service-left {
+        padding: 18px !important;
+    }
+
+    .service-left h2 {
+        font-size: 1.5rem !important;
+        line-height: 1.2 !important;
+        word-break: break-word !important;
+        overflow-wrap: anywhere !important;
+    }
+
+    .service-left p {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+        color: #111 !important;
+        min-height: 3.2rem !important;
+        white-space: normal !important;
+    }
+
+    .service-image {
+        height: 220px !important;
+        min-height: 220px !important;
+    }
+
+    .profile-circle {
+        width: 140px !important;
+        height: 140px !important;
+        margin-bottom: 16px !important;
+    }
+}
+/* ============================================================
+   SETTINGS MENU
+============================================================ */
+
+.settings-wrapper{
+    position:relative;
+    margin-left:15px;
+}
+
+.settings-btn{
+    width:60px;
+    height:60px;
+    border:none;
+    border-radius:50%;
+    background:white;
+    color:var(--green);
+    font-size:1.5rem;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    transition:.3s;
+}
+
+.settings-btn:hover{
+    transform:rotate(90deg);
+}
+
+.settings-menu{
+    position:absolute;
+    top:75px;
+    right:0;
+    width:260px;
+    background:white;
+    border-radius:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    padding:20px;
+    display:none;
+    flex-direction:column;
+    gap:15px;
+    z-index:99999;
+}
+
+.settings-menu.active{
+    display:flex;
+}
+
+.settings-menu a,
+.settings-item{
+    padding:14px;
+    border-radius:15px;
+    background:#f5f5f5;
+    cursor:pointer;
+    transition:.3s;
+    text-decoration:none;
+    color:#222;
+    font-weight:500;
+}
+
+.settings-menu a:hover,
+.settings-item:hover{
+    background:#e9e9e9;
+}
+
+.submenu{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:15px;
+}
+
+.submenu button{
+    border:none;
+    background:var(--green);
+    color:white;
+    padding:12px;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+/* DARK MODE */
+
+body.dark-mode{
+    background:#121212;
+    color:#ededed;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode small,
+body.dark-mode button,
+body.dark-mode input,
+body.dark-mode .nav-link a,
+body.dark-mode .search-box input,
+body.dark-mode .settings-menu a,
+body.dark-mode .settings-item,
+body.dark-mode .job-card,
+body.dark-mode .market-card,
+body.dark-mode .profile-card,
+body.dark-mode .hero-card{
+    color:#f0f0f0;
+}
+
+body.dark-mode .top-header,
+body.dark-mode header,
+body.dark-mode .search-box,
+body.dark-mode .settings-menu,
+body.dark-mode .job-card,
+body.dark-mode .market-card,
+body.dark-mode .profile-card,
+body.dark-mode .hero-card,
+body.dark-mode .notification-card,
+body.dark-mode .market-preview-card,
+body.dark-mode .trend-card,
+body.dark-mode .profile-preview-card{
+    background:#1f1f1f;
+}
+
+body.dark-mode .search-box {
+    border-color: #444;
+}
+
+body.dark-mode .navbar {
+    background: #0d3b18;
+}
+
+body.dark-mode .logo .red {
+    color: #ff8b8b;
+}
+
+body.dark-mode .logo .green {
+    color: #8ae88a;
+}
+
+body.dark-mode .settings-menu a,
+body.dark-mode .settings-item {
+    background: #272727;
+    color: #f3f3f3;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .settings-btn{
+        width:50px;
+        height:50px;
+        font-size:1.2rem;
+    }
+
+    .settings-menu{
+        width:220px;
+        right:-20px;
+    }
+
+}
+/* ============================================================
+   CONTACT PAGE
+============================================================ */
+
+.contact-page{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.contact-card{
+    width:700px;
+    max-width:100%;
+    background:white;
+    padding:40px;
+    border-radius:35px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.12);
+}
+
+.contact-card h1{
+    margin-bottom:30px;
+    color:var(--red);
+    text-align:center;
+}
+
+.contact-form{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    padding:18px;
+    border-radius:18px;
+    border:2px solid #e5e5e5;
+    font-size:1rem;
+}
+
+.contact-form textarea{
+    min-height:180px;
+    resize:vertical;
+}
+
+.contact-form button{
+    border:none;
+    background:var(--green);
+    color:white;
+    padding:18px;
+    border-radius:40px;
+    font-size:1rem;
+    cursor:pointer;
+}
+/* ============================================================
+   DARK MODE
+============================================================ */
+
+body.dark-mode{
+    background:#121212 !important;
+    color:white !important;
+}
+
+/* MAIN BACKGROUNDS */
+
+body.dark-mode .top-header,
+body.dark-mode .navbar,
+body.dark-mode .werk-header,
+body.dark-mode .diensten-header,
+body.dark-mode .markt-header,
+body.dark-mode .notif-header{
+    background:#1f1f1f !important;
+}
+
+/* PAGE BACKGROUNDS */
+
+body.dark-mode .hero-section,
+body.dark-mode .home-section,
+body.dark-mode .market-page,
+body.dark-mode .profile-page-container{
+    background:transparent !important;
+}
+
+/* KEEP WHITE CARDS WHITE */
+
+body.dark-mode .job-card,
+body.dark-mode .profile-card,
+body.dark-mode .market-card,
+body.dark-mode .saved-card,
+body.dark-mode .profile-photo-card,
+body.dark-mode .preference-card,
+body.dark-mode .small-section-card,
+body.dark-mode .notification-card,
+body.dark-mode .hero-card,
+body.dark-mode .action-card,
+body.dark-mode .trend-card,
+body.dark-mode .market-preview-card{
+    background:white !important;
+    color:#222 !important;
+}
+
+/* TEXT INSIDE WHITE CARDS STAYS DARK */
+
+body.dark-mode .job-card h2,
+body.dark-mode .job-card p,
+body.dark-mode .market-card h2,
+body.dark-mode .market-card p,
+body.dark-mode .saved-card h3,
+body.dark-mode .saved-card p,
+body.dark-mode .hero-card h1,
+body.dark-mode .hero-card p{
+    color:#222 !important;
+}
+
+/* SETTINGS MENU */
+
+body.dark-mode .settings-menu{
+    background:#1f1f1f !important;
+}
+
+body.dark-mode .settings-menu a,
+body.dark-mode .settings-menu button{
+    color:white !important;
+}
+
+/* INPUTS */
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select{
+    background:#2b2b2b !important;
+    color:white !important;
+    border-color:#444 !important;
 }
