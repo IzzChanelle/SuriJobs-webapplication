@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
             this.classList.add("selected-role");
             
             gekozenRol = this.innerText.trim();
+            console.log("Gekozen rol opgeslagen:", gekozenRol);
             
             const dynamicFields = document.getElementById("dynamic-fields");
             if (dynamicFields) {
@@ -49,24 +50,56 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-   // --- AL ACCOUNT / NAAR DASHBOARD LOGICA (ZONDER DOORSTUREN) ---
+    // --- AL ACCOUNT / NAAR DASHBOARD LOGICA (MET DE CORRECHTE PADEN) ---
 
-// Als iemand al een account heeft en op de link klikt (Stap 1) -> Direct naar index.html
+   // --- AL ACCOUNT / NAAR DASHBOARD LOGICA ---
 const alreadyAccountBtn = document.getElementById("already-have-account");
+
 if (alreadyAccountBtn) {
     alreadyAccountBtn.addEventListener("click", (e) => {
-        e.preventDefault(); 
-        window.location.href = 'index.html'; 
-    });
-}
+        e.preventDefault();
 
-// Als iemand de registratie afrondt en op "Naar Dashboard" klikt (Stap 4) -> Direct naar index.html
-const goToDashboardBtn = document.getElementById("go-to-dashboard");
-if (goToDashboardBtn) {
-    goToDashboardBtn.addEventListener("click", () => {
-        window.location.href = 'index.html'; 
+        // Stap 1: Controleer of er al een rol is gekozen
+        if (!gekozenRol) {
+            alert("Selecteer eerst je rol (Werkgever, Dienstverlener of Werknemer) voordat je inlogt.");
+            return; // De functie stopt hier, dus ze gaan nergens heen
+        }
+
+        // Stap 2: Als er wel een rol is, stuur door naar het juiste dashboard
+        if (gekozenRol === "Werkgever") {
+            window.location.href = '/SuriJobs/index.html';
+        } 
+        else if (gekozenRol === "Dienstverlener") {
+            window.location.href = '/SuriJobs/indexdienstverlener.html';
+        } 
+        else if (gekozenRol === "Werknemer") {
+            window.location.href = '/index.html';
+        }
     });
 }
+    // Als iemand de registratie afrondt en op "Naar Dashboard" klikt (Stap 4)
+    const goToDashboardBtn = document.getElementById("go-to-dashboard");
+    if (goToDashboardBtn) {
+        goToDashboardBtn.addEventListener("click", () => {
+            console.log("Dashboard knop geklikt voor rol:", gekozenRol);
+
+            if (gekozenRol === "Werkgever") {
+                alert("Je wordt nu doorgestuurd naar het Werkgever Dashboard!");
+                window.location.href = 'SuriJobs/index.html'; // In de map SuriJobs
+            } 
+            else if (gekozenRol === "Dienstverlener") {
+                alert("Je wordt nu doorgestuurd naar het Dienstverlener Dashboard!");
+                window.location.href = 'SuriJobs/indexdienstverlener.html'; // In de map SuriJobs
+            } 
+            else if (gekozenRol === "Werknemer") {
+                alert("Je wordt nu doorgestuurd naar het Werknemer Dashboard!");
+                window.location.href = 'index.html'; // STAAT BUITEN DE MAP, dus GEEN SuriJobs/ ervoor!
+            } 
+            else {
+                alert("Selecteer alstublieft een rol op stap 1.");
+            }
+        });
+    }
 
     // --- NAVIGATIE STAPPEN ---
 
@@ -119,14 +152,14 @@ if (goToDashboardBtn) {
         });
     }
 
-    // --- TERUG LINKS (KLEUREN STELLEN OOK WEER TERUG) ---
+    // --- TERUG LINKS ---
     const backTo1 = document.getElementById("back-to-1");
     if (backTo1) {
         backTo1.addEventListener("click", (e) => {
             e.preventDefault();
             document.getElementById("step-2-content").style.display = "none";
             document.getElementById("step-1-content").style.display = "block";
-            updateProgressBar(1); // Terug naar alleen Rood
+            updateProgressBar(1); 
         });
     }
 
@@ -136,7 +169,7 @@ if (goToDashboardBtn) {
             e.preventDefault();
             document.getElementById("step-3-content").style.display = "none";
             document.getElementById("step-2-content").style.display = "block";
-            updateProgressBar(2); // Terug naar Rood + Geel
+            updateProgressBar(2); 
         });
     }
 
