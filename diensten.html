@@ -48,63 +48,20 @@
     </header>
 
     <nav class="navbar">
-        <div class="nav-link">
-            <a href="index.html">Homepagina</a>
-            <div class="nav-line white-line"></div>
-        </div>
-        <div class="nav-link">
-            <a href="werkgelegenheid.html">Werkgelegenheid</a>
-            <div class="nav-line white-line"></div>
-        </div>
-        <div class="nav-link">
-            <a href="diensten.html">Diensten</a>
-            <div class="nav-line red-line"></div>
-        </div>
-        <div class="nav-link">
-            <a href="markt.html">Markt</a>
-            <div class="nav-line white-line"></div>
-        </div>
-        <div class="nav-link">
-            <a href="notifications.html">Notificaties</a>
-            <div class="nav-line white-line"></div>
-        </div>
-        <div class="nav-link">
-            <a href="profiel.html">Profiel</a>
-            <div class="nav-line white-line"></div>
-        </div>
+        <div class="nav-link"><a href="index.html">Homepagina</a><div class="nav-line white-line"></div></div>
+        <div class="nav-link"><a href="werkgelegenheid.html">Werkgelegenheid</a><div class="nav-line white-line"></div></div>
+        <div class="nav-link"><a href="diensten.html">Diensten</a><div class="nav-line red-line"></div></div>
+        <div class="nav-link"><a href="markt.html">Markt</a><div class="nav-line white-line"></div></div>
+        <div class="nav-link"><a href="notifications.html">Notificaties</a><div class="nav-line white-line"></div></div>
+        <div class="nav-link"><a href="profiel.html">Profiel</a><div class="nav-line white-line"></div></div>
     </nav>
 
     <aside class="filter-sidebar" id="filterSidebar">
         <h2>Filter</h2>
-        <div class="filter-group">
-            <h3>Branche</h3>
-            <label><input type="checkbox"> Nail Artist</label>
-            <label><input type="checkbox"> Kapper</label>
-            <label><input type="checkbox"> Makeup Artist</label>
-            <label><input type="checkbox"> Fotograaf</label>
-            <label><input type="checkbox"> DJ</label>
-        </div>
-        <div class="filter-group">
-            <h3>Wijk</h3>
-            <label><input type="checkbox"> Flora</label>
-            <label><input type="checkbox"> Centrum</label>
-            <label><input type="checkbox"> Wanica</label>
-            <label><input type="checkbox"> Blauwgrond</label>
-        </div>
-        <div class="filter-group">
-            <h3>Prijs</h3>
-            <label><input type="checkbox"> Goedkoop</label>
-            <label><input type="checkbox"> Gemiddeld</label>
-            <label><input type="checkbox"> Premium</label>
-        </div>
-    </aside>
+        </aside>
 
     <div class="diensten-header">
-        <button class="filter-btn" id="filterBtn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <button class="filter-btn" id="filterBtn"><span></span><span></span><span></span></button>
         <h1>Diensten</h1>
         <div class="view-buttons">
             <button id="singleViewBtn">☰</button>
@@ -115,12 +72,10 @@
 
     <div class="posts-container" id="postsContainer">
 
-        <div class="service-card">
+        <div class="service-card" data-phone="5978519082" data-name="Naomi Nails">
             <button class="save-btn">Opslaan</button>
             <div class="service-left">
-                <div class="profile-circle">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="">
-                </div>
+                <div class="profile-circle"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt=""></div>
                 <h2>Naomi Nails</h2>
                 <p>Professionele nail artist gespecialiseerd in gel nails en nail art designs.</p>
                 <button class="contact-btn">Contact</button>
@@ -130,12 +85,10 @@
             </div>
         </div>
 
-        <div class="service-card">
+        <div class="service-card" data-phone="5978689345" data-name="Mike Photography">
             <button class="save-btn">Opslaan</button>
             <div class="service-left">
-                <div class="profile-circle">
-                    <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" alt="">
-                </div>
+                <div class="profile-circle"><img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" alt=""></div>
                 <h2>Mike Photography</h2>
                 <p>Professionele fotograaf voor events, weddings en fotoshoots.</p>
                 <button class="contact-btn">Contact</button>
@@ -150,25 +103,10 @@
     <div class="post-modal" id="postModal">
         <div class="modal-content">
             <button class="close-modal" id="closeModal">✕</button>
-            <div class="modal-image">
-                <img id="modalImg" src="" alt="">
-            </div>
+            <div class="modal-image"><img id="modalImg" src="" alt=""></div>
             <div class="modal-info">
-                <div class="company-top">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="company-logo">
-                    <div>
-                        <h2 id="modalTitle">Dienst naam</h2>
-                        <p>📍 Paramaribo</p>
-                    </div>
-                </div>
-                <div class="full-description">
-                    <p id="modalDescription">Volledige beschrijving van dienst komt hier.</p>
-                </div>
-                <div class="extra-info">
-                    <p>🛠️ Dienst</p>
-                    <p>📍 Paramaribo</p>
-                    <p>💰 Vanaf SRD 250</p>
-                </div>
+                <h2 id="modalTitle">Dienst naam</h2>
+                <p id="modalDescription">Volledige beschrijving...</p>
                 <div class="modal-buttons">
                     <button class="contact-btn">Contact</button>
                     <button class="save-btn">Opslaan</button>
@@ -176,11 +114,6 @@
             </div>
         </div>
     </div>
-
-    <a href="profiel.html" class="profile-button">
-        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
-        <span>Profiel</span>
-    </a>
 
     <script src="diensten.js"></script>
     <script src="settings.js"></script>

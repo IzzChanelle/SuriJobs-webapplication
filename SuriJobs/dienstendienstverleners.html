@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Plaats Dienst</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+
+<!-- HEADER -->
+
+<header class="top-header">
+
+    <!-- LOGO -->
+
+    <div class="logo">
+        <span class="red">Suri</span><span class="green">Jobs</span>
+    </div>
+
+    <!-- SEARCH -->
+
+    <div class="search-box">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input type="text" placeholder="Zoek diensten">
+
+        <button>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
+
+    <!-- RIGHT -->
+
+    <div class="header-right">
+
+        <div class="notification-box">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <span>2</span>
+
+        </div>
+
+        <div class="account-box">
+
+            <div class="account-circle">
+                DV
+            </div>
+
+            <div>
+
+                <h4>Dienstverlener</h4>
+
+                <p>Mijn account</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <a href="indexdienstverlener.html">
+        <i class="fa-solid fa-house"></i>
+        Homepage
+    </a>
+
+    <a href="marktdienstverlener.html">
+        <i class="fa-solid fa-store"></i>
+        Markt
+    </a>
+
+    <a href="dienstendienstverleners.html" class="active">
+        <i class="fa-solid fa-plus"></i>
+        Plaats dienst
+    </a>
+
+    <a href="berichtendienstverleners.html">
+        <i class="fa-solid fa-message"></i>
+        Berichten
+    </a>
+
+    <a href="profieldienstverlener.html">
+        <i class="fa-solid fa-user"></i>
+        Profiel
+    </a>
+
+    <!-- SETTINGS -->
+
+    <div class="settings-wrapper">
+
+        <button id="settingsBtn" class="settings-btn">
+
+            <i class="fa-solid fa-gear"></i>
+
+            Instellingen
+
+        </button>
+
+    </div>
+
+</nav>
+
+<!-- SETTINGS SIDEBAR -->
+
+<div class="settings-sidebar" id="settingsSidebar">
+
+    <div class="settings-sidebar-top">
+
+        <h2>Instellingen</h2>
+
+        <button id="closeSettings">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+    </div>
+
+    <div class="settings-tabs">
+        <button class="settings-tab-btn active" data-tab="account">Account</button>
+        <button class="settings-tab-btn" data-tab="privacy">Privacy</button>
+        <button class="settings-tab-btn" data-tab="notifications">Meldingen</button>
+        <button class="settings-tab-btn" data-tab="payments">Betalingen</button>
+        <button class="settings-tab-btn" data-tab="other">Overig</button>
+    </div>
+
+    <div class="settings-content">
+        <!-- ACCOUNT TAB -->
+        <div class="settings-tab active" id="account-tab">
+            <form class="settings-form">
+                <div class="form-group">
+                    <label>Naam</label>
+                    <input type="text" placeholder="Uw volledige naam">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="uw@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Telefoon</label>
+                    <input type="tel" placeholder="+597 0000000">
+                </div>
+                <div class="form-group">
+                    <label>Adres</label>
+                    <input type="text" placeholder="Uw adres">
+                </div>
+                <button type="submit" class="save-btn">Opslaan</button>
+            </form>
+        </div>
+
+        <!-- PRIVACY TAB -->
+        <div class="settings-tab" id="privacy-tab">
+            <form class="settings-form">
+                <div class="form-group">
+                    <label>Huidig wachtwoord</label>
+                    <input type="password" placeholder="Uw huidige wachtwoord">
+                </div>
+                <div class="form-group">
+                    <label>Nieuw wachtwoord</label>
+                    <input type="password" placeholder="Nieuw wachtwoord">
+                </div>
+                <div class="form-group">
+                    <label>Bevestig wachtwoord</label>
+                    <input type="password" placeholder="Herhaal wachtwoord">
+                </div>
+                <button type="submit" class="save-btn">Wachtwoord wijzigen</button>
+            </form>
+        </div>
+
+        <!-- NOTIFICATIONS TAB -->
+        <div class="settings-tab" id="notifications-tab">
+            <form class="settings-form">
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" checked>
+                        Email meldingen
+                    </label>
+                </div>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" checked>
+                        Bestellingsmeldingen
+                    </label>
+                </div>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" checked>
+                        Nieuwsbrieven
+                    </label>
+                </div>
+                <button type="submit" class="save-btn">Opslaan</button>
+            </form>
+        </div>
+
+        <!-- PAYMENTS TAB -->
+        <div class="settings-tab" id="payments-tab">
+            <form class="settings-form">
+                <div class="form-group">
+                    <label>Rekeninghouder</label>
+                    <input type="text" placeholder="Naam rekeninghouder">
+                </div>
+                <div class="form-group">
+                    <label>Bankrekeningnummer</label>
+                    <input type="text" placeholder="Rekeningnummer">
+                </div>
+                <div class="form-group">
+                    <label>Banknaam</label>
+                    <input type="text" placeholder="Banknaam">
+                </div>
+                <button type="submit" class="save-btn">Opslaan</button>
+            </form>
+        </div>
+
+        <!-- OTHER TAB -->
+        <div class="settings-tab" id="other-tab">
+            <form class="settings-form">
+                <div class="form-group">
+                    <label>Taal</label>
+                    <select>
+                        <option>Nederlands</option>
+                        <option>English</option>
+                        <option>Español</option>
+                    </select>
+                </div>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="darkModeToggle">
+                        Donkere modus
+                    </label>
+                </div>
+                <button type="submit" class="save-btn">Opslaan</button>
+            </form>
+            <hr>
+            <div class="settings-bottom">
+                <a href="#" class="settings-link">
+                    <i class="fa-solid fa-headset"></i>
+                    Contact support
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="page-title-bar">
+        <p>Plaats Dienst</p>
+    </div>
+
+<section class="contact-section">
+
+    <h1>
+        Plaats een nieuwe dienst
+    </h1>
+
+    <p>
+        Vul alle informatie in zodat klanten jouw dienst kunnen vinden.
+    </p>
+
+    <div class="contact-container">
+
+        <!-- INFO -->
+
+        <div class="contact-info">
+
+            <div class="contact-box">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                <div>
+
+                    <h3>Professionele tips</h3>
+
+                    <p>
+                        Gebruik duidelijke foto's en beschrijvingen.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="contact-box">
+
+                <i class="fa-solid fa-star"></i>
+
+                <div>
+
+                    <h3>Krijg meer klanten</h3>
+
+                    <p>
+                        Snelle reacties verhogen je zichtbaarheid.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="contact-box">
+
+                <i class="fa-solid fa-shield"></i>
+
+                <div>
+
+                    <h3>Veilige betalingen</h3>
+
+                    <p>
+                        Werk veilig via het platform.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- FORM -->
+
+        <form class="contact-form">
+
+            <input type="text" placeholder="Naam van dienst">
+
+            <input type="text" placeholder="Categorie">
+
+            <input type="number" placeholder="Prijs in SRD">
+
+            <input type="text" placeholder="Locatie">
+
+            <input type="file">
+
+            <textarea placeholder="Beschrijving van je dienst"></textarea>
+
+            <button type="submit">
+
+                Dienst plaatsen
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <section class="services-section">
+
+        <div class="section-top">
+            <h2>Mijn diensten</h2>
+            <a href="#">Bekijk alles</a>
+        </div>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1542744173-05336fcc7ad4?q=80&w=1200" alt="Schoonmaakdienst">
+                <div class="service-content">
+                    <div class="service-bottom">
+                        <h3>Schoonmaakdienst</h3>
+                        <span>SRD 2200</span>
+                    </div>
+                    <p>Professionele schoonmaak voor huizen, kantoren en bedrijven in Paramaribo.</p>
+                    <div class="service-bottom">
+                        <button class="card-delete-btn">Verwijderen</button>
+                        <button>Bekijk</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200" alt="IT ondersteuning">
+                <div class="service-content">
+                    <div class="service-bottom">
+                        <h3>IT Ondersteuning</h3>
+                        <span>SRD 3200</span>
+                    </div>
+                    <p>Installatie, onderhoud en ondersteuning voor alle computersystemen.</p>
+                    <div class="service-bottom">
+                        <button class="card-delete-btn">Verwijderen</button>
+                        <button>Bekijk</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="contact-section">
+
+        <h1>Contact</h1>
+
+        <p>
+
+            Heeft u vragen? Neem gerust contact met ons op.
+
+        </p>
+
+        <div class="contact-container">
+
+            <!-- INFO -->
+
+            <div class="contact-info">
+
+                <div class="contact-box">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    <div>
+
+                        <h3>Telefoon</h3>
+
+                        <p>+597 0000000</p>
+
+                    </div>
+
+                </div>
+
+                <div class="contact-box">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <div>
+
+                        <h3>Email</h3>
+
+                        <p>support@surijobs.com</p>
+
+                    </div>
+
+                </div>
+
+                <div class="contact-box">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    <div>
+
+                        <h3>Adres</h3>
+
+                        <p>Paramaribo, Suriname</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- FORM -->
+
+            <form class="contact-form">
+
+                <input type="text" placeholder="Uw naam">
+
+                <input type="email" placeholder="Uw email">
+
+                <textarea placeholder="Uw bericht"></textarea>
+
+                <button type="submit">
+
+                    Bericht verzenden
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+</section>
+
+<!-- JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
