@@ -52,13 +52,11 @@ if (refreshBtn) {
     });
 }
 
-
 // ==========================================
 // 5. THE GREAT MODAL & BUTTONS CONTROLLER
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
     
-    // Selecteer alle pop-up elementen centraal
     const postModal = document.getElementById("postModal");
     const modalImg = document.getElementById("modalImg");
     const modalTitle = document.getElementById("modalTitle");
@@ -67,90 +65,74 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let opgeslagenDiensten = JSON.parse(localStorage.getItem("opgeslagenDiensten")) || [];
 
-    // SELECTEER DE DIENSTENKAARTEN (Gebruik jullie eigen class '.service-card')
-    const serviceCards = document.querySelectorAll(".service-card") || document.querySelectorAll(".job-card");
+    // Bij het klikken op een kaart
+    const serviceCards = document.querySelectorAll(".service-card");
 
     serviceCards.forEach(card => {
         card.addEventListener("click", (e) => {
-            // Als er op een knop op de kaart zelf wordt geklikt, open dan de popup niet
             if (e.target.tagName === "BUTTON") return;
 
-            try {
-                // Haal de gegevens op uit de specifieke kaart (volgens jouw HTML structuur)
-                const imgElement = card.querySelector(".service-image img") || card.querySelector("img");
-                const titleElement = card.querySelector("h2");
-                const descElement = card.querySelector("p");
+            // Haal data op uit de kaart (inclusief data-phone en data-name)
+            const img = card.querySelector("img") ? card.querySelector("img").src : "";
+            const title = card.querySelector("h2") ? card.querySelector("h2").innerText : "Dienst";
+            const desc = card.querySelector("p") ? card.querySelector("p").innerText : "";
+            const phone = card.getAttribute("data-phone") || "5978689345"; // Fallback nummer
 
-                const img = imgElement ? imgElement.src : "";
-                const title = titleElement ? titleElement.innerText : "Freelancer";
-                const description = descElement ? descElement.innerText : "";
+            // Sla het nummer tijdelijk op in de modal zodat de knop binnenin erbij kan
+            postModal.setAttribute("data-phone", phone);
 
-                // Stop de data in de pop-up
-                if (modalImg && img) modalImg.src = img;
-                if (modalTitle) modalTitle.innerText = title;
-                if (modalDescription) modalDescription.innerText = description;
+            if (modalImg) modalImg.src = img;
+            if (modalTitle) modalTitle.innerText = title;
+            if (modalDescription) modalDescription.innerText = desc;
 
-                // Update de status van de Opslaan-knop BINNENIN de pop-up direct op de juiste kleur
-                const popupSaveBtn = document.querySelector(".modal-content .save-btn") || document.querySelector(".modal-info .save-btn") || document.querySelector("#postModal .save-btn");
-                if (popupSaveBtn) {
-                    if (opgeslagenDiensten.includes(title)) {
-                        popupSaveBtn.innerText = "Opgeslagen";
-                        popupSaveBtn.style.backgroundColor = "#555555";
-                    } else {
-                        popupSaveBtn.innerText = "Opslaan";
-                        popupSaveBtn.style.backgroundColor = ""; // Reset naar jullie eigen CSS-kleur
-                    }
-                }
-
-                // Open de pop-up met jullie eigen CSS-class!
-                if (postModal) postModal.classList.add("active");
-
-            } catch (error) {
-                console.error("Foutje bij het openen van de modal:", error);
-                if (postModal) postModal.classList.add("active");
-            }
+            postModal.classList.add("active");
         });
     });
 
-    // GLOBALE EVENT LISTENER VOOR DE KNOPPEN BINNENIN DE POP-UP EN SLUITEN
+    // GLOBALE EVENT LISTENER VOOR KNOPPEN
     document.addEventListener("click", (e) => {
         
-        // A. SLUITEN (Met kruisje of buiten het witte vlak klikken)
-        if (e.target === closeModal || e.target.classList.contains("close-modal") || e.target.innerText === "✕" || e.target === postModal) {
+        // SLUITEN
+        if (e.target === closeModal || e.target.classList.contains("close-modal") || e.target === postModal) {
             if (postModal) postModal.classList.remove("active");
             return;
         }
 
-        // B. BINNEN DE POP-UP ACTIES
-        if (postModal && postModal.classList.contains("active") && e.target.closest(".modal-content")) {
-            const huidigeNaam = modalTitle ? modalTitle.innerText : "";
+        // WHATSAPP CONTACT
+        if (e.target.classList.contains("contact-btn")) {
+            // Check of we in een kaart zitten of in de modal
+            const card = e.target.closest(".service-card");
+            const phone = card ? card.getAttribute("data-phone") : postModal.getAttribute("data-phone");
+            const name = card ? card.getAttribute("data-name") : (modalTitle ? modalTitle.innerText : "Dienstverlener");
 
-            // 1. WhatsApp Contact Knop
-            if (e.target.classList.contains("contact-btn") || e.target.innerText === "Contact") {
-                const telefoonNummer = "5978689345"; 
-                const bericht = `Hallo ${huidigeNaam}, ik heb uw diensten gezien op SuriJobs en ik zou hier graag contact met u over willen opnemen!`;
-                window.open(`https://wa.me/${telefoonNummer}?text=${encodeURIComponent(bericht)}`, '_blank');
-            }
-
-            // 2. LocalStorage Opslaan Knop
-            if (e.target.classList.contains("save-btn") || e.target.innerText === "Opslaan" || e.target.innerText === "Opgeslagen") {
-                if (!huidigeNaam) return;
-
-                opgeslagenDiensten = JSON.parse(localStorage.getItem("opgeslagenDiensten")) || [];
-
-                if (!opgeslagenDiensten.includes(huidigeNaam)) {
-                    opgeslagenDiensten.push(huidigeNaam);
-                    e.target.innerText = "Opgeslagen";
-                    e.target.style.backgroundColor = "#555555";
-                    alert(`De dienst van "${huidigeNaam}" is opgeslagen!`);
-                } else {
-                    opgeslagenDiensten = opgeslagenDiensten.filter(item => item !== huidigeNaam);
-                    e.target.innerText = "Opslaan";
-                    e.target.style.backgroundColor = ""; // Terug naar jullie eigen CSS-kleur
-                    alert(`De dienst van "${huidigeNaam}" is verwijderd.`);
-                }
-                localStorage.setItem("opgeslagenDiensten", JSON.stringify(opgeslagenDiensten));
-            }
+            const bericht = `Hallo ${name}, ik heb uw diensten gezien op SuriJobs!`;
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(bericht)}`, '_blank');
         }
+
+        // OPSLAAN LOGICA
+if (e.target.classList.contains("save-btn")) {
+    const card = e.target.closest(".service-card");
+    const title = card ? card.querySelector("h2").innerText : (modalTitle ? modalTitle.innerText : "");
+    
+    if (!title) return;
+
+    // Haal huidige lijst op
+    let opgeslagenDiensten = JSON.parse(localStorage.getItem("opgeslagenDiensten")) || [];
+
+    if (!opgeslagenDiensten.includes(title)) {
+        // Opslaan
+        opgeslagenDiensten.push(title);
+        e.target.innerText = "Opgeslagen"; // Verander tekst op de knop zelf
+        e.target.style.backgroundColor = "#555555"; // Optioneel: verander kleur
+    } else {
+        // Verwijderen
+        opgeslagenDiensten = opgeslagenDiensten.filter(item => item !== title);
+        e.target.innerText = "Opslaan"; // Terug naar origineel
+        e.target.style.backgroundColor = ""; 
+    }
+    
+    // Sla op in browsergeheugen
+    localStorage.setItem("opgeslagenDiensten", JSON.stringify(opgeslagenDiensten));
+}
     });
 });
