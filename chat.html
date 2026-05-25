@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuriJobs — Chat</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .chat-container {
+            display: flex;
+            gap: 20px;
+            height: calc(100vh - 140px);
+            min-height: 500px;
+        }
+        .conversations-sidebar {
+            width: 280px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+        .conversation-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: background var(--t);
+        }
+        .conversation-item:hover { background: var(--bg); }
+        .conversation-item.active { background: var(--green-light); border-left: 3px solid var(--green-dark); }
+        .conversation-avatar {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .conversation-info { flex: 1; min-width: 0; }
+        .conversation-name { font-weight: 600; margin-bottom: 2px; }
+        .conversation-last { font-size: 0.75rem; color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .conversation-time { font-size: 0.7rem; color: var(--text-muted); }
+        .unread-badge {
+            background: var(--red);
+            color: white;
+            border-radius: 20px;
+            padding: 2px 8px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+        .chat-main {
+            flex: 1;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .chat-header {
+            padding: 16px;
+            border-bottom: 1px solid var(--border);
+            font-weight: 600;
+            background: var(--bg);
+        }
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .message {
+            max-width: 70%;
+            padding: 10px 14px;
+            border-radius: var(--r-lg);
+            word-wrap: break-word;
+        }
+        .message-sent {
+            align-self: flex-end;
+            background: var(--green-dark);
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+        .message-received {
+            align-self: flex-start;
+            background: var(--bg);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-bottom-left-radius: 4px;
+        }
+        .message-time {
+            font-size: 0.65rem;
+            margin-top: 4px;
+            opacity: 0.7;
+            text-align: right;
+        }
+        .chat-input-area {
+            padding: 16px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 10px;
+        }
+        .chat-input-area input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: var(--r-full);
+            outline: none;
+        }
+        .chat-input-area button {
+            padding: 10px 20px;
+        }
+        .empty-chat {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--text-dim);
+        }
+        @media (max-width: 768px) {
+            .chat-container { gap: 0; height: calc(100vh - 56px - 60px); position: relative; }
+
+            /* Sidebar becomes a slide-over drawer */
+            .conversations-sidebar {
+                position: absolute;
+                top: 0; left: 0;
+                width: 80%;
+                max-width: 300px;
+                height: 100%;
+                z-index: 50;
+                transform: translateX(-100%);
+                transition: transform 0.28s ease;
+                border-radius: 0;
+                box-shadow: var(--shadow-lg);
+            }
+            .conversations-sidebar.open { transform: translateX(0); }
+
+            /* Chat main takes full width */
+            .chat-main { width: 100%; border-radius: var(--r-md); }
+
+            /* Show a toggle button inside chat header */
+            .chat-sidebar-toggle {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                width: 34px; height: 34px;
+                border-radius: var(--r-sm);
+                border: 1px solid var(--border);
+                background: var(--bg);
+                margin-right: 8px;
+                flex-shrink: 0;
+                cursor: pointer;
+            }
+            .chat-sidebar-toggle svg { width: 16px; height: 16px; stroke: var(--text-dim); fill: none; }
+
+            /* Overlay when sidebar open */
+            .chat-sidebar-overlay {
+                display: none;
+                position: absolute;
+                inset: 0;
+                background: rgba(0,0,0,0.35);
+                z-index: 40;
+            }
+            .chat-sidebar-overlay.visible { display: block; }
+        }
+        @media (max-width: 480px) {
+            .message { max-width: 88%; }
+            .chat-input-area { padding: 10px; gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-layout">
+    <div class="main-wrap">
+        <main class="main-content">
+            <div class="page-header">
+                <h1><span class="page-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span> Berichten</h1>
+            </div>
+            <div class="chat-container">
+                <div class="conversations-sidebar" id="conversationsSidebar">
+                    <div class="loading" style="padding:20px;">Gesprekken laden...</div>
+                </div>
+                <div class="chat-main" id="chatMain">
+                    <div class="chat-sidebar-overlay" id="chatOverlay"></div>
+                <div class="chat-header" id="chatHeader" style="display:flex;align-items:center;gap:8px;">
+                    <button class="chat-sidebar-toggle" id="chatSidebarToggle" style="display:none;" title="Gesprekken">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="12" x2="21" y2="12" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="6" x2="21" y2="6" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="18" x2="21" y2="18" stroke-width="2" stroke-linecap="round"/></svg>
+                    </button>
+                    <span id="chatHeaderText">Selecteer een gesprek</span>
+                </div>
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="empty-chat">Klik links op een persoon om te chatten</div>
+                    </div>
+                    <div class="chat-input-area" id="chatInputArea" style="display:none;">
+                        <input type="text" id="messageInput" placeholder="Typ je bericht...">
+                        <button id="sendBtn" class="btn-primary">Verstuur</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script>
+// Mobile chat sidebar toggle
+(function(){
+    function init(){
+        var toggle = document.getElementById('chatSidebarToggle');
+        var sidebar = document.getElementById('conversationsSidebar');
+        var overlay = document.getElementById('chatOverlay');
+        if(!toggle||!sidebar||!overlay) return;
+        function isMobile(){ return window.innerWidth <= 768; }
+        function updateToggleVisibility(){
+            toggle.style.display = isMobile() ? 'flex' : 'none';
+        }
+        function openSidebar(){
+            sidebar.classList.add('open');
+            overlay.classList.add('visible');
+        }
+        function closeSidebar(){
+            sidebar.classList.remove('open');
+            overlay.classList.remove('visible');
+        }
+        toggle.addEventListener('click', function(){
+            sidebar.classList.contains('open') ? closeSidebar() : openSidebar();
+        });
+        overlay.addEventListener('click', closeSidebar);
+        // Close sidebar when a conversation is selected on mobile
+        sidebar.addEventListener('click', function(e){
+            if(e.target.closest('.conversation-item') && isMobile()) setTimeout(closeSidebar, 180);
+        });
+        window.addEventListener('resize', updateToggleVisibility);
+        updateToggleVisibility();
+    }
+    document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', init) : init();
+})();
+</script>
+<script src="js/constants.js"></script>
+<script src="js/api.js"></script>
+<script src="js/topnav.js"></script>
+<script src="js/chat.js"></script>
+
+<div class="bottom-nav" id="bottomNav" style="display:none;"></div>
+<script>
+(function(){
+    // Clone topnav links into bottom nav for mobile
+    function buildBottomNav(){
+        var nav = document.getElementById('bottomNav');
+        if(!nav) return;
+        var links = document.querySelectorAll('.topnav-links .topnav-link');
+        if(!links.length){ setTimeout(buildBottomNav, 100); return; }
+        nav.innerHTML = '';
+        links.forEach(function(l){
+            nav.appendChild(l.cloneNode(true));
+        });
+    }
+    if(document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', buildBottomNav);
+    } else { buildBottomNav(); setTimeout(buildBottomNav, 120); }
+})();
+</script>
+</body>
+</html>

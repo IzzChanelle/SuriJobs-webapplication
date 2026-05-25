@@ -1,486 +1,304 @@
 <!DOCTYPE html>
 <html lang="nl">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>SuriJobs - Profiel</title>
-
-    <link rel="stylesheet" href="global.css">
-
+    <title>SuriJobs — Profiel</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-    <!-- ===================================================== -->
-    <!-- HEADER -->
-    <!-- ===================================================== -->
+<div class="app-layout">
+    <div class="main-wrap">
+        <main class="main-content">
 
-    <header class="top-header">
-
-        <div class="logo">
-
-            <span class="red">Suri</span><span class="green">Jobs</span>
-
-        </div>
-
-        <div class="search-box">
-
-            <span class="search-icon">🔍</span>
-
-            <input
-                type="text"
-                placeholder="Zoek bedrijf/branche"
-            >
-
-            <button id="clearBtn">✕</button>
-
-        </div>
-
-    </header>
-
-    <!-- ===================================================== -->
-    <!-- NAVBAR -->
-    <!-- ===================================================== -->
-
-    <nav class="navbar">
-
-        <div class="nav-link">
-
-            <a href="index.html">Homepagina</a>
-
-            <div class="nav-line white-line"></div>
-
-        </div>
-
-        <div class="nav-link">
-
-            <a href="werkgelegenheid.html">Werkgelegenheid</a>
-
-            <div class="nav-line white-line"></div>
-
-        </div>
-
-        <div class="nav-link">
-
-            <a href="diensten.html">Diensten</a>
-
-            <div class="nav-line white-line"></div>
-
-        </div>
-
-        <div class="nav-link">
-
-            <a href="markt.html">Markt</a>
-
-            <div class="nav-line white-line"></div>
-
-        </div>
-
-        <div class="nav-link">
-
-            <a href="notifications.html">Notificaties</a>
-
-            <div class="nav-line white-line"></div>
-
-        </div>
-
-        <div class="nav-link">
-
-            <a href="profiel.html">Profiel</a>
-
-            <div class="nav-line red-line"></div>
-
-        </div>
-
-    </nav>
-
-    <!-- ===================================================== -->
-    <!-- TITLE -->
-    <!-- ===================================================== -->
-
-    <div class="title-bar">
-
-        <h1>Profiel</h1>
-
-    </div>
-
-    <!-- ===================================================== -->
-    <!-- MAIN -->
-    <!-- ===================================================== -->
-
-    <main class="profile-page-container">
-
-        <!-- ================================================= -->
-        <!-- LEFT -->
-        <!-- ================================================= -->
-
-        <section class="profile-sidebar">
-
-            <!-- PHOTO -->
-
-            <div class="profile-photo-upload">
-
-                <img
-                    src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
-                    alt=""
-                    id="profilePreview"
-                >
-
-                <button class="upload-photo-btn">
-
-                    +
-
-                </button>
-
+            <div class="page-header" style="margin-bottom:20px;">
+                <h1>Profiel</h1>
             </div>
 
-            <!-- COMPLETION -->
+            <div class="profile-page-container">
 
-            <div class="profile-completion">
+                <!-- Left column -->
+                <aside class="profile-sidebar">
 
-                <h3>Profiel compleetheid</h3>
-
-                <div class="progress-bar">
-
-                    <div class="progress-fill" id="progressFill"></div>
-
-                </div>
-
-                <p class="profile-status-text">
-
-                    <span id="progressText">0%</span> compleet
-
-                </p>
-
-            </div>
-
-            <!-- PROFILE INFO -->
-
-            <div class="profile-card">
-
-                <h2>Persoonlijke info</h2>
-
-                <div class="profile-form">
-
-                    <div class="form-group">
-
-                        <label>Voornaam</label>
-
-                        <input type="text" class="profile-input">
-
+                    <!-- Photo + role badge -->
+                    <div class="profile-card" style="text-align:center;">
+                        <div class="profile-photo-upload">
+                            <img id="profilePreview" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
+                            <button class="upload-photo-btn" title="Foto wijzigen">+</button>
+                        </div>
+                        <div id="userRoleBadge" class="tag" style="margin-top:8px;"></div>
                     </div>
 
-                    <div class="form-group">
-
-                        <label>Achternaam</label>
-
-                        <input type="text" class="profile-input">
-
+                    <!-- Completion -->
+                    <div class="profile-card profile-completion">
+                        <h3>Profielcompleetheid</h3>
+                        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                        <p class="profile-status-text">Compleet voor <strong id="progressText">0%</strong></p>
                     </div>
 
-                    <div class="form-group full-width">
-
-                        <label>Email adres</label>
-
-                        <input type="email" class="profile-input">
-
+                    <!-- Skills -->
+                    <div class="profile-card">
+                        <h2><span class="page-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span> Vaardigheden</h2>
+                        <div style="display:flex;gap:8px;">
+                            <input id="skillInput" class="profile-input" type="text" placeholder="Bv. JavaScript" style="flex:1;">
+                            <button id="addSkillBtn" class="btn-primary" style="padding:9px 14px;">+</button>
+                        </div>
+                        <div id="skillsContainer"></div>
                     </div>
 
-                    <div class="form-group">
-
-                        <label>Telefoonnummer</label>
-
-                        <input type="text" class="profile-input">
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>Leeftijd</label>
-
-                        <input type="number" class="profile-input">
-
-                    </div>
-
-                    <div class="form-group full-width">
-
-                        <label>Woonplaats / Wijk</label>
-
-                        <select class="profile-input">
-
-                            <option>Kies wijk</option>
-                            <option>Flora</option>
-                            <option>Blauwgrond</option>
-                            <option>Centrum</option>
-                            <option>Wanica</option>
-
-                        </select>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- MATCH -->
-
-            <div class="profile-card">
-
-                <h2>Matching voorkeuren</h2>
-
-                <div class="profile-form">
-
-                    <div class="form-group full-width">
-
-                        <label>Werk branche</label>
-
-                        <select class="profile-input">
-
-                            <option>ICT</option>
-                            <option>Marketing</option>
-                            <option>Horeca</option>
-
-                        </select>
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>Type werk</label>
-
-                        <select class="profile-input">
-
-                            <option>Fulltime</option>
-                            <option>Parttime</option>
-
-                        </select>
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>Ervaringsniveau</label>
-
-                        <select class="profile-input">
-
-                            <option>Beginner</option>
-                            <option>Expert</option>
-
-                        </select>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- ================================================= -->
-        <!-- RIGHT -->
-        <!-- ================================================= -->
-
-        <section class="profile-main">
-
-            <!-- ABOUT -->
-
-            <div class="profile-card">
-
-                <h2>Over mij</h2>
-
-                <div class="form-group">
-
-                    <textarea
-                        class="profile-input"
-                        placeholder="Vertel iets over jezelf..."
-                    ></textarea>
-
-                </div>
-
-            </div>
-
-            <!-- EDUCATION -->
-
-            <div class="profile-card">
-
-                <h2>School & Educatie</h2>
-
-                <div class="profile-form">
-
-                    <div class="form-group">
-
-                        <label>School naam</label>
-
-                        <input type="text" class="profile-input">
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>Richting / Opleiding</label>
-
-                        <input type="text" class="profile-input">
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>Start jaar</label>
-
-                        <input type="number" class="profile-input">
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>Eind jaar</label>
-
-                        <input type="number" class="profile-input">
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- WORK -->
-
-            <div class="profile-card">
-
-                <h2>Werk ervaring</h2>
-
-                <div class="profile-form">
-
-                    <div class="form-group">
-
-                        <label>Bedrijf naam</label>
-
-                        <input type="text" class="profile-input">
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>Functie</label>
-
-                        <input type="text" class="profile-input">
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>Werk periode</label>
-
-                        <input type="text" class="profile-input">
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <label>Werk locatie</label>
-
-                        <input type="text" class="profile-input">
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- SKILLS -->
-
-            <div class="profile-card">
-
-                <h2>Skills</h2>
-
-                <div class="profile-form">
-
-                    <div class="form-group">
-
-                        <input
-                            type="text"
-                            placeholder="Bijv. Photoshop"
-                            id="skillInput"
-                            class="profile-input"
-                        >
-
-                    </div>
-
-                    <div class="form-group">
-
-                        <button
-                            class="cv-upload-btn"
-                            id="addSkillBtn"
-                        >
-
-                            Skill toevoegen
-
+                    <!-- Mode switch -->
+                    <div class="mode-switch-card">
+                        <h2><span class="page-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span> Modus wisselen</h2>
+                        <p id="modeSwitchDesc">Wissel naar bedrijfsmodus om vacatures te plaatsen. Je persoonlijke info wordt verborgen voor het publiek.</p>
+                        <button class="mode-switch-btn to-business" id="modeSwitchBtn">
+                            Schakel naar Bedrijf
                         </button>
-
+                        <p id="modeSwitchNote" style="font-size:0.78rem;color:var(--text-muted);margin-top:10px;text-align:center;display:none;">
+                            Een bevestigingsmail is verzonden. Klik op de link in je email om te activeren.
+                        </p>
                     </div>
 
-                </div>
+                </aside>
 
-                <div id="skillsContainer"></div>
+                <!-- Right column -->
+                <main class="profile-main">
 
-            </div>
-
-            <!-- CV -->
-
-            <div class="profile-card">
-
-                <h2>CV & Templates</h2>
-
-                <div class="cv-upload-box">
-
-                    <p>PDF, DOCX of TXT bestand</p>
-
-                    <button class="cv-upload-btn">
-
-                        Bestand kiezen
-
-                    </button>
-
-                </div>
-
-                <div class="cv-templates">
-
-                    <h3>CV Templates</h3>
-
-                    <div class="template-grid">
-
-                        <div class="cv-template"></div>
-                        <div class="cv-template"></div>
-                        <div class="cv-template"></div>
-                        <div class="cv-template"></div>
-
+                    <!-- Personal info -->
+                    <div class="profile-card">
+                        <h2><span class="page-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span> Persoonlijke informatie</h2>
+                        <div class="profile-form">
+                            <div class="form-group">
+                                <label>Voornaam</label>
+                                <input type="text" class="profile-input" data-field="first_name" placeholder="Voornaam">
+                            </div>
+                            <div class="form-group">
+                                <label>Achternaam</label>
+                                <input type="text" class="profile-input" data-field="last_name" placeholder="Achternaam">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="profile-input" data-field="email">
+                            </div>
+                            <div class="form-group">
+                                <label>Telefoon</label>
+                                <input type="text" class="profile-input" data-field="phone" placeholder="+597 ...">
+                            </div>
+                            <div class="form-group">
+                                <label>Leeftijd</label>
+                                <input type="number" class="profile-input" data-field="age" placeholder="Leeftijd">
+                            </div>
+                            <div class="form-group">
+                                <label>District</label>
+                                <select class="profile-input" data-field="district"></select>
+                            </div>
+                            <div class="form-group full-width">
+                                <label>Korte bio</label>
+                                <textarea class="profile-input" data-field="bio" placeholder="Vertel iets over jezelf..."></textarea>
+                            </div>
+                        </div>
                     </div>
 
-                </div>
+                    <!-- Work preferences -->
+                    <div class="profile-card">
+                        <h2><span class="page-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></span> Werkvoorkeuren</h2>
+                        <div class="profile-form">
+                            <div class="form-group">
+                                <label>Branche</label>
+                                <select class="profile-input" data-field="branche"></select>
+                            </div>
+                            <div class="form-group">
+                                <label>Type werk</label>
+                                <select class="profile-input" data-field="work_type"></select>
+                            </div>
+                            <div class="form-group">
+                                <label>Ervaringsniveau</label>
+                                <select class="profile-input" data-field="experience_level"></select>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- Education -->
+                    <div class="profile-card">
+                        <h2><span class="page-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span> Opleiding</h2>
+                        <div class="profile-form">
+                            <div class="form-group">
+                                <label>School / Instituut</label>
+                                <input type="text" class="profile-input" data-field="school">
+                            </div>
+                            <div class="form-group">
+                                <label>Niveau</label>
+                                <select class="profile-input" data-field="education"></select>
+                            </div>
+                            <div class="form-group">
+                                <label>Start jaar</label>
+                                <input type="number" class="profile-input" data-field="start_year">
+                            </div>
+                            <div class="form-group">
+                                <label>Eind jaar</label>
+                                <input type="number" class="profile-input" data-field="end_year">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Work experience -->
+                    <div class="profile-card">
+                        <h2><span class="page-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M9 21V9h6v12"/><path d="M9 12h6"/></svg></span> Werkervaring</h2>
+                        <div class="profile-form">
+                            <div class="form-group">
+                                <label>Bedrijf</label>
+                                <input type="text" class="profile-input" data-field="company">
+                            </div>
+                            <div class="form-group">
+                                <label>Functie</label>
+                                <input type="text" class="profile-input" data-field="job_title">
+                            </div>
+                            <div class="form-group">
+                                <label>Periode</label>
+                                <input type="text" class="profile-input" data-field="work_period" placeholder="2020 - heden">
+                            </div>
+                            <div class="form-group">
+                                <label>Locatie</label>
+                                <input type="text" class="profile-input" data-field="work_location">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="save-profile-container">
+                        <button class="save-profile-btn"><span class="page-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg></span> Profiel opslaan</button>
+                    </div>
+
+                    <!-- Company profile (business mode) - wrapped for toggle -->
+                    <div id="companySectionWrapper" style="display: none;">
+                        <div class="profile-card">
+                            <h2>
+                                <span class="page-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M9 21V9h6v12"/><path d="M9 12h6"/></svg></span> Bedrijfsprofiel
+                                <span style="font-size:0.72rem;color:var(--text-muted);font-weight:400;margin-left:6px;">(bedrijfsmodus)</span>
+                            </h2>
+                            <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:16px;line-height:1.6;">
+                                Vul je bedrijfsgegevens in. Zichtbaar voor sollicitanten wanneer je vacatures plaatst.
+                            </p>
+                            <div style="text-align:center;margin-bottom:16px;">
+                                <img id="companyLogo"
+                                    src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                                    style="width:80px;height:80px;border-radius:50%;border:2px solid var(--border);object-fit:cover;background:var(--bg);">
+                            </div>
+                            <div class="profile-form">
+                                <div class="form-group full-width">
+                                    <label>Bedrijfsnaam</label>
+                                    <input type="text" class="profile-input" data-company-field="company_name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Branche</label>
+                                    <select class="profile-input" data-company-field="branche"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label>District</label>
+                                    <select class="profile-input" data-company-field="district"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Website</label>
+                                    <input type="text" class="profile-input" data-company-field="website" placeholder="https://...">
+                                </div>
+                                <div class="form-group">
+                                    <label>Telefoon</label>
+                                    <input type="text" class="profile-input" data-company-field="phone">
+                                </div>
+                                <div class="form-group">
+                                    <label>Bedrijfs email</label>
+                                    <input type="email" class="profile-input" data-company-field="email">
+                                </div>
+                                <div class="form-group">
+                                    <label>Opgericht in (jaar)</label>
+                                    <input type="number" class="profile-input" data-company-field="founded_year">
+                                </div>
+                                <div class="form-group">
+                                    <label>Bedrijfsgrootte</label>
+                                    <select class="profile-input" data-company-field="size"></select>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label>Bedrijfsomschrijving</label>
+                                    <textarea class="profile-input" data-company-field="description" placeholder="Waar staat jouw bedrijf voor?"></textarea>
+                                </div>
+                            </div>
+                            <div class="save-profile-container" style="margin-top:20px;">
+                                <button id="saveCompanyBtn" class="save-profile-btn" style="background:var(--gold);"><span class="page-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M9 21V9h6v12"/><path d="M9 12h6"/></svg></span> Bedrijf opslaan</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </main>
             </div>
+        </main>
+    </div>
+</div>
 
-            <!-- SAVE -->
+<script src="js/constants.js"></script>
+<script src="js/api.js"></script>
+<script src="js/topnav.js"></script>
+<script src="js/profiel.js"></script>
+<script>
+// Mode switch button (same as before, but kept for compatibility)
+(function() {
+    const btn  = document.getElementById('modeSwitchBtn');
+    const note = document.getElementById('modeSwitchNote');
+    const desc = document.getElementById('modeSwitchDesc');
+    if (!btn) return;
 
-            <div class="save-profile-container">
+    function updateSwitchUI() {
+        try {
+            const u = JSON.parse(localStorage.getItem('surijobs_user') || '{}');
+            if (u.active_mode === 'business') {
+                btn.textContent = 'Schakel naar Persoonlijk';
+                btn.classList.remove('to-business');
+                desc.textContent = 'Wissel terug naar persoonlijk om vacatures te zoeken. Je bedrijfsinfo wordt verborgen.';
+            }
+        } catch(e) {}
+    }
+    updateSwitchUI();
 
-                <button class="save-profile-btn">
+    btn.addEventListener('click', async () => {
+        try {
+            const u = JSON.parse(localStorage.getItem('surijobs_user') || '{}');
+            const target = u.active_mode === 'business' ? 'individual' : 'business';
+            await api('/auth/mode', { method: 'POST', body: { mode: target } });
+            u.active_mode = target;
+            if (target === 'business') u.has_business = true;
+            localStorage.setItem('surijobs_user', JSON.stringify(u));
+            note.style.display = 'block';
+            note.textContent = target === 'business'
+                ? 'Bevestigingsmail verzonden. Klik op de link in je email om te activeren.'
+                : 'Je bent teruggezet naar persoonlijk modus.';
+            setTimeout(() => {
+                window.location.href = target === 'business' ? 'dashboard.html' : 'index.html';
+            }, 1500);
+        } catch(err) {
+            if (typeof toast === 'function') toast(err.message, 'error');
+        }
+    });
+})();
+</script>
 
-                    Profiel posten
-
-                </button>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <script src="profiel.js"></script>
-
+<div class="bottom-nav" id="bottomNav" style="display:none;"></div>
+<script>
+(function(){
+    // Clone topnav links into bottom nav for mobile
+    function buildBottomNav(){
+        var nav = document.getElementById('bottomNav');
+        if(!nav) return;
+        var links = document.querySelectorAll('.topnav-links .topnav-link');
+        if(!links.length){ setTimeout(buildBottomNav, 100); return; }
+        nav.innerHTML = '';
+        links.forEach(function(l){
+            nav.appendChild(l.cloneNode(true));
+        });
+    }
+    if(document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', buildBottomNav);
+    } else { buildBottomNav(); setTimeout(buildBottomNav, 120); }
+})();
+</script>
 </body>
-
 </html>

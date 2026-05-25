@@ -3,369 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SuriJobs | Home</title>
+    <title>SuriJobs — Home</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ---- HOME DISCOVERY SECTIONS ---- */
+        .home-discovery { display: flex; flex-direction: column; gap: 32px; }
 
-    <link rel="stylesheet" href="global.css">
+        .discovery-section h2 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--red);
+            margin-bottom: 14px;
+            letter-spacing: -0.2px;
+        }
 
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
+        /* Horizontal scroll row */
+        .scroll-row {
+            display: flex;
+            gap: 14px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            scrollbar-width: none;
+        }
+        .scroll-row::-webkit-scrollbar { display: none; }
+
+        /* Saved item card */
+        .saved-card {
+            flex: 0 0 220px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            overflow: hidden;
+            cursor: pointer;
+            transition: box-shadow var(--t), transform var(--t);
+        }
+        .saved-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+        .saved-card-img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            display: block;
+            background: var(--bg);
+        }
+        .saved-card-body { padding: 10px 12px; }
+        .saved-card-body h4 { font-size: 0.875rem; font-weight: 700; margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .saved-card-body p { font-size: 0.75rem; color: var(--text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .saved-card-tag {
+            display: inline-block;
+            margin-top: 6px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: var(--r-full);
+            color: white;
+        }
+        .saved-card-tag.job     { background: var(--green-dark); }
+        .saved-card-tag.market  { background: var(--red); }
+        .saved-card-tag.service { background: var(--gold); color: #1a1a1a; }
+
+        /* Trending job card — wider card with image top */
+        .trending-card {
+            flex: 0 0 300px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            overflow: hidden;
+            cursor: pointer;
+            transition: box-shadow var(--t), transform var(--t);
+        }
+        .trending-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+        .trending-card-img {
+            width: 100%; height: 160px;
+            object-fit: cover;
+            display: block;
+            background: var(--bg);
+        }
+        .trending-card-body { padding: 12px 14px; }
+        .trending-card-body h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 2px; }
+        .trending-card-company { font-size: 0.78rem; font-weight: 600; color: var(--green-dark); margin-bottom: 2px; }
+        .trending-card-meta { font-size: 0.72rem; color: var(--text-dim); }
+
+        /* Market card */
+        .market-mini-card {
+            flex: 0 0 220px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            overflow: hidden;
+            cursor: pointer;
+            transition: box-shadow var(--t), transform var(--t);
+        }
+        .market-mini-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+        .market-mini-card-img {
+            width: 100%; height: 130px;
+            object-fit: cover;
+            display: block;
+            background: var(--bg);
+        }
+        .market-mini-card-body { padding: 10px 12px; }
+        .market-mini-card-body h4 { font-size: 0.875rem; font-weight: 700; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .market-price {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: white;
+            background: var(--red);
+            display: inline-block;
+            padding: 2px 9px;
+            border-radius: var(--r-full);
+            margin-top: 5px;
+        }
+
+        /* Profile strip at top */
+        .home-profile-strip {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            padding: 16px 20px;
+            margin-bottom: 24px;
+        }
+        .home-profile-strip img {
+            width: 52px; height: 52px;
+            border-radius: var(--r-full);
+            object-fit: cover;
+            border: 2px solid var(--border);
+        }
+        .home-profile-strip .strip-info { flex: 1; }
+        .home-profile-strip h3 { font-size: 1rem; font-weight: 700; margin-bottom: 2px; }
+        .home-profile-strip p { font-size: 0.78rem; color: var(--text-dim); }
+        .home-profile-strip .strip-right { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+        .strip-stats { display: flex; gap: 16px; }
+        .strip-stat { text-align: center; }
+        .strip-stat .num { font-size: 1.1rem; font-weight: 800; color: var(--green-dark); }
+        .strip-stat .lbl { font-size: 0.65rem; color: var(--text-muted); }
+
+        .progress-bar-sm { height: 6px; background: var(--border); border-radius: 99px; width: 140px; overflow: hidden; }
+        .progress-bar-sm-fill { height: 100%; background: var(--green-dark); border-radius: 99px; transition: width 0.6s ease; }
+
+        .section-empty { color: var(--text-muted); font-size: 0.85rem; padding: 10px 0; }
+    </style>
 </head>
-<body class="home-page">
+<body>
 
-    <!-- BACKGROUND -->
-    <div class="background-blur"></div>
+<div class="app-layout">
+    <div class="main-wrap">
+        <main class="main-content">
 
-    <!-- HEADER -->
-    <header class="top-header">
+            <div class="title-bar">
+                <h1 id="welcomeTitle">Welkom terug!</h1>
+                <p class="subtitle" id="welcomeSubtitle">Klaar om je volgende kans te vinden?</p>
+            </div>
 
-        <div class="logo">
-            <span class="red">Suri</span><span class="green">Jobs</span>
-        </div>
+            <!-- Profile strip -->
+            <div class="home-profile-strip">
+                <img id="homeProfilePic" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
+                <div class="strip-info">
+                    <h3 id="homeProfileName">—</h3>
+                    <p id="homeProfileEmail">—</p>
+                    <div style="display:flex; align-items:center; gap:8px; margin-top:6px;">
+                        <div class="progress-bar-sm"><div class="progress-bar-sm-fill" id="homeProgressFill"></div></div>
+                        <span style="font-size:0.72rem; color:var(--text-dim);" id="completionPct">0%</span>
+                    </div>
+                </div>
+                <div class="strip-stats">
+                    <div class="strip-stat"><div class="num" id="statApps">0</div><div class="lbl">Sollicitaties</div></div>
+                    <div class="strip-stat"><div class="num" id="statSaved">0</div><div class="lbl">Opgeslagen</div></div>
+                    <div class="strip-stat"><div class="num" id="statListings">0</div><div class="lbl">Mijn items</div></div>
+                </div>
+            </div>
 
-        <div class="search-box">
+            <!-- Discovery sections -->
+            <div class="home-discovery">
 
-            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <!-- Saved items -->
+                <div class="discovery-section scroll-reveal">
+                    <h2>Opgeslagen Items</h2>
+                    <div class="scroll-row" id="savedRow">
+                        <div class="section-empty">Laden...</div>
+                    </div>
+                </div>
 
-            <input
-                type="text"
-                placeholder="Zoek bedrijf/branche"
-            >
+                <!-- Trending vacatures -->
+                <div class="discovery-section scroll-reveal">
+                    <h2>Trending vacatures</h2>
+                    <div class="scroll-row" id="trendingRow">
+                        <div class="section-empty">Laden...</div>
+                    </div>
+                </div>
 
-            <button id="clearBtn">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+                <!-- Nieuw op markt -->
+                <div class="discovery-section scroll-reveal">
+                    <h2>Nieuw op markt</h2>
+                    <div class="scroll-row" id="marketRow">
+                        <div class="section-empty">Laden...</div>
+                    </div>
+                </div>
 
-        </div>
+            </div>
 
-    </header>
-
-    <!-- NAVBAR -->
-    <nav class="navbar">
-
-        <div class="nav-link">
-            <a href="index.html">Homepagina</a>
-            <div class="nav-line red-line"></div>
-        </div>
-
-        <div class="nav-link">
-            <a href="werkgelegenheid.html">Werkgelegenheid</a>
-            <div class="nav-line white-line"></div>
-        </div>
-
-        <div class="nav-link">
-            <a href="diensten.html">Diensten</a>
-            <div class="nav-line white-line"></div>
-        </div>
-
-        <div class="nav-link">
-            <a href="markt.html">Markt</a>
-            <div class="nav-line white-line"></div>
-        </div>
-
-        <div class="nav-link">
-            <a href="notifications.html">Notificaties</a>
-            <div class="nav-line white-line"></div>
-        </div>
-
-        <div class="nav-link">
-            <a href="profiel.html">Profiel</a>
-            <div class="nav-line white-line"></div>
-        </div>
-
-    </nav>
-
-    <!-- TITLE BAR -->
-    <div class="title-bar">
-        <h1>Homepagina</h1>
+        </main>
     </div>
-
-    <!-- HERO -->
-    <section class="hero-section">
-
-        <div class="hero-card">
-
-            <div class="hero-left">
-
-                <span class="welcome-badge">
-                    Welkom terug 👋
-                </span>
-
-                <h1>
-                    Hallo, <span>(jouw naam)</span>
-                </h1>
-
-                <p>
-                    Ontdek vacatures, diensten, producten
-                    en connect met bedrijven in Suriname.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="werkgelegenheid.html" class="hero-btn green-btn">
-                        Vacatures bekijken
-                    </a>
-
-                    <a href="profiel.html" class="hero-btn red-btn">
-                        Mijn profiel
-                    </a>
-
-                </div>
-
-            </div>
-
-            <div class="hero-right">
-
-                <div class="stat-card">
-                    <h2>320+</h2>
-                    <p>Vacatures</p>
-                </div>
-
-                <div class="stat-card">
-                    <h2>140+</h2>
-                    <p>Bedrijven</p>
-                </div>
-
-                <div class="stat-card">
-                    <h2>95+</h2>
-                    <p>Diensten</p>
-                </div>
-
-                <div class="stat-card">
-                    <h2>220+</h2>
-                    <p>Markt posts</p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- QUICK ACTIONS -->
-    <section class="quick-actions">
-
-        <a href="profiel.html" class="action-card">
-            <i class="fa-solid fa-user"></i>
-            <span>Profiel bewerken</span>
-        </a>
-
-        <a href="werkgelegenheid.html" class="action-card">
-            <i class="fa-solid fa-briefcase"></i>
-            <span>Vacatures</span>
-        </a>
-
-        <a href="diensten.html" class="action-card">
-            <i class="fa-solid fa-camera"></i>
-            <span>Diensten</span>
-        </a>
-
-        <a href="markt.html" class="action-card">
-            <i class="fa-solid fa-store"></i>
-            <span>Markt</span>
-        </a>
-
-    </section>
-
-    <!-- TRENDING -->
-    <section class="home-section">
-
-        <div class="section-title">
-
-            <h2>Trending vacatures</h2>
-
-            <a href="werkgelegenheid.html">Bekijk alles</a>
-
-        </div>
-
-        <div class="trending-grid">
-
-            <div class="trend-card">
-
-                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
-
-                <div class="trend-content">
-
-                    <h3>Frontend Designer</h3>
-
-                    <p>Creative Tech NV</p>
-
-                    <span>Paramaribo</span>
-
-                </div>
-
-            </div>
-
-            <div class="trend-card">
-
-                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72">
-
-                <div class="trend-content">
-
-                    <h3>Receptionist</h3>
-
-                    <p>Hotel Elegance</p>
-
-                    <span>Wanica</span>
-
-                </div>
-
-            </div>
-
-            <div class="trend-card">
-
-                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
-
-                <div class="trend-content">
-
-                    <h3>Social Media Manager</h3>
-
-                    <p>Nova Agency</p>
-
-                    <span>Remote</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- MARKET PREVIEW -->
-    <section class="home-section">
-
-        <div class="section-title">
-
-            <h2>Nieuw op markt</h2>
-
-            <a href="markt.html">Bekijk alles</a>
-
-        </div>
-
-        <div class="market-preview-grid">
-
-            <div class="market-preview-card">
-
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
-
-                <h3>Nike Sneakers</h3>
-
-                <span>SRD 850</span>
-
-            </div>
-
-            <div class="market-preview-card">
-
-                <img src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8">
-
-                <h3>Macbook Air</h3>
-
-                <span>SRD 6500</span>
-
-            </div>
-
-            <div class="market-preview-card">
-
-                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e">
-
-                <h3>Headphones</h3>
-
-                <span>SRD 1200</span>
-
-            </div>
-
-            <div class="market-preview-card">
-
-                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
-
-                <h3>Vintage Shirt</h3>
-
-                <span>SRD 300</span>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- PROFILE PREVIEW -->
-    <section class="profile-preview">
-
-        <div class="profile-preview-card">
-
-            <div class="profile-preview-left">
-
-                <img
-                    src="https://randomuser.me/api/portraits/women/44.jpg"
-                >
-
-            </div>
-
-            <div class="profile-preview-right">
-
-                <div class="profile-top">
-
-                    <h2>Jouw profiel</h2>
-
-                    <span class="online-badge">
-                        Beschikbaar voor werk
-                    </span>
-
-                </div>
-
-                <h3>Frontend Designer</h3>
-
-                <p>
-                    Paramaribo • Creatief • Fulltime
-                </p>
-
-                <div class="skill-tags">
-
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>UI Design</span>
-
-                </div>
-
-                <div class="profile-progress-section">
-
-                    <div class="progress-top">
-
-                        <span>Profiel compleet</span>
-                        <span>78%</span>
-
-                    </div>
-
-                    <div class="progress-bar-home">
-
-                        <div class="progress-fill-home"></div>
-
-                    </div>
-
-                </div>
-
-                <div class="profile-buttons">
-
-                    <a href="profiel.html" class="profile-view-btn">
-                        Profiel bekijken
-                    </a>
-
-                    <button class="profile-update-btn">
-                        Profiel updaten
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <script src="homepage.js"></script>
-
+</div>
+
+<!-- Hidden elements homepage.js still references -->
+<span id="welcomeSubtitle" style="display:none"></span>
+
+<script src="js/constants.js"></script>
+<script src="js/api.js"></script>
+<script src="js/topnav.js"></script>
+<script src="js/homepage.js"></script>
+
+<div class="bottom-nav" id="bottomNav" style="display:none;"></div>
+<script>
+(function(){
+    // Clone topnav links into bottom nav for mobile
+    function buildBottomNav(){
+        var nav = document.getElementById('bottomNav');
+        if(!nav) return;
+        var links = document.querySelectorAll('.topnav-links .topnav-link');
+        if(!links.length){ setTimeout(buildBottomNav, 100); return; }
+        nav.innerHTML = '';
+        links.forEach(function(l){
+            nav.appendChild(l.cloneNode(true));
+        });
+    }
+    if(document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', buildBottomNav);
+    } else { buildBottomNav(); setTimeout(buildBottomNav, 120); }
+})();
+</script>
 </body>
 </html>

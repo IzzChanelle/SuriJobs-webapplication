@@ -3,176 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SURIJOBS - Werkgelegenheid</title>
-    <link rel="stylesheet" href="global.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>SuriJobs — Vacatures</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="top-header">
-        <div class="logo">
-            <span class="red">Suri</span><span class="green">Jobs</span>
-        </div>
-        <div class="search-box">
-            <span class="search-icon">🔍</span>
-            <input type="text" id="searchInput" placeholder="Zoek bedrijf/branche">
-            <button id="clearBtn">✕</button>
-        </div>
-    </header>
+<div class="app-layout">
+    <div class="main-wrap">
+        <main class="main-content">
 
-    <nav class="navbar">
-        <div class="nav-link">
-            <a href="index.html">Homepagina</a>
-            <div class="nav-line white-line"></div>
-        </div>
-        <div class="nav-link">
-            <a href="werkgelegenheid.html">Werkgelegenheid</a>
-            <div class="nav-line red-line"></div>
-        </div>
-        <div class="nav-link">
-            <a href="diensten.html">Diensten</a>
-            <div class="nav-line white-line"></div>
-        </div>
-        <div class="nav-link">
-            <a href="markt.html">Markt</a>
-            <div class="nav-line white-line"></div>
-        </div>
-        <div class="nav-link">
-            <a href="notifications.html">Notificaties</a>
-            <div class="nav-line white-line"></div>
-        </div>
-        <div class="nav-link">
-            <a href="profiel.html">Profiel</a>
-            <div class="nav-line white-line"></div>
-        </div>
-    </nav>
+            <div class="page-header">
+                <button class="filter-btn" id="filterBtn"><span></span><span></span><span></span></button>
+                <h1>Vacatures</h1>
+                <div class="view-buttons">
+                    <button id="gridViewBtn" title="Grid">▦</button>
+                    <button id="singleViewBtn" title="Lijst">≡</button>
+                </div>
+                <button class="refresh-btn" title="Verversen">↻</button>
+            </div>
 
-    <aside class="filter-sidebar" id="filterSidebar">
-        <h2>Filter</h2>
-        <div class="filter-group">
-            <h3>Branche</h3>
-            <label><input type="checkbox"> ICT</label>
-            <label><input type="checkbox"> Bouw</label>
-            <label><input type="checkbox"> Horeca</label>
-            <label><input type="checkbox"> Onderwijs</label>
-            <label><input type="checkbox"> Marketing</label>
-        </div>
-        <div class="filter-group">
-            <h3>Wijk</h3>
-            <label><input type="checkbox"> Flora</label>
-            <label><input type="checkbox"> Centrum</label>
-            <label><input type="checkbox"> Blauwgrond</label>
-            <label><input type="checkbox"> Wanica</label>
-        </div>
-        <div class="filter-group">
-            <h3>Uren</h3>
-            <label><input type="checkbox"> Fulltime</label>
-            <label><input type="checkbox"> Parttime</label>
-            <label><input type="checkbox"> Freelance</label>
-        </div>
-    </aside>
+            <div class="search-box" style="max-width:100%; margin-bottom:16px;">
+                <span class="search-icon"><span class="page-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span></span>
+                <input type="text" id="searchInput" placeholder="Zoek vacatures...">
+                <button id="clearBtn">×</button>
+            </div>
 
-    <div class="werk-header">
-        <button class="filter-btn" id="filterBtn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <h1>Werkgelegenheid</h1>
-        <div class="view-buttons">
-            <button id="singleViewBtn">☰</button>
-            <button id="gridViewBtn">⊞</button>
-        </div>
-        <button class="refresh-btn">↻</button>
+            <div class="filter-sidebar" id="filterSidebar">
+                <div class="filter-sidebar-inner">
+                    <div class="filter-group"><h3>Sortering</h3><label><input type="radio" name="sort" value="newest" checked> Nieuwste eerst</label><label><input type="radio" name="sort" value="oldest"> Oudste eerst</label></div>
+                    <div class="filter-group"><h3>Branche</h3><div class="filter-labels"></div></div>
+                    <div class="filter-group"><h3>District</h3><div class="filter-labels"></div></div>
+                    <div class="filter-group"><h3>Uren</h3><div class="filter-labels"></div></div>
+                    <div class="filter-group"><h3>Ervaring</h3><div class="filter-labels"></div></div>
+                </div>
+            </div>
+
+            <div id="postsContainer" class="posts-container grid-view"></div>
+
+        </main>
     </div>
+</div>
 
-    <div class="posts-container" id="postsContainer">
-
-        <div class="job-card">
-            <button class="save-btn">Opslaan</button>
-            <div class="job-image">
-                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200" alt="vacature">
-            </div>
-            <div class="job-info">
-                <h2>Bedrijfsnaam</h2>
-                <p>Hier komt later de vacature of promotie tekst van bedrijven te staan.</p>
-                <span>Paramaribo • Fulltime</span>
-            </div>
-            <div class="job-buttons">
+<div class="post-modal" id="postModal">
+    <div class="modal-content">
+        <button class="close-modal" id="closeModal">×</button>
+        <div class="modal-image"><img id="modalImg" src="" alt=""></div>
+        <div class="modal-info">
+            <div class="company-top"><div class="company-logo"></div><div><h2 id="modalTitle">—</h2></div></div>
+            <p class="full-description" id="modalDescription"></p>
+            <div class="extra-info" id="modalMeta"></div>
+            <div class="modal-buttons">
                 <button class="apply-btn">Soliciteer</button>
-                <button class="info-btn">Meer info</button>
-            </div>
-        </div>
-
-        <div class="job-card">
-            <button class="save-btn">Opslaan</button>
-            <div class="job-image">
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200" alt="vacature">
-            </div>
-            <div class="job-info">
-                <h2>Creative Studio</h2>
-                <p>Marketing designer gezocht voor social media campagnes en branding.</p>
-                <span>Wanica • Parttime</span>
-            </div>
-            <div class="job-buttons">
-                <button class="apply-btn">Soliciteer</button>
-                <button class="info-btn">Meer info</button>
-            </div>
-        </div>
-
-        <div class="job-card">
-            <button class="save-btn">Opslaan</button>
-            <div class="job-image">
-                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200" alt="vacature">
-            </div>
-            <div class="job-info">
-                <h2>Tech Solutions</h2>
-                <p>ICT medewerker gezocht met ervaring in webdevelopment.</p>
-                <span>Centrum • Fulltime</span>
-            </div>
-            <div class="job-buttons">
-                <button class="apply-btn">Soliciteer</button>
-                <button class="info-btn">Meer info</button>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="post-modal" id="postModal">
-        <div class="modal-content">
-            <button class="close-modal" id="closeModal">✕</button>
-            <div class="modal-image">
-                <img id="modalImg" src="" alt="post">
-            </div>
-            <div class="modal-info">
-                <div class="company-top">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="company-logo">
-                    <div>
-                        <h2 id="modalTitle">Bedrijfsnaam</h2>
-                        <p>📍 Paramaribo</p>
-                    </div>
-                </div>
-                <div class="full-description">
-                    <p id="modalDescription">Volledige vacature beschrijving komt hier.</p>
-                </div>
-                <div class="extra-info">
-                    <p>🕒 Fulltime</p>
-                    <p>🏢 ICT</p>
-                    <p>💰 SRD 15.000</p>
-                </div>
-                <div class="modal-buttons">
-                    <button class="apply-btn">Soliciteer</button>
-                    <button class="info-btn">Bericht</button>
-                </div>
+                <button class="info-btn" onclick="document.getElementById('postModal').classList.remove('active')">Sluit</button>
             </div>
         </div>
     </div>
+</div>
 
-    <a href="profiel.html" class="profile-button">
-        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="profiel">
-        <span>Profiel</span>
-    </a>
+<script src="js/constants.js"></script>
+<script src="js/api.js"></script>
+<script src="js/topnav.js"></script>
+<script src="js/werkgelegenheid.js"></script>
 
-    <script src="werkgelegenheid.js"></script>
+<div class="bottom-nav" id="bottomNav" style="display:none;"></div>
+<script>
+(function(){
+    // Clone topnav links into bottom nav for mobile
+    function buildBottomNav(){
+        var nav = document.getElementById('bottomNav');
+        if(!nav) return;
+        var links = document.querySelectorAll('.topnav-links .topnav-link');
+        if(!links.length){ setTimeout(buildBottomNav, 100); return; }
+        nav.innerHTML = '';
+        links.forEach(function(l){
+            nav.appendChild(l.cloneNode(true));
+        });
+    }
+    if(document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', buildBottomNav);
+    } else { buildBottomNav(); setTimeout(buildBottomNav, 120); }
+})();
+</script>
 </body>
 </html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuriJobs — Mensen zoeken</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-layout">
+    <div class="main-wrap">
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Mensen zoeken</h1>
+            </div>
+
+            <div class="search-box" style="max-width:100%; margin-bottom:20px;">
+                <span class="search-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+                <input type="text" id="searchInput" placeholder="Zoek op naam of functie...">
+                <button id="clearBtn">×</button>
+            </div>
+
+            <div class="filter-sidebar" id="filterSidebar" style="margin-bottom:20px;">
+                <div class="filter-sidebar-inner">
+                    <div class="filter-group">
+                        <h3>Rol</h3>
+                        <label><input type="radio" name="role" value="alle" checked> Iedereen</label>
+                        <label><input type="radio" name="role" value="individual"> Werkzoekenden</label>
+                        <label><input type="radio" name="role" value="business"> Bedrijven</label>
+                    </div>
+                    <div class="filter-group">
+                        <h3>District</h3>
+                        <select id="districtFilter" class="form-input">
+                            <option value="alle">Alle districten</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div id="resultsContainer" class="posts-container" style="display:flex; flex-direction:column; gap:12px;"></div>
+        </main>
+    </div>
+</div>
+
+<script src="js/constants.js"></script>
+<script src="js/api.js"></script>
+<script src="js/topnav.js"></script>
+<script src="js/zoeken.js"></script>
+
+<div class="bottom-nav" id="bottomNav" style="display:none;"></div>
+<script>
+(function(){
+    // Clone topnav links into bottom nav for mobile
+    function buildBottomNav(){
+        var nav = document.getElementById('bottomNav');
+        if(!nav) return;
+        var links = document.querySelectorAll('.topnav-links .topnav-link');
+        if(!links.length){ setTimeout(buildBottomNav, 100); return; }
+        nav.innerHTML = '';
+        links.forEach(function(l){
+            nav.appendChild(l.cloneNode(true));
+        });
+    }
+    if(document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', buildBottomNav);
+    } else { buildBottomNav(); setTimeout(buildBottomNav, 120); }
+})();
+</script>
+</body>
+</html>

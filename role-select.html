@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuriJobs — Inloggen als...</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="role-select-page">
+
+    <div class="role-select-card">
+        <div class="role-select-logo">
+            <span class="suri">Suri</span><span class="jobs">Jobs</span>
+        </div>
+        <h1 class="role-select-title">Hoe wil je SuriJobs gebruiken?</h1>
+        <p class="role-select-sub">Kies je rol — je kan dit later altijd wisselen</p>
+
+        <div class="role-options">
+            <button class="role-btn employer" id="roleEmployer">
+                Werkgever<br>
+                <small style="font-size:0.75rem;font-weight:400;opacity:0.85;">Vacatures plaatsen &amp; beheren</small>
+            </button>
+            <button class="role-btn service" id="roleService">
+                Dienstverlener<br>
+                <small style="font-size:0.75rem;font-weight:400;opacity:0.85;">Diensten aanbieden</small>
+            </button>
+            <button class="role-btn worker" id="roleWorker">
+                Werknemer / Koper<br>
+                <small style="font-size:0.75rem;font-weight:400;opacity:0.85;">Werk zoeken &amp; producten kopen</small>
+            </button>
+        </div>
+    </div>
+
+    <script src="js/constants.js"></script>
+    <script src="js/api.js"></script>
+    <script>
+        Auth.require();
+
+        // If the user already has a persisted mode, skip this screen
+        const u = Auth.user;
+        if (u && u.active_mode) {
+            // Only skip if they've been here before (has_role_picked flag)
+            const picked = localStorage.getItem('sj_role_picked');
+            if (picked) {
+                window.location.href = u.active_mode === 'business' ? 'dashboard.html' : 'index.html';
+            }
+        }
+
+        async function pickRole(apiMode, dest) {
+            try {
+                await api('/auth/mode', { method: 'POST', body: { mode: apiMode } });
+                const user = Auth.user;
+                user.active_mode = apiMode;
+                if (apiMode === 'business') user.has_business = true;
+                Auth.user = user;
+            } catch(e) { /* best effort */ }
+
+            localStorage.setItem('sj_role_picked', '1');
+            window.location.href = dest;
+        }
+
+        document.getElementById('roleEmployer').addEventListener('click', () => pickRole('business',    'dashboard.html'));
+        document.getElementById('roleService').addEventListener('click',  () => pickRole('individual',  'diensten.html'));
+        document.getElementById('roleWorker').addEventListener('click',   () => pickRole('individual',  'index.html'));
+    </script>
+</body>
+</html>

@@ -3,151 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notificaties - SuriJobs</title>
-    <link rel="stylesheet" href="global.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>SuriJobs — Meldingen</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="top-header">
-        <div class="logo">
-            <span class="red">Suri</span><span class="green">Jobs</span>
-        </div>
-        <div class="search-box">
-            <span class="search-icon">🔍</span>
-            <input type="text" id="searchInput" placeholder="Zoek bedrijf/branche">
-            <button id="clearBtn">✖</button>
-        </div>
-    </header>
+<div class="app-layout">
 
-    <nav class="navbar">
-        <div class="nav-link">
-            <a href="index.html">Homepagina</a>
-            <div class="nav-line white-line"></div>
-        </div>
-        <div class="nav-link">
-            <a href="werkgelegenheid.html">Werkgelegenheid</a>
-            <div class="nav-line white-line"></div>
-        </div>
-        <div class="nav-link">
-            <a href="diensten.html">Diensten</a>
-            <div class="nav-line white-line"></div>
-        </div>
-        <div class="nav-link">
-            <a href="markt.html">Markt</a>
-            <div class="nav-line white-line"></div>
-        </div>
-        <div class="nav-link">
-            <a href="notifications.html">Notificaties</a>
-            <div class="nav-line red-line"></div>
-        </div>
-        <div class="nav-link">
-            <a href="profiel.html">Profiel</a>
-            <div class="nav-line white-line"></div>
-        </div>
-    </nav>
+    
 
-    <aside class="filter-sidebar" id="filterSidebar">
-        <h2>Filter</h2>
-        <div class="filter-group">
-            <h3>Sorteer</h3>
-            <label><input type="radio" name="sort"> Nieuwste</label>
-            <label><input type="radio" name="sort"> Oudste</label>
-        </div>
-        <div class="filter-group">
-            <h3>Categorie</h3>
-            <label><input type="checkbox"> Jobs</label>
-            <label><input type="checkbox"> Berichten</label>
-            <label><input type="checkbox"> Belangrijk</label>
-            <label><input type="checkbox"> Sollicitaties</label>
-        </div>
-    </aside>
+    <div class="main-wrap">
 
-    <div class="notif-header">
-        <button class="filter-btn" id="filterBtn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <h1>Notificaties</h1>
-        <button class="refresh-btn" id="refreshBtn">↻</button>
+        
+
+        <main class="main-content">
+
+            <div class="page-header">
+                <h1>Meldingen</h1>
+                <button class="btn-secondary" id="markAllReadBtn">✓ Alles gelezen</button>
+            </div>
+
+            <div class="tabs-section">
+                <button class="tab-btn active-tab" data-tab="all">Alles</button>
+                <button class="tab-btn" data-tab="unread">Ongelezen</button>
+                <button class="tab-btn" data-tab="important">Belangrijk</button>
+            </div>
+
+            <div id="notificationsContainer" class="notifications-container"></div>
+
+        </main>
     </div>
+</div>
 
-    <section class="tabs-section">
-        <button class="tab-btn">
-            Alles
-            <div class="tab-line red-tab"></div>
-        </button>
-        <button class="tab-btn">
-            Ongelezen
-            <div class="tab-line black-tab"></div>
-        </button>
-        <button class="tab-btn">
-            Belangrijk
-            <div class="tab-line black-tab"></div>
-        </button>
-    </section>
+<script src="js/constants.js"></script>
+<script src="js/api.js"></script>
+<script src="js/topnav.js"></script>
+<script src="js/notifications.js"></script>
 
-    <section class="notifications-container">
-        <div class="notification-card unread">
-            <div class="notif-icon jobs-icon">💼</div>
-            <div class="notif-content">
-                <h2>SuriTech viewed your application</h2>
-                <p>Your application for Front-End Developer was viewed by SuriTech.</p>
-                <span>2 minuten geleden</span>
-            </div>
-        </div>
-        <div class="notification-card unread">
-            <div class="notif-icon accept-icon">✅</div>
-            <div class="notif-content">
-                <h2>You were invited for an interview</h2>
-                <p>ABC Company invited you for an interview this Friday.</p>
-                <span>10 minuten geleden</span>
-            </div>
-        </div>
-        <div class="notification-card">
-            <div class="notif-icon message-icon">📩</div>
-            <div class="notif-content">
-                <h2>ABC Company sent you a message</h2>
-                <p>You received a new message regarding your application.</p>
-                <span>1 uur geleden</span>
-            </div>
-        </div>
-        <div class="notification-card">
-            <div class="notif-icon reject-icon">❌</div>
-            <div class="notif-content">
-                <h2>Application deadline ends tomorrow</h2>
-                <p>Deadline for Marketing Assistant ends tomorrow at 18:00.</p>
-                <span>3 uur geleden</span>
-            </div>
-        </div>
-        <div class="notification-card">
-            <div class="notif-icon system-icon">🔔</div>
-            <div class="notif-content">
-                <h2>Your profile is now 100% complete</h2>
-                <p>Your SuriJobs profile has been successfully completed.</p>
-                <span>Vandaag</span>
-            </div>
-        </div>
-        <div class="notification-card">
-            <div class="notif-icon jobs-icon">💼</div>
-            <div class="notif-content">
-                <h2>New vacatures available near you</h2>
-                <p>12 new vacatures are now available in Paramaribo.</p>
-                <span>Vandaag</span>
-            </div>
-        </div>
-    </section>
-
-    <div class="bottom-button-container">
-        <button class="all-btn">Bekijk alle notificaties</button>
-    </div>
-
-    <a href="profiel.html" class="profile-button">
-        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="">
-        <span>Profiel</span>
-    </a>
-
-    <script src="notifications.js"></script>
+<div class="bottom-nav" id="bottomNav" style="display:none;"></div>
+<script>
+(function(){
+    // Clone topnav links into bottom nav for mobile
+    function buildBottomNav(){
+        var nav = document.getElementById('bottomNav');
+        if(!nav) return;
+        var links = document.querySelectorAll('.topnav-links .topnav-link');
+        if(!links.length){ setTimeout(buildBottomNav, 100); return; }
+        nav.innerHTML = '';
+        links.forEach(function(l){
+            nav.appendChild(l.cloneNode(true));
+        });
+    }
+    if(document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', buildBottomNav);
+    } else { buildBottomNav(); setTimeout(buildBottomNav, 120); }
+})();
+</script>
 </body>
 </html>

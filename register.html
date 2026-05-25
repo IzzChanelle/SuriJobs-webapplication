@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuriJobs — Registreren</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body class="auth-page">
+
+    <div class="auth-card">
+        <div class="auth-logo"><span class="suri">Suri</span><span class="jobs">Jobs</span></div>
+        <h1 class="auth-title">Account aanmaken</h1>
+        <p class="auth-subtitle">Kies je accounttype om te beginnen</p>
+
+        <div class="account-type-selector">
+            <div class="account-type-option selected" data-type="individual">
+                <input type="radio" name="accountType" value="individual" checked>
+                <div class="reg-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div class="label">Persoonlijk</div>
+                <div class="desc">Werk zoeken &amp; producten verkopen</div>
+            </div>
+            <div class="account-type-option" data-type="business">
+                <input type="radio" name="accountType" value="business">
+                <div class="reg-icon"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M9 21V9h6v12"/><path d="M9 12h6"/></svg></div>
+                <div class="label">Bedrijf</div>
+                <div class="desc">Vacatures plaatsen &amp; beheren</div>
+            </div>
+        </div>
+
+        <div class="google-btn-wrap">
+            <div id="g_id_onload"
+                data-client_id="1034599767404-1ono2rfd533i7a85g47nmntbsno12b7o.apps.googleusercontent.com"
+                data-callback="handleGoogleLogin"
+                data-auto_prompt="false"></div>
+            <div class="g_id_signin"
+                data-type="standard"
+                data-shape="pill"
+                data-theme="outline"
+                data-size="large"
+                data-text="signup_with"
+                data-locale="nl"></div>
+        </div>
+
+        <div class="auth-divider">of met email</div>
+
+        <form id="registerForm" class="auth-form">
+            <input id="name" type="text" placeholder="Volledige naam" class="auth-input" required>
+            <input id="email" type="email" placeholder="Email" class="auth-input" required>
+            <input id="password" type="password" placeholder="Wachtwoord (min. 6 tekens)" class="auth-input" required>
+            <input id="confirmPassword" type="password" placeholder="Wachtwoord bevestigen" class="auth-input" required>
+            <button type="submit" class="auth-btn">Registreren</button>
+        </form>
+
+        <p class="auth-footer">Al een account? <a href="login.html">Log hier in</a></p>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/register.js"></script>
+</body>
+</html>

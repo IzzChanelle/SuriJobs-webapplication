@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuriJobs — Inloggen</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body class="auth-page">
+
+    <div class="auth-card">
+        <div class="auth-logo"><span class="suri">Suri</span><span class="jobs">Jobs</span></div>
+        <h1 class="auth-title">Welkom terug</h1>
+        <p class="auth-subtitle">Log in om verder te gaan</p>
+
+        <div class="google-btn-wrap">
+            <div id="g_id_onload"
+                data-client_id="1034599767404-1ono2rfd533i7a85g47nmntbsno12b7o.apps.googleusercontent.com"
+                data-callback="handleGoogleLogin"
+                data-auto_prompt="false"></div>
+            <div class="g_id_signin"
+                data-type="standard"
+                data-shape="pill"
+                data-theme="outline"
+                data-size="large"
+                data-text="signin_with"
+                data-locale="nl"></div>
+        </div>
+
+        <div class="auth-divider">of met email</div>
+
+        <form id="loginForm" class="auth-form">
+            <input id="email" type="email" placeholder="Email" class="auth-input" required>
+            <input id="password" type="password" placeholder="Wachtwoord" class="auth-input" required>
+            <a href="forgot-password.html" class="forgot-link">Wachtwoord vergeten?</a>
+            <button type="submit" class="auth-btn">Inloggen</button>
+        </form>
+
+        <p class="auth-footer">Nog geen account? <a href="register.html">Registreer hier</a></p>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

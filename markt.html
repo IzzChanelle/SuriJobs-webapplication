@@ -1,326 +1,107 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>SuriJobs | Markt</title>
-
-    <link rel="stylesheet" href="global.css">
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuriJobs — Markt</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="markt-page">
+<body>
 
-    <!-- HEADER -->
-    <header class="top-header">
+<div class="app-layout">
 
-        <div class="logo">
-            <span class="red">Suri</span><span class="green">Jobs</span>
-        </div>
+    
 
-        <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    <div class="main-wrap">
 
-            <input
-                type="text"
-                id="marketSearch"
-                placeholder="Zoek producten..."
-            />
+        
 
-            <button id="clearBtn">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-        </div>
+        <main class="main-content">
 
-    </header>
+            <div class="page-header">
+                <button class="filter-btn" id="filterBtn"><span></span><span></span><span></span></button>
+                <h1>Markt</h1>
+                <button class="refresh-btn" id="refreshBtn" title="Verversen">↻</button>
+                <button class="btn-primary" id="openProductModal">+ Product plaatsen</button>
+            </div>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
+            <div class="search-box" style="max-width:100%; margin-bottom:16px;">
+                <span class="search-icon"><span class="page-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span></span>
+                <input type="text" id="marketSearch" placeholder="Zoek producten...">
+                <button id="clearBtn">×</button>
+            </div>
 
-        <div class="nav-link">
-            <a href="index.html">Homepagina</a>
-            <div class="nav-line white-line"></div>
-        </div>
+            <!-- Collapsible filter bar -->
+            <div class="filter-sidebar" id="filterSidebar">
+                <div class="filter-sidebar-inner">
+                    <div class="filter-group">
+                        <h3>Sortering</h3>
+                        <label><input type="radio" name="sort" value="newest" checked> Nieuwste eerst</label>
+                        <label><input type="radio" name="sort" value="oldest"> Oudste eerst</label>
+                    </div>
+                    <div class="filter-group">
+                        <h3>Categorie</h3>
+                        <div class="filter-labels"></div>
+                    </div>
+                    <div class="filter-group">
+                        <h3>Conditie</h3>
+                        <div class="filter-labels"></div>
+                    </div>
+                    <div class="filter-group">
+                        <h3>District</h3>
+                        <div class="filter-labels"></div>
+                    </div>
+                </div>
+            </div>
 
-        <div class="nav-link">
-            <a href="werkgelegenheid.html">Werkgelegenheid</a>
-            <div class="nav-line white-line"></div>
-        </div>
+            <div id="marketGrid" class="market-grid"></div>
 
-        <div class="nav-link">
-            <a href="diensten.html">Diensten</a>
-            <div class="nav-line white-line"></div>
-        </div>
-        <div class="nav-link">
-            <a href="markt.html">Markt</a>
-            <div class="nav-line red-line"></div>
-        </div>
-
-        <div class="nav-link">
-            <a href="notifications.html">Notificaties</a>
-            <div class="nav-line white-line"></div>
-        </div>
-
-        <div class="nav-link">
-            <a href="profiel.html">Profiel</a>
-            <div class="nav-line white-line"></div>
-        </div>
-
-    </nav>
-
-    <div class="product-modal" id="productModal">
-
-        <div class="product-modal-content">
-
-            <button class="close-product-modal" id="closeProductModal">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <h2>Nieuw product plaatsen</h2>
-
-            <input type="text" id="productName" placeholder="Product naam">
-            <input type="text" id="productPrice" placeholder="Prijs (bv. SRD 500)">
-            <input type="text" id="productDescription" placeholder="Beschrijving">
-            <input type="text" id="productImage" placeholder="Afbeelding URL (optioneel)">
-            <input type="file" id="productImageFile" accept="image/*">
-            <button id="addProductSubmit">Plaatsen</button>
-
-        </div>
-
+        </main>
     </div>
-
-    <!-- PAGINA HEADER -->
-    <!-- FILTER -->
-    <aside class="filter-sidebar" id="filterSidebar">
-
-        <h2>Filters</h2>
-
-        <div class="filter-group">
-
-            <h3>Categorie</h3>
-
-            <label><input type="checkbox"> Electronica</label>
-            <label><input type="checkbox"> Fashion</label>
-            <label><input type="checkbox"> Beauty</label>
-            <label><input type="checkbox"> Huis</label>
-            <label><input type="checkbox"> Auto</label>
-
-        </div>
-
-        <div class="filter-group">
-
-            <h3>Staat</h3>
-
-            <label><input type="checkbox"> Nieuw</label>
-            <label><input type="checkbox"> Gebruikt</label>
-
-        </div>
-
-        <div class="filter-group">
-
-            <h3>Prijs</h3>
-
-            <label><input type="checkbox"> SRD 0 - 500</label>
-            <label><input type="checkbox"> SRD 500 - 2000</label>
-            <label><input type="checkbox"> SRD 2000+</label>
-
-        </div>
-
-    </aside>
-
-    <!-- PAGINA HEADER -->
-    <section class="markt-header">
-
-        <button class="filter-btn" id="filterBtn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
-        <h1>Markt</h1>
-        <button class="add-product-btn" id="openProductModal">
-            <i class="fa-solid fa-plus"></i> Plaats product
-        </button>
-
-        <button class="refresh-btn" id="refreshBtn">
-            <i class="fa-solid fa-rotate-right"></i>
-        </button>
-
-    </section>
-
-    <!-- MARKET SECTION -->
-    <main class="market-page">
-
-        <section class="market-grid" id="marketGrid">
-
-            <!-- CARD -->
-            <div class="market-card">
-
-                <button class="market-save">
-                    <i class="fa-regular fa-heart"></i>
-                </button>
-
-                <div class="market-image">
-                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff" alt="">
-                </div>
-
-                <div class="market-content">
-
-                    <div class="market-top">
-
-                        <h2>Nike Sneakers</h2>
-
-                        <span>SRD 850</span>
-
-                    </div>
-
-                    <p>
-                        Bijna nieuw • Paramaribo
-                    </p>
-
-                    <div class="market-user">
-
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg">
-
-                        <div>
-                            <h4>Shania</h4>
-                            <small>2 uur geleden</small>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- CARD -->
-            <div class="market-card">
-
-                <button class="market-save">
-                    <i class="fa-regular fa-heart"></i>
-                </button>
-
-                <div class="market-image">
-                    <img src="https://images.unsplash.com/photo-1517336714739-489689fd1ca8" alt="">
-                </div>
-
-                <div class="market-content">
-
-                    <div class="market-top">
-
-                        <h2>MacBook Air</h2>
-
-                        <span>SRD 6500</span>
-
-                    </div>
-
-                    <p>
-                        Perfecte staat • Wanica
-                    </p>
-
-                    <div class="market-user">
-
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg">
-
-                        <div>
-                            <h4>Jerrel</h4>
-                            <small>Vandaag</small>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- CARD -->
-            <div class="market-card">
-
-                <button class="market-save">
-                    <i class="fa-regular fa-heart"></i>
-                </button>
-
-                <div class="market-image">
-                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab" alt="">
-                </div>
-
-                <div class="market-content">
-
-                    <div class="market-top">
-
-                        <h2>Vintage Shirt</h2>
-
-                        <span>SRD 300</span>
-
-                    </div>
-
-                    <p>
-                        Fashion item • Centrum
-                    </p>
-
-                    <div class="market-user">
-
-                        <img src="https://randomuser.me/api/portraits/women/12.jpg">
-
-                        <div>
-                            <h4>Kimora</h4>
-                            <small>1 dag geleden</small>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- CARD -->
-            <div class="market-card">
-
-                <button class="market-save">
-                    <i class="fa-regular fa-heart"></i>
-                </button>
-
-                <div class="market-image">
-                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e" alt="">
-                </div>
-
-                <div class="market-content">
-
-                    <div class="market-top">
-
-                        <h2>Headphones</h2>
-
-                        <span>SRD 1200</span>
-
-                    </div>
-
-                    <p>
-                        Noise cancelling
-                    </p>
-
-                    <div class="market-user">
-
-                        <img src="https://randomuser.me/api/portraits/men/41.jpg">
-
-                        <div>
-                            <h4>Kevin</h4>
-                            <small>3 uur geleden</small>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <script src="markt.js"></script>
-
+</div>
+
+<!-- Add product modal -->
+<div class="product-modal" id="productModal">
+    <div class="product-modal-content">
+        <button class="close-product-modal" id="closeProductModal">×</button>
+        <h2>Product plaatsen</h2>
+        <input id="productName" type="text" placeholder="Naam *" class="form-input">
+        <input id="productPrice" type="text" placeholder="Prijs (bv. SRD 500) *" class="form-input">
+        <textarea id="productDescription" placeholder="Beschrijving" class="form-input"></textarea>
+        <select id="productCategory" class="form-input"></select>
+        <select id="productCondition" class="form-input"></select>
+        <select id="productDistrict" class="form-input"></select>
+        <input id="productImage" type="text" placeholder="Afbeelding URL (optioneel)" class="form-input">
+        <input id="productImageFile" type="file" accept="image/*" class="form-input">
+        <button id="addProductSubmit" class="btn-primary" style="justify-content:center;">Plaatsen</button>
+    </div>
+</div>
+
+<script src="js/constants.js"></script>
+<script src="js/api.js"></script>
+<script src="js/topnav.js"></script>
+<script src="js/markt.js"></script>
+
+<div class="bottom-nav" id="bottomNav" style="display:none;"></div>
+<script>
+(function(){
+    // Clone topnav links into bottom nav for mobile
+    function buildBottomNav(){
+        var nav = document.getElementById('bottomNav');
+        if(!nav) return;
+        var links = document.querySelectorAll('.topnav-links .topnav-link');
+        if(!links.length){ setTimeout(buildBottomNav, 100); return; }
+        nav.innerHTML = '';
+        links.forEach(function(l){
+            nav.appendChild(l.cloneNode(true));
+        });
+    }
+    if(document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', buildBottomNav);
+    } else { buildBottomNav(); setTimeout(buildBottomNav, 120); }
+})();
+</script>
 </body>
 </html>
